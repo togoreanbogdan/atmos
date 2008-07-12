@@ -31,6 +31,7 @@
 #include <hal.h>
 #include <t0.h>
 #include <transaction.h>
+#include <log.h>
 
 /*! \brief Main function containing command interpreter loop.
 

@@ -37,13 +37,13 @@
 
 /*! \brief En-/disables transactions.
 */
-#define CONF_WITH_TRANSACTIONS	1
+#define CONF_WITH_TRANSACTIONS	0
 
 /*! \brief En-/disables test commands.
 
 	If set to 1, commands READ EEPROM and WRITE EEPROM are included.
 */
-#define CONF_WITH_TESTCMDS		1
+#define CONF_WITH_TESTCMDS		0
 
 /*! \brief En-/disables DELETE.
 */
@@ -58,27 +58,27 @@
 	If set to 1, functions to set and test PIN and PUK are included. This is a
 	requirement for CONF_WITH_PINCMDS.
 */
-#define CONF_WITH_PINAUTH		1
+#define CONF_WITH_PINAUTH		0
 
 /*! \brief En-/disables PIN commands.
 
 	If set to 1, commands CHANGE PIN and VERIFY PIN are included.
 */
-#define CONF_WITH_PINCMDS		1
+#define CONF_WITH_PINCMDS		0
 
 /*! \brief En-/disables key authentication functions.
 
 	If set to 1, functions impelementing calculations with challenges are
 	included. This is a requirement for CONF_WITH_KEY_CMDS.
 */
-#define CONF_WITH_KEYAUTH		1
+#define CONF_WITH_KEYAUTH		0
 
 /*! \brief En-/disables key related commands.
 
 	If set to 1, commands EXTERNAL KEYENTIFICATION, GET CHALLENGE,
 	INTERNAL KEYENTIFICATION and VERIFY KEY are included.
 */
-#define CONF_WITH_KEYCMDS		1
+#define CONF_WITH_KEYCMDS		0
 
 /*! \brief En-/disables support for the external I2C EEPROM.
 */
@@ -89,7 +89,7 @@
 	If set to 1, support for decryption side of the cryptographic algorithms
 	are included.
 */
-#define CONF_WITH_DECRYPT		1
+#define CONF_WITH_DECRYPT		0
 
 /*! \brief En-/disables support for logging.
 
@@ -102,7 +102,7 @@
 	If set to 1, the return code manager is included. This increases
 	code size on the AVR.
 */
-#define CONF_WITH_RETCODEMGR	1
+#define CONF_WITH_RETCODEMGR	0
 
 /*! \brief En-/disables funny commands.
 

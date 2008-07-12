@@ -208,8 +208,10 @@ void cmd_create( void )
 		return;
 	}
 
+#if (CONF_WITH_PINAUTH==1) || (CONF_WITH_KEYAUTH==1)
 	/* Correct permissions? */
 	if( !auth_checkAc( (fi.ac[0]>>4)&0x0F ) ) return;
+#endif
 
 	/* ACK */
 	t0_sendAck();
@@ -247,8 +249,10 @@ void cmd_delete( void )
 		return;
 	}
 
+#if (CONF_WITH_PINAUTH==1) || (CONF_WITH_KEYAUTH==1)
 	/* Correct permissions? */
 	if( !auth_checkAc( fi.ac[0]&0x0F ) ) return;
+#endif
 
 	/* ACK */
 	t0_sendAck();
@@ -390,8 +394,10 @@ void cmd_readBinary( void )
 		return;
 	}
 
+#if (CONF_WITH_PINAUTH==1) || (CONF_WITH_KEYAUTH==1)
 	/* Correct permissions? */
 	if( !auth_checkAc( fi.ac[0]&0x0F ) ) return;
+#endif
 
 	if( !max ) max=256;
 
@@ -468,8 +474,11 @@ void cmd_updateBinary( void )
 		return;
 	}
 
+#if (CONF_WITH_PINAUTH==1) || (CONF_WITH_KEYAUTH==1)
 	/* Correct permissions? */
 	if( !auth_checkAc( (fi.ac[0]>>4)&0x0F ) ) return;
+#endif
+
 
 	/* Test file size */
 	fs.pos=((iu16)header[2]<<8)|header[3];
