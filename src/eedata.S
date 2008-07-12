@@ -12,16 +12,16 @@
 	; T0:		AA	- TB1/TD1 follows,  historical bytes
 	; TB1:		00	- no Vpp
 	; TD1:		40	- TC2 follows
-	; TC2:		0A	- WI (1 second)
+	; TC2:		0A	- WI (0A = 10 = 1 second, 0x20 = 3.2 seconds)
 	; T1-T5:	53 4F 53 53 45	- "SOSSE"
 	; T6-T8:	02 03 25	- BCD coded date
 	; T9:		01	- Chip type
-	;				  00: AT90S2323, AT90S2343
+	;				  00: AT90S2323, AT90S2343 (2343 not supported)
 	;				  01: AT90S8515, AT90S8535
 	;				  02: ATmega161
-	;				  10: 16F84
-	;				  11: 16F876
-	;				  FF: unspec.
+	;				  10: 16F84 (not supported)
+	;				  11: 16F876 (not supported)
+	;				  FF: unspec. (Running on 386?)
 	; T10:		03	- External EEPROM size
 	;				  00: none
 	;				  01: 16k bit

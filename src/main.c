@@ -53,7 +53,7 @@ int main( void )
 	/* TODO: Possible from EEPROM? */
 	hal_io_sendByteT0( 0x3B );
 
-#if CONF_WITH_LGGING==1
+#if CONF_WITH_LOGGING==1
 	log_init();
 #endif
 
@@ -75,9 +75,8 @@ int main( void )
 	auth_init();
 #endif /* CONF_WITH_PINAUTH==1 */
 
-	if( !(hal_eeprom_read( &len, ATR_LEN_ADDR, 1 ) &&
-		(len<=ATR_MAXLEN)) )
-		for(;;) {}
+	if( !(hal_eeprom_read( &len, ATR_LEN_ADDR, 1 ) && (len<=ATR_MAXLEN)) )
+		for(;;) {} /* XXX good loop mechanism? what is it anyway */
 
 	for( i=1; i<len; i++ ) {
 		if( !hal_eeprom_read( &b, ATR_ADDR+i, 1 ) ) for(;;) {}
@@ -96,7 +95,7 @@ int main( void )
 
 #if CONF_WITH_TRNG==1
 		hal_rnd_addEntropy();
-#endif
+#endif /* CONF_WITH_TRNG==1 */
 
 		if( (header[0]&0xFC)==CLA_PROP ) {
 			switch( header[1]&0xFE ) {

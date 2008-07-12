@@ -53,5 +53,5 @@ void log_add( iu8 tag, iu8 *data, iu8 len )
 	hal_eeprom_write( LOG_START, (iu8 *) &dst, 2 );
 	log_enable=save;
 }
-#endif /* CONF_WITH_LGGING==1 */
+#endif /* CONF_WITH_LOGGING==1 */
 

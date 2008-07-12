@@ -231,6 +231,7 @@
 //! EEPROM address of pointer to the file system start.
 #define FS_START_PTR_ADDR	DATA_END_1
 
+
 #if defined(__AVR_AT90S8515__)
 //! This is a little endian architecture.
 #define ENDIAN_LITTLE
@@ -241,59 +242,53 @@
 //! Chip ID.
 #define CHIP				0x01
 //! External EEPROM ID.
+// 00: none
+// 01: 16k bit
+// 02: 32k bit
+// 03: 64k bit
+// 04: 128k bit
+// 05: 256k bit
+// FF: unspec.
 #define ESIZ				0x05
 //! AVR architecture. Needed for assembler.
 #define ARCH				avr2
+
+
 #elif defined(__AVR_AT90S8535__)
-//! This is a little endian architecture.
 #define ENDIAN_LITTLE
-//! Size of the internal EEPROM
 #define	EEPROM_SIZE			0x200
-//! Size of the RAM.
 #define RAM_SIZE			0x200
-//! Chip ID.
 #define CHIP				0x01
-//! External EEPROM ID.
 #define ESIZ				0x03
-//! AVR architecture. Needed for assembler.
 #define ARCH				avr2
+
+
 #elif defined(__AVR_AT90S2323__)
-//! This is a little endian architecture.
 #define ENDIAN_LITTLE
-//! Size of the internal EEPROM
 #define	EEPROM_SIZE			0x80
-//! Size of the RAM.
 #define RAM_SIZE			0x80
-//! Chip ID.
 #define CHIP				0x00
-//! External EEPROM ID.
 #define ESIZ				0x03
-//! AVR architecture. Needed for assembler.
 #define ARCH				avr2
+
+
 #elif defined(__AVR_ATmega161__)
-//! This is a little endian architecture.
 #define ENDIAN_LITTLE
-//! Size of the internal EEPROM
 #define	EEPROM_SIZE			0x200
-//! Size of the RAM.
 #define RAM_SIZE			0x400
-//! Chip ID.
 #define CHIP				0x02
-//! External EEPROM ID.
 #define ESIZ				0x03
-//! AVR architecture. Needed for assembler.
 #define ARCH				avr5
+
+
 #elif defined(__i386__)
-//! This is a little endian architecture.
 #define ENDIAN_LITTLE
-//! Size of the internal EEPROM
 #define	EEPROM_SIZE			0x200
-//! Size of the RAM.
 #define RAM_SIZE			0x200
-//! Chip ID.
 #define CHIP				0xFF
-//! External EEPROM ID.
 #define ESIZ				0xFF
+
+
 #else
 #error Unknown destination platform.
 #endif
