@@ -1,0 +1,1120 @@
+\begin{theindex}
+
+  \item {ac}
+    \subitem {s\_\-finfo}, 18
+  \item {ADM\_\-KEY\_\-LEN}
+    \subitem {config.h}, 45
+  \item {ARCH}
+    \subitem {config.h}, 45
+  \item {atr}
+    \subitem {ctapi.c}, 53
+  \item {ATR\_\-ADDR}
+    \subitem {config.h}, 45
+  \item {ATR\_\-LEN\_\-ADDR}
+    \subitem {config.h}, 45
+  \item {ATR\_\-MAXLEN}
+    \subitem {config.h}, 45
+  \item {atrlen}
+    \subitem {ctapi.c}, 53
+  \item {auth.c}, 20
+    \subitem {auth\_\-checkAc}, 21
+    \subitem {auth\_\-createVerifyCryptogram}, 21
+    \subitem {auth\_\-getChallenge}, 22
+    \subitem {auth\_\-getCheckPinLen}, 22
+    \subitem {auth\_\-init}, 23
+    \subitem {auth\_\-setPin}, 23
+    \subitem {auth\_\-verifyPin}, 23
+    \subitem {authstate}, 24
+    \subitem {challenge}, 24
+    \subitem {challvalidity}, 24
+  \item {auth.h}, 24
+    \subitem {AUTH\_\-AC\_\-ADM}, 27
+    \subitem {AUTH\_\-AC\_\-ALW}, 27
+    \subitem {AUTH\_\-AC\_\-NEV}, 27
+    \subitem {AUTH\_\-AC\_\-PAA}, 27
+    \subitem {AUTH\_\-AC\_\-PIN}, 27
+    \subitem {AUTH\_\-AC\_\-POA}, 27
+    \subitem {auth\_\-checkAc}, 28
+    \subitem {auth\_\-createVerifyCryptogram}, 29
+    \subitem {AUTH\_\-FID\_\-EXTAUTH}, 27
+    \subitem {AUTH\_\-FID\_\-INTAUTH}, 27
+    \subitem {AUTH\_\-FID\_\-PINPUK}, 27
+    \subitem {AUTH\_\-FLAG\_\-KEY}, 28
+    \subitem {AUTH\_\-FLAG\_\-PIN}, 28
+    \subitem {auth\_\-getChallenge}, 29
+    \subitem {auth\_\-getCheckPinLen}, 29
+    \subitem {auth\_\-init}, 30
+    \subitem {auth\_\-setPin}, 30
+    \subitem {auth\_\-verifyPin}, 31
+    \subitem {challvalidity}, 31
+    \subitem {KEY\_\-MAX\_\-RETRIES}, 28
+    \subitem {PIN\_\-MAX\_\-RETRIES}, 28
+    \subitem {PIN\_\-TYPE\_\-EXT}, 28
+    \subitem {PIN\_\-TYPE\_\-INT}, 28
+    \subitem {PIN\_\-TYPE\_\-PIN}, 28
+    \subitem {PIN\_\-TYPE\_\-PUK}, 28
+    \subitem {PUK\_\-MAX\_\-RETRIES}, 28
+  \item {AUTH\_\-AC\_\-ADM}
+    \subitem {auth.h}, 27
+  \item {AUTH\_\-AC\_\-ALW}
+    \subitem {auth.h}, 27
+  \item {AUTH\_\-AC\_\-NEV}
+    \subitem {auth.h}, 27
+  \item {AUTH\_\-AC\_\-PAA}
+    \subitem {auth.h}, 27
+  \item {AUTH\_\-AC\_\-PIN}
+    \subitem {auth.h}, 27
+  \item {AUTH\_\-AC\_\-POA}
+    \subitem {auth.h}, 27
+  \item {auth\_\-checkAc}
+    \subitem {auth.c}, 21
+    \subitem {auth.h}, 28
+  \item {auth\_\-createVerifyCryptogram}
+    \subitem {auth.c}, 21
+    \subitem {auth.h}, 29
+  \item {AUTH\_\-FID\_\-EXTAUTH}
+    \subitem {auth.h}, 27
+  \item {AUTH\_\-FID\_\-INTAUTH}
+    \subitem {auth.h}, 27
+  \item {AUTH\_\-FID\_\-PINPUK}
+    \subitem {auth.h}, 27
+  \item {AUTH\_\-FLAG\_\-KEY}
+    \subitem {auth.h}, 28
+  \item {AUTH\_\-FLAG\_\-PIN}
+    \subitem {auth.h}, 28
+  \item {auth\_\-getChallenge}
+    \subitem {auth.c}, 22
+    \subitem {auth.h}, 29
+  \item {auth\_\-getCheckPinLen}
+    \subitem {auth.c}, 22
+    \subitem {auth.h}, 29
+  \item {auth\_\-init}
+    \subitem {auth.c}, 23
+    \subitem {auth.h}, 30
+  \item {auth\_\-setPin}
+    \subitem {auth.c}, 23
+    \subitem {auth.h}, 30
+  \item {auth\_\-verifyPin}
+    \subitem {auth.c}, 23
+    \subitem {auth.h}, 31
+  \item {authstate}
+    \subitem {auth.c}, 24
+    \subitem {authtest.c}, 32
+    \subitem {fstest.c}, 68
+  \item {authtest.c}, 31
+    \subitem {authstate}, 32
+    \subitem {challenge}, 32
+    \subitem {challvalidity}, 33
+    \subitem {main}, 32
+
+  \indexspace
+
+  \item {bool}
+    \subitem {types.h}, 108
+
+  \indexspace
+
+  \item {CARD\_\-STATE\_\-ADDR}
+    \subitem {config.h}, 45
+  \item {challenge}
+    \subitem {auth.c}, 24
+    \subitem {authtest.c}, 32
+  \item {challvalidity}
+    \subitem {auth.c}, 24
+    \subitem {auth.h}, 31
+    \subitem {authtest.c}, 33
+  \item {CHIP}
+    \subitem {config.h}, 45
+  \item {CLA\_\-PROP}
+    \subitem {commands.h}, 39
+  \item {cmd\_\-changeUnblockPIN}
+    \subitem {commands.c}, 35
+    \subitem {commands.h}, 40
+  \item {cmd\_\-create}
+    \subitem {commands.c}, 35
+    \subitem {commands.h}, 40
+  \item {cmd\_\-delete}
+    \subitem {commands.c}, 35
+    \subitem {commands.h}, 40
+  \item {cmd\_\-extAuth}
+    \subitem {commands.c}, 35
+    \subitem {commands.h}, 40
+  \item {cmd\_\-getChallenge}
+    \subitem {commands.c}, 35
+    \subitem {commands.h}, 41
+  \item {cmd\_\-getResponse}
+    \subitem {commands.c}, 35
+    \subitem {commands.h}, 41
+  \item {cmd\_\-intAuth}
+    \subitem {commands.c}, 35
+    \subitem {commands.h}, 41
+  \item {cmd\_\-led}
+    \subitem {commands.h}, 41
+  \item {cmd\_\-read}
+    \subitem {commands.c}, 35
+    \subitem {commands.h}, 41
+  \item {cmd\_\-readBinary}
+    \subitem {commands.c}, 36
+    \subitem {commands.h}, 41
+  \item {cmd\_\-select}
+    \subitem {commands.c}, 36
+    \subitem {commands.h}, 41
+  \item {cmd\_\-updateBinary}
+    \subitem {commands.c}, 36
+    \subitem {commands.h}, 41
+  \item {cmd\_\-verifyKeyPIN}
+    \subitem {commands.c}, 36
+    \subitem {commands.h}, 41
+  \item {cmd\_\-write}
+    \subitem {commands.c}, 36
+    \subitem {commands.h}, 41
+  \item {CODE}
+    \subitem {types.h}, 108
+  \item {commands.c}, 33
+    \subitem {cmd\_\-changeUnblockPIN}, 35
+    \subitem {cmd\_\-create}, 35
+    \subitem {cmd\_\-delete}, 35
+    \subitem {cmd\_\-extAuth}, 35
+    \subitem {cmd\_\-getChallenge}, 35
+    \subitem {cmd\_\-getResponse}, 35
+    \subitem {cmd\_\-intAuth}, 35
+    \subitem {cmd\_\-read}, 35
+    \subitem {cmd\_\-readBinary}, 36
+    \subitem {cmd\_\-select}, 36
+    \subitem {cmd\_\-updateBinary}, 36
+    \subitem {cmd\_\-verifyKeyPIN}, 36
+    \subitem {cmd\_\-write}, 36
+    \subitem {pin1len}, 35
+    \subitem {pinssize}, 35
+    \subitem {resplen}, 36
+    \subitem {response}, 36
+  \item {commands.h}, 36
+    \subitem {CLA\_\-PROP}, 39
+    \subitem {cmd\_\-changeUnblockPIN}, 40
+    \subitem {cmd\_\-create}, 40
+    \subitem {cmd\_\-delete}, 40
+    \subitem {cmd\_\-extAuth}, 40
+    \subitem {cmd\_\-getChallenge}, 41
+    \subitem {cmd\_\-getResponse}, 41
+    \subitem {cmd\_\-intAuth}, 41
+    \subitem {cmd\_\-led}, 41
+    \subitem {cmd\_\-read}, 41
+    \subitem {cmd\_\-readBinary}, 41
+    \subitem {cmd\_\-select}, 41
+    \subitem {cmd\_\-updateBinary}, 41
+    \subitem {cmd\_\-verifyKeyPIN}, 41
+    \subitem {cmd\_\-write}, 41
+    \subitem {INS\_\-CHANGE\_\-PIN}, 39
+    \subitem {INS\_\-CREATE}, 39
+    \subitem {INS\_\-DELETE}, 39
+    \subitem {INS\_\-EXTERNAL\_\-AUTH}, 39
+    \subitem {INS\_\-GET\_\-CHALLENGE}, 39
+    \subitem {INS\_\-GET\_\-RESPONSE}, 39
+    \subitem {INS\_\-INTERNAL\_\-AUTH}, 39
+    \subitem {INS\_\-LED}, 39
+    \subitem {INS\_\-READ}, 40
+    \subitem {INS\_\-READ\_\-BINARY}, 40
+    \subitem {INS\_\-SELECT}, 40
+    \subitem {INS\_\-UNBLOCK\_\-PIN}, 40
+    \subitem {INS\_\-UPDATE\_\-BINARY}, 40
+    \subitem {INS\_\-VERIFY\_\-KEY}, 40
+    \subitem {INS\_\-VERIFY\_\-PIN}, 40
+    \subitem {INS\_\-WRITE}, 40
+    \subitem {resplen}, 42
+  \item {CONF\_\-WITH\_\-CREATECMD}
+    \subitem {config.h}, 45
+  \item {CONF\_\-WITH\_\-CRYPT\_\-ALGO}
+    \subitem {config.h}, 45
+  \item {CONF\_\-WITH\_\-DECRYPT}
+    \subitem {config.h}, 46
+  \item {CONF\_\-WITH\_\-DELETECMD}
+    \subitem {config.h}, 46
+  \item {CONF\_\-WITH\_\-FILESYSTEM}
+    \subitem {config.h}, 46
+  \item {CONF\_\-WITH\_\-FUNNY}
+    \subitem {config.h}, 46
+  \item {CONF\_\-WITH\_\-I2CEEPROM}
+    \subitem {config.h}, 46
+  \item {CONF\_\-WITH\_\-KEYAUTH}
+    \subitem {config.h}, 46
+  \item {CONF\_\-WITH\_\-KEYCMDS}
+    \subitem {config.h}, 46
+  \item {CONF\_\-WITH\_\-LOGGING}
+    \subitem {config.h}, 46
+  \item {CONF\_\-WITH\_\-PINAUTH}
+    \subitem {config.h}, 47
+  \item {CONF\_\-WITH\_\-PINCMDS}
+    \subitem {config.h}, 47
+  \item {CONF\_\-WITH\_\-RETCODEMGR}
+    \subitem {config.h}, 47
+  \item {CONF\_\-WITH\_\-TESTCMDS}
+    \subitem {config.h}, 47
+  \item {CONF\_\-WITH\_\-TRANSACTIONS}
+    \subitem {config.h}, 47
+  \item {CONF\_\-WITH\_\-TRNG}
+    \subitem {config.h}, 47
+  \item {config.h}, 42
+    \subitem {ADM\_\-KEY\_\-LEN}, 45
+    \subitem {ARCH}, 45
+    \subitem {ATR\_\-ADDR}, 45
+    \subitem {ATR\_\-LEN\_\-ADDR}, 45
+    \subitem {ATR\_\-MAXLEN}, 45
+    \subitem {CARD\_\-STATE\_\-ADDR}, 45
+    \subitem {CHIP}, 45
+    \subitem {CONF\_\-WITH\_\-CREATECMD}, 45
+    \subitem {CONF\_\-WITH\_\-CRYPT\_\-ALGO}, 45
+    \subitem {CONF\_\-WITH\_\-DECRYPT}, 46
+    \subitem {CONF\_\-WITH\_\-DELETECMD}, 46
+    \subitem {CONF\_\-WITH\_\-FILESYSTEM}, 46
+    \subitem {CONF\_\-WITH\_\-FUNNY}, 46
+    \subitem {CONF\_\-WITH\_\-I2CEEPROM}, 46
+    \subitem {CONF\_\-WITH\_\-KEYAUTH}, 46
+    \subitem {CONF\_\-WITH\_\-KEYCMDS}, 46
+    \subitem {CONF\_\-WITH\_\-LOGGING}, 46
+    \subitem {CONF\_\-WITH\_\-PINAUTH}, 47
+    \subitem {CONF\_\-WITH\_\-PINCMDS}, 47
+    \subitem {CONF\_\-WITH\_\-RETCODEMGR}, 47
+    \subitem {CONF\_\-WITH\_\-TESTCMDS}, 47
+    \subitem {CONF\_\-WITH\_\-TRANSACTIONS}, 47
+    \subitem {CONF\_\-WITH\_\-TRNG}, 47
+    \subitem {DATA\_\-END\_\-1}, 47
+    \subitem {EEPROM\_\-SIZE}, 47
+    \subitem {ENDIAN\_\-LITTLE}, 47
+    \subitem {ESIZ}, 48
+    \subitem {FS\_\-START\_\-PTR\_\-ADDR}, 48
+    \subitem {INT\_\-KEY\_\-LEN}, 48
+    \subitem {PIN\_\-LEN}, 48
+    \subitem {PUK\_\-LEN}, 48
+    \subitem {RAM\_\-SIZE}, 48
+    \subitem {RAND\_\-STATE\_\-ADDR}, 48
+    \subitem {RAND\_\-STATE\_\-LEN}, 48
+    \subitem {SERNUM\_\-ADDR}, 48
+    \subitem {SERNUM\_\-LEN}, 48
+    \subitem {TRANSAC\_\-DATA\_\-ADDR}, 48
+    \subitem {TRANSAC\_\-DATA\_\-LEN}, 48
+    \subitem {TRANSAC\_\-STATE\_\-ADDR}, 49
+  \item {crypt.h}, 49
+    \subitem {CRYPT\_\-ALGO\_\-NEWDESSK}, 50
+    \subitem {CRYPT\_\-ALGO\_\-SKIPJACK}, 50
+    \subitem {CRYPT\_\-ALGO\_\-TEA}, 50
+    \subitem {CRYPT\_\-BLOCK\_\-LEN}, 50
+    \subitem {crypt\_\-dec}, 50
+    \subitem {crypt\_\-enc}, 50
+    \subitem {CRYPT\_\-KEY\_\-LEN}, 50
+  \item {CRYPT\_\-ALGO\_\-NEWDESSK}
+    \subitem {crypt.h}, 50
+  \item {CRYPT\_\-ALGO\_\-SKIPJACK}
+    \subitem {crypt.h}, 50
+  \item {CRYPT\_\-ALGO\_\-TEA}
+    \subitem {crypt.h}, 50
+  \item {CRYPT\_\-BLOCK\_\-LEN}
+    \subitem {crypt.h}, 50
+  \item {crypt\_\-dec}
+    \subitem {crypt.h}, 50
+  \item {crypt\_\-enc}
+    \subitem {crypt.h}, 50
+  \item {CRYPT\_\-KEY\_\-LEN}
+    \subitem {crypt.h}, 50
+  \item {CT\_\-close}
+    \subitem {ctapi.c}, 52
+    \subitem {ctapi.h}, 56
+  \item {CT\_\-data}
+    \subitem {ctapi.c}, 52
+    \subitem {ctapi.h}, 56
+  \item {CT\_\-forkIcc}
+    \subitem {ctapi.c}, 52
+    \subitem {ctapi.h}, 57
+  \item {CT\_\-iccCmd}
+    \subitem {ctapi.c}, 52
+    \subitem {ctapi.h}, 57
+  \item {CT\_\-ifdCmd}
+    \subitem {ctapi.c}, 52
+    \subitem {ctapi.h}, 57
+  \item {CT\_\-ifdCmdEepromFile}
+    \subitem {ctapi.c}, 52
+    \subitem {ctapi.h}, 57
+  \item {CT\_\-ifdCmdEjectICC}
+    \subitem {ctapi.c}, 52
+    \subitem {ctapi.h}, 57
+  \item {CT\_\-ifdCmdGetStatus}
+    \subitem {ctapi.c}, 52
+    \subitem {ctapi.h}, 57
+  \item {CT\_\-ifdCmdRequestICC}
+    \subitem {ctapi.c}, 53
+    \subitem {ctapi.h}, 57
+  \item {CT\_\-ifdCmdResetCT}
+    \subitem {ctapi.c}, 53
+    \subitem {ctapi.h}, 57
+  \item {CT\_\-init}
+    \subitem {ctapi.c}, 53
+    \subitem {ctapi.h}, 57
+  \item {CT\_\-stopIcc}
+    \subitem {ctapi.c}, 53
+    \subitem {ctapi.h}, 57
+  \item {CT\_\-t0}
+    \subitem {ctapi.c}, 53
+  \item {ctapi.c}, 50
+    \subitem {atr}, 53
+    \subitem {atrlen}, 53
+    \subitem {CT\_\-close}, 52
+    \subitem {CT\_\-data}, 52
+    \subitem {CT\_\-forkIcc}, 52
+    \subitem {CT\_\-iccCmd}, 52
+    \subitem {CT\_\-ifdCmd}, 52
+    \subitem {CT\_\-ifdCmdEepromFile}, 52
+    \subitem {CT\_\-ifdCmdEjectICC}, 52
+    \subitem {CT\_\-ifdCmdGetStatus}, 52
+    \subitem {CT\_\-ifdCmdRequestICC}, 53
+    \subitem {CT\_\-ifdCmdResetCT}, 53
+    \subitem {CT\_\-init}, 53
+    \subitem {CT\_\-stopIcc}, 53
+    \subitem {CT\_\-t0}, 53
+    \subitem {cthandle}, 53
+    \subitem {eepromFile}, 53
+    \subitem {fd\_\-fromCard}, 53
+    \subitem {fd\_\-toCard}, 53
+    \subitem {fdEepromFile}, 53
+    \subitem {loadEepromFile}, 53
+    \subitem {pidVirtuaCard}, 53
+    \subitem {saveEepromFile}, 53
+  \item {ctapi.h}, 54
+    \subitem {CT\_\-close}, 56
+    \subitem {CT\_\-data}, 56
+    \subitem {CT\_\-forkIcc}, 57
+    \subitem {CT\_\-iccCmd}, 57
+    \subitem {CT\_\-ifdCmd}, 57
+    \subitem {CT\_\-ifdCmdEepromFile}, 57
+    \subitem {CT\_\-ifdCmdEjectICC}, 57
+    \subitem {CT\_\-ifdCmdGetStatus}, 57
+    \subitem {CT\_\-ifdCmdRequestICC}, 57
+    \subitem {CT\_\-ifdCmdResetCT}, 57
+    \subitem {CT\_\-init}, 57
+    \subitem {CT\_\-stopIcc}, 57
+    \subitem {CTAPI\_\-AD\_\-CT}, 55
+    \subitem {CTAPI\_\-AD\_\-HOST}, 55
+    \subitem {CTAPI\_\-AD\_\-ICC1}, 55
+    \subitem {CTAPI\_\-CLA}, 55
+    \subitem {CTAPI\_\-INS\_\-EEPROM}, 55
+    \subitem {CTAPI\_\-INS\_\-EJECT\_\-ICC}, 55
+    \subitem {CTAPI\_\-INS\_\-GET\_\-STATUS}, 55
+    \subitem {CTAPI\_\-INS\_\-REQUEST\_\-ICC}, 56
+    \subitem {CTAPI\_\-INS\_\-RESET\_\-CT}, 56
+    \subitem {CTAPI\_\-PORT}, 56
+    \subitem {CTAPI\_\-RV\_\-ERR\_\-CT}, 56
+    \subitem {CTAPI\_\-RV\_\-ERR\_\-HOST}, 56
+    \subitem {CTAPI\_\-RV\_\-ERR\_\-HTSI}, 56
+    \subitem {CTAPI\_\-RV\_\-ERR\_\-INVALID}, 56
+    \subitem {CTAPI\_\-RV\_\-ERR\_\-MEMORY}, 56
+    \subitem {CTAPI\_\-RV\_\-ERR\_\-TRANS}, 56
+    \subitem {CTAPI\_\-RV\_\-OK}, 56
+    \subitem {eepromFile}, 58
+    \subitem {fd\_\-fromCard}, 58
+    \subitem {fd\_\-toCard}, 58
+    \subitem {fdEepromFile}, 58
+    \subitem {IS16}, 56
+    \subitem {IS32}, 56
+    \subitem {IS8}, 56
+    \subitem {IU16}, 56
+    \subitem {IU32}, 56
+    \subitem {IU8}, 56
+    \subitem {loadEepromFile}, 58
+    \subitem {saveEepromFile}, 58
+  \item {CTAPI\_\-AD\_\-CT}
+    \subitem {ctapi.h}, 55
+  \item {CTAPI\_\-AD\_\-HOST}
+    \subitem {ctapi.h}, 55
+  \item {CTAPI\_\-AD\_\-ICC1}
+    \subitem {ctapi.h}, 55
+  \item {CTAPI\_\-CLA}
+    \subitem {ctapi.h}, 55
+  \item {CTAPI\_\-INS\_\-EEPROM}
+    \subitem {ctapi.h}, 55
+  \item {CTAPI\_\-INS\_\-EJECT\_\-ICC}
+    \subitem {ctapi.h}, 55
+  \item {CTAPI\_\-INS\_\-GET\_\-STATUS}
+    \subitem {ctapi.h}, 55
+  \item {CTAPI\_\-INS\_\-REQUEST\_\-ICC}
+    \subitem {ctapi.h}, 56
+  \item {CTAPI\_\-INS\_\-RESET\_\-CT}
+    \subitem {ctapi.h}, 56
+  \item {CTAPI\_\-PORT}
+    \subitem {ctapi.h}, 56
+  \item {CTAPI\_\-RV\_\-ERR\_\-CT}
+    \subitem {ctapi.h}, 56
+  \item {CTAPI\_\-RV\_\-ERR\_\-HOST}
+    \subitem {ctapi.h}, 56
+  \item {CTAPI\_\-RV\_\-ERR\_\-HTSI}
+    \subitem {ctapi.h}, 56
+  \item {CTAPI\_\-RV\_\-ERR\_\-INVALID}
+    \subitem {ctapi.h}, 56
+  \item {CTAPI\_\-RV\_\-ERR\_\-MEMORY}
+    \subitem {ctapi.h}, 56
+  \item {CTAPI\_\-RV\_\-ERR\_\-TRANS}
+    \subitem {ctapi.h}, 56
+  \item {CTAPI\_\-RV\_\-OK}
+    \subitem {ctapi.h}, 56
+  \item {cthandle}
+    \subitem {ctapi.c}, 53
+
+  \indexspace
+
+  \item {DATA\_\-END\_\-1}
+    \subitem {config.h}, 47
+  \item {DELTA}
+    \subitem {tea.h}, 100
+  \item {df}
+    \subitem {s\_\-fpath}, 18
+
+  \indexspace
+
+  \item {eeprom}
+    \subitem {hal-emu.c}, 76
+  \item {EEPROM\_\-SIZE}
+    \subitem {config.h}, 47
+  \item {eepromFile}
+    \subitem {ctapi.c}, 53
+    \subitem {ctapi.h}, 58
+  \item {ef}
+    \subitem {s\_\-fpath}, 18
+  \item {ENDIAN\_\-LITTLE}
+    \subitem {config.h}, 47
+  \item {ESIZ}
+    \subitem {config.h}, 48
+
+  \indexspace
+
+  \item {FALSE}
+    \subitem {types.h}, 108
+  \item {fd\_\-fromCard}
+    \subitem {ctapi.c}, 53
+    \subitem {ctapi.h}, 58
+  \item {fd\_\-toCard}
+    \subitem {ctapi.c}, 53
+    \subitem {ctapi.h}, 58
+  \item {fdEepromFile}
+    \subitem {ctapi.c}, 53
+    \subitem {ctapi.h}, 58
+  \item {fid}
+    \subitem {s\_\-finfo}, 17
+  \item {fs.c}, 58
+    \subitem {fs\_\-create}, 59
+    \subitem {fs\_\-delete}, 60
+    \subitem {fs\_\-getData}, 60
+    \subitem {fs\_\-getFPath}, 60
+    \subitem {fs\_\-init}, 61
+    \subitem {fs\_\-seek}, 61
+    \subitem {fs\_\-seekEnd}, 61
+    \subitem {fssize}, 62
+    \subitem {fsstart}, 62
+    \subitem {selected}, 62
+  \item {fs.h}, 62
+    \subitem {fs\_\-create}, 65
+    \subitem {fs\_\-delete}, 65
+    \subitem {fs\_\-getData}, 65
+    \subitem {fs\_\-getFPath}, 66
+    \subitem {FS\_\-HEADER\_\-SIZE}, 64
+    \subitem {fs\_\-init}, 66
+    \subitem {fs\_\-seek}, 66
+    \subitem {fs\_\-seekEnd}, 67
+    \subitem {FS\_\-TYPE\_\-DF}, 64
+    \subitem {FS\_\-TYPE\_\-EF}, 64
+    \subitem {S\_\-FINFO}, 65
+    \subitem {S\_\-FPATH}, 65
+    \subitem {selected}, 67
+  \item {fs\_\-create}
+    \subitem {fs.c}, 59
+    \subitem {fs.h}, 65
+  \item {fs\_\-delete}
+    \subitem {fs.c}, 60
+    \subitem {fs.h}, 65
+  \item {fs\_\-getData}
+    \subitem {fs.c}, 60
+    \subitem {fs.h}, 65
+  \item {fs\_\-getFPath}
+    \subitem {fs.c}, 60
+    \subitem {fs.h}, 66
+  \item {FS\_\-HEADER\_\-SIZE}
+    \subitem {fs.h}, 64
+  \item {fs\_\-init}
+    \subitem {fs.c}, 61
+    \subitem {fs.h}, 66
+  \item {fs\_\-seek}
+    \subitem {fs.c}, 61
+    \subitem {fs.h}, 66
+  \item {fs\_\-seekEnd}
+    \subitem {fs.c}, 61
+    \subitem {fs.h}, 67
+  \item {FS\_\-START\_\-PTR\_\-ADDR}
+    \subitem {config.h}, 48
+  \item {FS\_\-TYPE\_\-DF}
+    \subitem {fs.h}, 64
+  \item {FS\_\-TYPE\_\-EF}
+    \subitem {fs.h}, 64
+  \item {fssize}
+    \subitem {fs.c}, 62
+    \subitem {fstest.c}, 69
+  \item {fsstart}
+    \subitem {fs.c}, 62
+    \subitem {fstest.c}, 69
+  \item {fstest.c}, 68
+    \subitem {authstate}, 68
+    \subitem {fssize}, 69
+    \subitem {fsstart}, 69
+    \subitem {main}, 68
+  \item {fstream.c}, 69
+    \subitem {fstream\_\-read}, 70
+    \subitem {fstream\_\-test}, 70
+    \subitem {fstream\_\-write}, 70
+  \item {fstream.h}, 71
+    \subitem {fstream\_\-read}, 72
+    \subitem {fstream\_\-test}, 72
+    \subitem {fstream\_\-write}, 72
+    \subitem {S\_\-FSTREAM}, 71
+  \item {fstream\_\-read}
+    \subitem {fstream.c}, 70
+    \subitem {fstream.h}, 72
+  \item {fstream\_\-test}
+    \subitem {fstream.c}, 70
+    \subitem {fstream.h}, 72
+  \item {fstream\_\-write}
+    \subitem {fstream.c}, 70
+    \subitem {fstream.h}, 72
+
+  \indexspace
+
+  \item {hal-emu.c}, 73
+    \subitem {eeprom}, 76
+    \subitem {hal\_\-destroy}, 74
+    \subitem {hal\_\-eeprom\_\-read}, 74
+    \subitem {hal\_\-eeprom\_\-write}, 74
+    \subitem {hal\_\-init}, 75
+    \subitem {hal\_\-io\_\-recByteT0}, 75
+    \subitem {hal\_\-io\_\-sendByteT0}, 75
+    \subitem {hal\_\-rnd\_\-getBlock}, 75
+    \subitem {halsend}, 76
+    \subitem {PORT}, 74
+  \item {hal.c}, 76
+    \subitem {hal\_\-eeprom\_\-read}, 77
+    \subitem {hal\_\-eeprom\_\-write}, 77
+    \subitem {hal\_\-init}, 78
+    \subitem {hal\_\-io\_\-recByteT0}, 78
+    \subitem {hal\_\-io\_\-sendByteT0}, 78
+    \subitem {hal\_\-rnd\_\-getBlock}, 78
+    \subitem {recbytet0}, 79
+    \subitem {sendbytet0}, 79
+    \subitem {xeread}, 79
+    \subitem {xewrt}, 79
+  \item {hal.h}, 79
+    \subitem {hal\_\-eeprom\_\-read}, 80
+    \subitem {hal\_\-eeprom\_\-write}, 80
+    \subitem {hal\_\-init}, 80
+    \subitem {hal\_\-io\_\-recByteT0}, 81
+    \subitem {hal\_\-io\_\-sendByteT0}, 81
+    \subitem {hal\_\-led}, 81
+    \subitem {hal\_\-rnd\_\-addEntropy}, 81
+    \subitem {hal\_\-rnd\_\-getBlock}, 82
+  \item {hal\_\-destroy}
+    \subitem {hal-emu.c}, 74
+  \item {hal\_\-eeprom\_\-read}
+    \subitem {hal-emu.c}, 74
+    \subitem {hal.c}, 77
+    \subitem {hal.h}, 80
+  \item {hal\_\-eeprom\_\-write}
+    \subitem {hal-emu.c}, 74
+    \subitem {hal.c}, 77
+    \subitem {hal.h}, 80
+  \item {hal\_\-init}
+    \subitem {hal-emu.c}, 75
+    \subitem {hal.c}, 78
+    \subitem {hal.h}, 80
+  \item {hal\_\-io\_\-recByteT0}
+    \subitem {hal-emu.c}, 75
+    \subitem {hal.c}, 78
+    \subitem {hal.h}, 81
+  \item {hal\_\-io\_\-sendByteT0}
+    \subitem {hal-emu.c}, 75
+    \subitem {hal.c}, 78
+    \subitem {hal.h}, 81
+  \item {hal\_\-led}
+    \subitem {hal.h}, 81
+  \item {hal\_\-rnd\_\-addEntropy}
+    \subitem {hal.h}, 81
+  \item {hal\_\-rnd\_\-getBlock}
+    \subitem {hal-emu.c}, 75
+    \subitem {hal.c}, 78
+    \subitem {hal.h}, 82
+  \item {halsend}
+    \subitem {hal-emu.c}, 76
+  \item {header}
+    \subitem {t0.c}, 95
+    \subitem {t0.h}, 98
+  \item {hton\_\-ul}
+    \subitem {tea.c}, 99
+    \subitem {tools.h}, 102, 103
+  \item {hton\_\-us}
+    \subitem {tools.h}, 102, 103
+
+  \indexspace
+
+  \item {INS\_\-CHANGE\_\-PIN}
+    \subitem {commands.h}, 39
+  \item {INS\_\-CREATE}
+    \subitem {commands.h}, 39
+  \item {INS\_\-DELETE}
+    \subitem {commands.h}, 39
+  \item {INS\_\-EXTERNAL\_\-AUTH}
+    \subitem {commands.h}, 39
+  \item {INS\_\-GET\_\-CHALLENGE}
+    \subitem {commands.h}, 39
+  \item {INS\_\-GET\_\-RESPONSE}
+    \subitem {commands.h}, 39
+  \item {INS\_\-INTERNAL\_\-AUTH}
+    \subitem {commands.h}, 39
+  \item {INS\_\-LED}
+    \subitem {commands.h}, 39
+  \item {INS\_\-READ}
+    \subitem {commands.h}, 40
+  \item {INS\_\-READ\_\-BINARY}
+    \subitem {commands.h}, 40
+  \item {INS\_\-SELECT}
+    \subitem {commands.h}, 40
+  \item {INS\_\-UNBLOCK\_\-PIN}
+    \subitem {commands.h}, 40
+  \item {INS\_\-UPDATE\_\-BINARY}
+    \subitem {commands.h}, 40
+  \item {INS\_\-VERIFY\_\-KEY}
+    \subitem {commands.h}, 40
+  \item {INS\_\-VERIFY\_\-PIN}
+    \subitem {commands.h}, 40
+  \item {INS\_\-WRITE}
+    \subitem {commands.h}, 40
+  \item {INT\_\-KEY\_\-LEN}
+    \subitem {config.h}, 48
+  \item {IS16}
+    \subitem {ctapi.h}, 56
+  \item {IS32}
+    \subitem {ctapi.h}, 56
+  \item {IS8}
+    \subitem {ctapi.h}, 56
+  \item {IU16}
+    \subitem {ctapi.h}, 56
+  \item {iu16}
+    \subitem {types.h}, 108
+  \item {IU32}
+    \subitem {ctapi.h}, 56
+  \item {iu32}
+    \subitem {types.h}, 108
+  \item {IU8}
+    \subitem {ctapi.h}, 56
+  \item {iu8}
+    \subitem {types.h}, 108
+
+  \indexspace
+
+  \item {KEY\_\-MAX\_\-RETRIES}
+    \subitem {auth.h}, 28
+
+  \indexspace
+
+  \item {loadEepromFile}
+    \subitem {ctapi.c}, 53
+    \subitem {ctapi.h}, 58
+  \item {log.c}, 83
+  \item {log.h}, 83
+    \subitem {log\_\-add}, 84
+    \subitem {log\_\-enable}, 85
+    \subitem {log\_\-init}, 84
+    \subitem {LOG\_\-START}, 85
+    \subitem {LOG\_\-TAG\_\-EEREAD\_\-DST}, 85
+    \subitem {LOG\_\-TAG\_\-EEREAD\_\-LEN}, 85
+    \subitem {LOG\_\-TAG\_\-EEREAD\_\-SRC}, 85
+    \subitem {LOG\_\-TAG\_\-EEWRITE\_\-DST}, 85
+    \subitem {LOG\_\-TAG\_\-EEWRITE\_\-LEN}, 85
+    \subitem {LOG\_\-TAG\_\-EEWRITE\_\-SRC}, 85
+    \subitem {LOG\_\-TAG\_\-FSCREATE}, 85
+    \subitem {LOG\_\-TAG\_\-JOKER}, 85
+    \subitem {LOG\_\-TAG\_\-RANDOM}, 85
+  \item {log\_\-add}
+    \subitem {log.h}, 84
+  \item {log\_\-enable}
+    \subitem {log.h}, 85
+  \item {log\_\-init}
+    \subitem {log.h}, 84
+  \item {LOG\_\-START}
+    \subitem {log.h}, 85
+  \item {LOG\_\-TAG\_\-EEREAD\_\-DST}
+    \subitem {log.h}, 85
+  \item {LOG\_\-TAG\_\-EEREAD\_\-LEN}
+    \subitem {log.h}, 85
+  \item {LOG\_\-TAG\_\-EEREAD\_\-SRC}
+    \subitem {log.h}, 85
+  \item {LOG\_\-TAG\_\-EEWRITE\_\-DST}
+    \subitem {log.h}, 85
+  \item {LOG\_\-TAG\_\-EEWRITE\_\-LEN}
+    \subitem {log.h}, 85
+  \item {LOG\_\-TAG\_\-EEWRITE\_\-SRC}
+    \subitem {log.h}, 85
+  \item {LOG\_\-TAG\_\-FSCREATE}
+    \subitem {log.h}, 85
+  \item {LOG\_\-TAG\_\-JOKER}
+    \subitem {log.h}, 85
+  \item {LOG\_\-TAG\_\-RANDOM}
+    \subitem {log.h}, 85
+
+  \indexspace
+
+  \item {main}
+    \subitem {authtest.c}, 32
+    \subitem {fstest.c}, 68
+    \subitem {main.c}, 86
+  \item {main.c}, 85
+    \subitem {main}, 86
+  \item {main.h}, 86
+  \item {max}
+    \subitem {tools.h}, 102
+  \item {min}
+    \subitem {tools.h}, 102
+
+  \indexspace
+
+  \item {newdes-sk.c}, 86
+  \item {newdes-sk.h}, 87
+    \subitem {NEWDESSK\_\-BLOCK\_\-LEN}, 87
+    \subitem {newdessk\_\-dec}, 87
+    \subitem {newdessk\_\-enc}, 88
+    \subitem {NEWDESSK\_\-KEY\_\-LEN}, 87
+  \item {NEWDESSK\_\-BLOCK\_\-LEN}
+    \subitem {newdes-sk.h}, 87
+  \item {newdessk\_\-dec}
+    \subitem {newdes-sk.h}, 87
+  \item {newdessk\_\-enc}
+    \subitem {newdes-sk.h}, 88
+  \item {NEWDESSK\_\-KEY\_\-LEN}
+    \subitem {newdes-sk.h}, 87
+
+  \indexspace
+
+  \item {pidVirtuaCard}
+    \subitem {ctapi.c}, 53
+  \item {pin1len}
+    \subitem {commands.c}, 35
+  \item {PIN\_\-LEN}
+    \subitem {config.h}, 48
+  \item {PIN\_\-MAX\_\-RETRIES}
+    \subitem {auth.h}, 28
+  \item {PIN\_\-TYPE\_\-EXT}
+    \subitem {auth.h}, 28
+  \item {PIN\_\-TYPE\_\-INT}
+    \subitem {auth.h}, 28
+  \item {PIN\_\-TYPE\_\-PIN}
+    \subitem {auth.h}, 28
+  \item {PIN\_\-TYPE\_\-PUK}
+    \subitem {auth.h}, 28
+  \item {pinssize}
+    \subitem {commands.c}, 35
+  \item {PORT}
+    \subitem {hal-emu.c}, 74
+  \item {pos}
+    \subitem {s\_\-fstream}, 19
+  \item {PRG\_\-RDB}
+    \subitem {types.h}, 108
+  \item {PUK\_\-LEN}
+    \subitem {config.h}, 48
+  \item {PUK\_\-MAX\_\-RETRIES}
+    \subitem {auth.h}, 28
+
+  \indexspace
+
+  \item {RAM\_\-SIZE}
+    \subitem {config.h}, 48
+  \item {RAND\_\-STATE\_\-ADDR}
+    \subitem {config.h}, 48
+  \item {RAND\_\-STATE\_\-LEN}
+    \subitem {config.h}, 48
+  \item {recbytet0}
+    \subitem {hal.c}, 79
+  \item {resplen}
+    \subitem {commands.c}, 36
+    \subitem {commands.h}, 42
+  \item {response}
+    \subitem {commands.c}, 36
+  \item {ROUNDS}
+    \subitem {tea.h}, 100
+
+  \indexspace
+
+  \item {S\_\-FINFO}
+    \subitem {fs.h}, 65
+  \item {s\_\-finfo}, 17
+    \subitem {ac}, 18
+    \subitem {fid}, 17
+    \subitem {size}, 17
+    \subitem {type}, 18
+  \item {S\_\-FPATH}
+    \subitem {fs.h}, 65
+  \item {s\_\-fpath}, 18
+    \subitem {df}, 18
+    \subitem {ef}, 18
+  \item {S\_\-FSTREAM}
+    \subitem {fstream.h}, 71
+  \item {s\_\-fstream}, 19
+    \subitem {pos}, 19
+    \subitem {size}, 19
+    \subitem {start}, 19
+  \item {saveEepromFile}
+    \subitem {ctapi.c}, 53
+    \subitem {ctapi.h}, 58
+  \item {selected}
+    \subitem {fs.c}, 62
+    \subitem {fs.h}, 67
+  \item {sendbytet0}
+    \subitem {hal.c}, 79
+  \item {SERNUM\_\-ADDR}
+    \subitem {config.h}, 48
+  \item {SERNUM\_\-LEN}
+    \subitem {config.h}, 48
+  \item {size}
+    \subitem {s\_\-finfo}, 17
+    \subitem {s\_\-fstream}, 19
+  \item {skipjack.c}, 88
+  \item {skipjack.h}, 88
+    \subitem {SKIPJACK\_\-BLOCK\_\-LEN}, 89
+    \subitem {skipjack\_\-dec}, 89
+    \subitem {skipjack\_\-enc}, 89
+    \subitem {SKIPJACK\_\-KEY\_\-LEN}, 89
+  \item {SKIPJACK\_\-BLOCK\_\-LEN}
+    \subitem {skipjack.h}, 89
+  \item {skipjack\_\-dec}
+    \subitem {skipjack.h}, 89
+  \item {skipjack\_\-enc}
+    \subitem {skipjack.h}, 89
+  \item {SKIPJACK\_\-KEY\_\-LEN}
+    \subitem {skipjack.h}, 89
+  \item {start}
+    \subitem {s\_\-fstream}, 19
+  \item {SW}
+    \subitem {sw.h}, 92
+  \item {sw}
+    \subitem {sw.c}, 90
+    \subitem {sw.h}, 93
+  \item {sw.c}, 90
+    \subitem {sw}, 90
+    \subitem {sw\_\-set}, 90
+  \item {sw.h}, 91
+    \subitem {SW}, 92
+    \subitem {sw}, 93
+    \subitem {SW\_\-ACCESS\_\-DENIED}, 92
+    \subitem {SW\_\-AUTH\_\-BLOCKED}, 92
+    \subitem {SW\_\-AVAILABLE}, 92
+    \subitem {SW\_\-CHANGE\_\-MEMORY\_\-ERROR}, 92
+    \subitem {SW\_\-COUNTER}, 92
+    \subitem {SW\_\-EOD}, 92
+    \subitem {SW\_\-FILE\_\-EXISTS}, 92
+    \subitem {SW\_\-FILE\_\-FILLED}, 92
+    \subitem {SW\_\-FILE\_\-NOT\_\-FOUND}, 92
+    \subitem {SW\_\-FILE\_\-TO\_\-SHORT}, 92
+    \subitem {SW\_\-INCOMPATIBLE\_\-FILE}, 92
+    \subitem {SW\_\-LC\_\-INCONSISTEND\_\-WITH\_\-P1P2}, 92
+    \subitem {SW\_\-NOT\_\-ALLOWED}, 92
+    \subitem {SW\_\-NOT\_\-SUPPORTED}, 92
+    \subitem {SW\_\-OK}, 92
+    \subitem {SW\_\-OTHER}, 92
+    \subitem {SW\_\-REF\_\-DATA\_\-INVALID}, 92
+    \subitem {SW\_\-REF\_\-DATA\_\-NOT\_\-FOUND}, 92
+    \subitem {sw\_\-set}, 93
+    \subitem {SW\_\-VERIFCATION\_\-FAILED}, 92
+    \subitem {SW\_\-WRONG\_\-CLA}, 92
+    \subitem {SW\_\-WRONG\_\-CONDITION}, 92
+    \subitem {SW\_\-WRONG\_\-DATA}, 92
+    \subitem {SW\_\-WRONG\_\-INS}, 92
+    \subitem {SW\_\-WRONG\_\-LE}, 92
+    \subitem {SW\_\-WRONG\_\-LEN}, 93
+    \subitem {SW\_\-WRONG\_\-P1P2}, 93
+    \subitem {SW\_\-WRONG\_\-REFERENCE}, 93
+  \item {SW\_\-ACCESS\_\-DENIED}
+    \subitem {sw.h}, 92
+  \item {SW\_\-AUTH\_\-BLOCKED}
+    \subitem {sw.h}, 92
+  \item {SW\_\-AVAILABLE}
+    \subitem {sw.h}, 92
+  \item {SW\_\-CHANGE\_\-MEMORY\_\-ERROR}
+    \subitem {sw.h}, 92
+  \item {SW\_\-COUNTER}
+    \subitem {sw.h}, 92
+  \item {SW\_\-EOD}
+    \subitem {sw.h}, 92
+  \item {SW\_\-FILE\_\-EXISTS}
+    \subitem {sw.h}, 92
+  \item {SW\_\-FILE\_\-FILLED}
+    \subitem {sw.h}, 92
+  \item {SW\_\-FILE\_\-NOT\_\-FOUND}
+    \subitem {sw.h}, 92
+  \item {SW\_\-FILE\_\-TO\_\-SHORT}
+    \subitem {sw.h}, 92
+  \item {SW\_\-INCOMPATIBLE\_\-FILE}
+    \subitem {sw.h}, 92
+  \item {SW\_\-LC\_\-INCONSISTEND\_\-WITH\_\-P1P2}
+    \subitem {sw.h}, 92
+  \item {SW\_\-NOT\_\-ALLOWED}
+    \subitem {sw.h}, 92
+  \item {SW\_\-NOT\_\-SUPPORTED}
+    \subitem {sw.h}, 92
+  \item {SW\_\-OK}
+    \subitem {sw.h}, 92
+  \item {SW\_\-OTHER}
+    \subitem {sw.h}, 92
+  \item {SW\_\-REF\_\-DATA\_\-INVALID}
+    \subitem {sw.h}, 92
+  \item {SW\_\-REF\_\-DATA\_\-NOT\_\-FOUND}
+    \subitem {sw.h}, 92
+  \item {sw\_\-set}
+    \subitem {sw.c}, 90
+    \subitem {sw.h}, 93
+  \item {SW\_\-VERIFCATION\_\-FAILED}
+    \subitem {sw.h}, 92
+  \item {SW\_\-WRONG\_\-CLA}
+    \subitem {sw.h}, 92
+  \item {SW\_\-WRONG\_\-CONDITION}
+    \subitem {sw.h}, 92
+  \item {SW\_\-WRONG\_\-DATA}
+    \subitem {sw.h}, 92
+  \item {SW\_\-WRONG\_\-INS}
+    \subitem {sw.h}, 92
+  \item {SW\_\-WRONG\_\-LE}
+    \subitem {sw.h}, 92
+  \item {SW\_\-WRONG\_\-LEN}
+    \subitem {sw.h}, 93
+  \item {SW\_\-WRONG\_\-P1P2}
+    \subitem {sw.h}, 93
+  \item {SW\_\-WRONG\_\-REFERENCE}
+    \subitem {sw.h}, 93
+  \item {swap\_\-ul}
+    \subitem {tools.h}, 103
+  \item {swap\_\-us}
+    \subitem {tools.h}, 103
+
+  \indexspace
+
+  \item {t0.c}, 93
+    \subitem {header}, 95
+    \subitem {t0\_\-recBlock}, 94
+    \subitem {t0\_\-sendAck}, 94
+    \subitem {t0\_\-sendCAck}, 94
+    \subitem {t0\_\-sendSw}, 94
+    \subitem {t0\_\-sendWord}, 95
+    \subitem {t0\_\-testP1P2}, 95
+    \subitem {t0\_\-testP3}, 95
+  \item {t0.h}, 96
+    \subitem {header}, 98
+    \subitem {t0\_\-recBlock}, 97
+    \subitem {t0\_\-sendAck}, 97
+    \subitem {t0\_\-sendCAck}, 97
+    \subitem {t0\_\-sendSw}, 97
+    \subitem {t0\_\-sendWord}, 97
+    \subitem {t0\_\-testP1P2}, 97
+    \subitem {t0\_\-testP3}, 98
+  \item {t0\_\-recBlock}
+    \subitem {t0.c}, 94
+    \subitem {t0.h}, 97
+  \item {t0\_\-sendAck}
+    \subitem {t0.c}, 94
+    \subitem {t0.h}, 97
+  \item {t0\_\-sendCAck}
+    \subitem {t0.c}, 94
+    \subitem {t0.h}, 97
+  \item {t0\_\-sendSw}
+    \subitem {t0.c}, 94
+    \subitem {t0.h}, 97
+  \item {t0\_\-sendWord}
+    \subitem {t0.c}, 95
+    \subitem {t0.h}, 97
+  \item {t0\_\-testP1P2}
+    \subitem {t0.c}, 95
+    \subitem {t0.h}, 97
+  \item {t0\_\-testP3}
+    \subitem {t0.c}, 95
+    \subitem {t0.h}, 98
+  \item {ta\_\-commit}
+    \subitem {transaction.c}, 104
+    \subitem {transaction.h}, 106
+  \item {ta\_\-rollback}
+    \subitem {transaction.h}, 106
+  \item {ta\_\-setdata}
+    \subitem {transaction.c}, 104
+    \subitem {transaction.h}, 106
+  \item {tea.c}, 98
+    \subitem {hton\_\-ul}, 99
+    \subitem {tea\_\-dec}, 99
+    \subitem {tea\_\-enc}, 99
+    \subitem {tea\_\-func}, 99
+    \subitem {TEA\_\-SMALL}, 99
+  \item {tea.h}, 100
+    \subitem {DELTA}, 100
+    \subitem {ROUNDS}, 100
+    \subitem {TEA\_\-BLOCK\_\-LEN}, 100
+    \subitem {tea\_\-dec}, 101
+    \subitem {tea\_\-enc}, 101
+    \subitem {TEA\_\-KEY\_\-LEN}, 101
+  \item {TEA\_\-BLOCK\_\-LEN}
+    \subitem {tea.h}, 100
+  \item {tea\_\-dec}
+    \subitem {tea.c}, 99
+    \subitem {tea.h}, 101
+  \item {tea\_\-enc}
+    \subitem {tea.c}, 99
+    \subitem {tea.h}, 101
+  \item {tea\_\-func}
+    \subitem {tea.c}, 99
+  \item {TEA\_\-KEY\_\-LEN}
+    \subitem {tea.h}, 101
+  \item {TEA\_\-SMALL}
+    \subitem {tea.c}, 99
+  \item {tools.c}, 101
+  \item {tools.h}, 102
+    \subitem {hton\_\-ul}, 102, 103
+    \subitem {hton\_\-us}, 102, 103
+    \subitem {max}, 102
+    \subitem {min}, 102
+    \subitem {swap\_\-ul}, 103
+    \subitem {swap\_\-us}, 103
+  \item {TRANSAC\_\-DATA\_\-ADDR}
+    \subitem {config.h}, 48
+  \item {TRANSAC\_\-DATA\_\-LEN}
+    \subitem {config.h}, 48
+  \item {TRANSAC\_\-STATE\_\-ADDR}
+    \subitem {config.h}, 49
+  \item {TRANSAC\_\-STATE\_\-CLEAN}
+    \subitem {transaction.h}, 106
+  \item {TRANSAC\_\-STATE\_\-DATA}
+    \subitem {transaction.h}, 106
+  \item {transaction.c}, 103
+    \subitem {ta\_\-commit}, 104
+    \subitem {ta\_\-setdata}, 104
+  \item {transaction.h}, 105
+    \subitem {ta\_\-commit}, 106
+    \subitem {ta\_\-rollback}, 106
+    \subitem {ta\_\-setdata}, 106
+    \subitem {TRANSAC\_\-STATE\_\-CLEAN}, 106
+    \subitem {TRANSAC\_\-STATE\_\-DATA}, 106
+  \item {TRUE}
+    \subitem {types.h}, 108
+  \item {type}
+    \subitem {s\_\-finfo}, 18
+  \item {types.h}, 107
+    \subitem {bool}, 108
+    \subitem {CODE}, 108
+    \subitem {FALSE}, 108
+    \subitem {iu16}, 108
+    \subitem {iu32}, 108
+    \subitem {iu8}, 108
+    \subitem {PRG\_\-RDB}, 108
+    \subitem {TRUE}, 108
+
+  \indexspace
+
+  \item {xeread}
+    \subitem {hal.c}, 79
+  \item {xewrt}
+    \subitem {hal.c}, 79
+
+\end{theindex}
