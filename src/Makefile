@@ -1,6 +1,7 @@
 
 #
 # ATMOS Makefile
+# C 2008 Davor Ocelic, docelic@spinlocksolutions.com
 #
 
 # Your programmer device (for uisp -dprog=)

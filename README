@@ -1,5 +1,7 @@
 
-Compile:
+ATMOS README
+
+Compiling:
 
  cd src
  editor config.h   (enable/disable build options)
@@ -14,6 +16,23 @@ Loading onto smartcard:
  sosse.bin or .hex  -> Flash
  eedata.bin or .hex -> internal EEPROM
 
+ The Makefile already supports the following targets (which can also
+ be called individually):
+
+ make write  (write-eeprom, write-flash)
+ make verify (verify-eeprom, verify-flash)
+
+ The writing is done using 'uisp' software, so make sure you have it
+ installed. Also make sure you've edited Makefile and set BOARD= to
+ a proper value (see 'man uisp' for a list).
+
+Installing smart card reader software:
+ apt-get install libtowitoko2 libtowitoko-dev
+ apt-get install pcscd
+
+------------------------------------------------------------------------
+
+ATMOS is based on 2003 SOSSE by Matthias Bruestle <m@mbsks.franken.de>:
 
 SOSSE is documented inside the source. Printable/browsable documentation
 is generated with doxygen. A "make" in the top level directory will
