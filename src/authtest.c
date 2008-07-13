@@ -49,12 +49,15 @@ int main( int argc, char *argv[] )
 	hal_init();
 #endif
 
+#if CONF_WITH_TRANSACTIONS==1
 	printf( "ta_commit()\n" );
 	if( !ta_commit() ) goto reterror;
+#endif
 
 	printf( "fs_init()\n" );
 	if( !fs_init() ) goto reterror;
 
+#if (CONF_WITH_PINAUTH==1) || (CONF_WITH_KEYAUTH==1)
 	printf( "auth_init()\n" );
 	if( !auth_init() ) goto reterror;
 
@@ -103,6 +106,7 @@ int main( int argc, char *argv[] )
 
 	printf( "auth_setPin( PIN_TYPE_PIN, \"56781234\", 8 )\n" );
 	if( !auth_setPin( PIN_TYPE_PIN, "56781234", 8 ) ) goto reterror;
+#endif
 
 	printf( "hal_rnd_getBlock( buf )\n" );
 	if( !hal_rnd_getBlock( buf ) ) goto reterror;
@@ -120,6 +124,7 @@ int main( int argc, char *argv[] )
 	}
 	printf( "\n" );
 
+#if (CONF_WITH_PINAUTH==1) || (CONF_WITH_KEYAUTH==1)
 	printf( "auth_verifyPin( PIN_TYPE_PUK, \"12345678\", 8 )\n" );
 	if( !auth_verifyPin( PIN_TYPE_PUK, "12345678", 8 ) ) goto reterror;
 	printf( "authstate=%.2X\n", authstate );
@@ -138,6 +143,7 @@ int main( int argc, char *argv[] )
 	if( !auth_verifyPin( PIN_TYPE_EXT, "\x01\x23\x45\x67\x89\xAB\xCD\xEF\x01\x23\x45\x67\x89\xAB\xCD\xEF", 16 ) ) goto reterror;
 	printf( "authstate=%.2X\n", authstate );
 	printf( "sw=%.4X\n", sw );
+#endif
 
 	ret = 0;
 	printf( "Run OK.\n" );

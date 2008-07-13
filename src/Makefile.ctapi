@@ -2,7 +2,7 @@ CC=gcc
 AS=as
 OBJCOPY=objcopy
 
-CFLAGS=-Wall -I. -O6 -g -fpic -DCTAPI
+CFLAGS=-Wall -I. -O6 -g -fpic -DCTAPI -I /tmp/scez-ng
 
 SRC=\
 	auth.c \

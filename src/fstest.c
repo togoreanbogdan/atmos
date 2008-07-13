@@ -29,6 +29,7 @@
 #include <fs.h>
 #include <fstream.h>
 #include <hal.h>
+#include <string.h>
 
 extern iu16 fsstart, fssize;
 extern iu8 authstate;
@@ -128,6 +129,7 @@ int main( int argc, char *argv[] )
 	ef.type=FS_TYPE_DF;
 	if( !fs_create( &ef ) ) goto reterror;
 
+#if (CONF_WITH_PINAUTH==1) || (CONF_WITH_KEYAUTH==1)
 	authstate=0;
 	printf( "auth_checkAc(AUTH_AC_ALW)\n" );
 	if( !auth_checkAc(AUTH_AC_ALW) ) goto reterror;
@@ -143,6 +145,7 @@ int main( int argc, char *argv[] )
 	authstate=0;
 	printf( "auth_checkAc(AUTH_AC_ADM)\n" );
 	if( auth_checkAc(AUTH_AC_ADM) ) goto reterror;
+#endif
 
 	printf( "fs_getData( &fp, &fs, &fi )\n" );
 	fp.df=fp.ef=0xFFFF;

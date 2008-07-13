@@ -1,6 +1,10 @@
 /* $Id: a3a8-orig.c,v 1.1 2003/03/30 19:39:51 m Exp $ */
 
 /* An implementation of the GSM A3A8 algorithm.  (Specifically, COMP128.) 
+ * (It's the formerly secret authentication and voice privacy key 
+ * generation algorithm used in GSM).
+ *
+ * This is original code as can be found on: www.scard.org/gsm/a3a8.txt
  */
 
 /* Copyright 1998, Marc Briceno, Ian Goldberg, and David Wagner.

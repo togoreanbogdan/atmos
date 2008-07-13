@@ -1,5 +1,22 @@
 
-ATMOS README
+                  ******  ******  ***   **     ****      **** 
+                 **   **    **    ** * * **  ********  ***
+                 ** * **    **    **  *  **  ********      ***
+                 **   **    **    **     **    ****      ****
+
+            ** Free Operating System for Atmel-based Smart Cards ** 
+
+                 http://techpubs.spinlocksolutions.com/atmos/
+                 Davor Ocelic, docelic@spinlocksolutions.com
+
+Table of Contents:
+
+1) Compiling Atmos for target chip and smart card
+2) Loading files onto smart card using programmer hardware
+3) Smart Card reader setup
+4) Compiling programs for emulation on PC
+5) Compiling CT-API driver emulating card in a terminal
+
 
 Compiling:
 
@@ -11,24 +28,74 @@ Compiling:
 
  make              (result are sosse.{bin,hex} and eedata.{bin,hex})
 
+
 Loading onto smartcard:
-
- sosse.bin or .hex  -> Flash
- eedata.bin or .hex -> internal EEPROM
-
- The Makefile already supports the following targets (which can also
- be called individually):
-
- make write  (write-eeprom, write-flash)
- make verify (verify-eeprom, verify-flash)
 
  The writing is done using 'uisp' software, so make sure you have it
  installed. Also make sure you've edited Makefile and set BOARD= to
- a proper value (see 'man uisp' for a list).
+ a proper value (see 'man uisp' for a list of valid -dprog options).
+
+ Files go to:
+   sosse.hex or .bin  -> Flash
+   eedata.hex or .bin -> internal EEPROM
+
+ The Makefile already supports the following targets for loading
+ (which can also be called individually):
+
+  make write  (= write-eeprom write-flash)
+  make verify (= verify-eeprom verify-flash)
+
 
 Installing smart card reader software:
  apt-get install libtowitoko2 libtowitoko-dev
  apt-get install pcscd
+
+ After the above, your reader should blink or give other indication when
+ inserting the card; also the syslog should get messages like this (unless
+ they're disabled in your pcscd or syslog configuration):
+
+  Jul 13 15:24:53 ubuntu2 pcscd:
+    eventhandler.c:438:EHStatusHandlerThread()
+      Card inserted into Towitoko Chipdrive USB 00 00
+
+  Jul 13 15:24:53 ubuntu2 pcscd:
+    eventhandler.c:449:EHStatusHandlerThread()
+      Card ATR: (NULL)
+  
+  Jul 13 15:24:48 ubuntu2 pcscd:
+    eventhandler.c:365:EHStatusHandlerThread()
+      Card Removed From Towitoko Chipdrive USB 00 00
+  
+
+Compiling programs for emulation on PC
+
+ To ease debugging, you can compile the package for the usual
+ desktop computer (no any smart card hardware necessary).
+
+ First, obtain libdes library from
+
+ Then, obtain keeper library from
+
+ Then install texinfo
+
+ Then compile scez
+ Then run PATH="$PATH:/sbin" ldconfig -n /usr/local/lib
+ Then run make install
+
+ Add -I/tmp/scez-ng to cflags
+
+ Result are sosse-emu, fstest, authtest
+ (make -f Makefile.emu clean)
+
+ First install SCEZ:
+   Info: http://www.freshmeat.net/projects/scez
+
+
+Compiling CT-API driver emulating card in a terminal
+
+ Add -I/tmp/scez-ng to cflags
+
+ make -f Makefile.ctapi
 
 ------------------------------------------------------------------------
 

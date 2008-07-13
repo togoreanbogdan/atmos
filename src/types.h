@@ -31,7 +31,7 @@
 
 #ifdef __AVR__
 #include <avr/pgmspace.h>
-//! Variable is in code space. Be carfull with pointers to this space.
+//! Variable is in code space. Be careful with pointers to this space.
 #define	CODE	__ATTR_PROGMEM__
 #else
 #define PRG_RDB(x)	(*((iu8*)(x)))
