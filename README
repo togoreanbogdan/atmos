@@ -1,3 +1,20 @@
+
+Compile:
+
+ cd src
+ editor config.h   (enable/disable build options)
+ editor Makefile   ($ARCH)
+ editor eedata.S   (can change EEPROM data loaded on card, such as
+                   serial number, rng seed, keys or file permissions)
+
+ make              (result are sosse.{bin,hex} and eedata.{bin,hex})
+
+Loading onto smartcard:
+
+ sosse.bin or .hex  -> Flash
+ eedata.bin or .hex -> internal EEPROM
+
+
 SOSSE is documented inside the source. Printable/browsable documentation
 is generated with doxygen. A "make" in the top level directory will
 also build the documentation. If you do not have doxygen installed and

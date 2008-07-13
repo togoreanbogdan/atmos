@@ -1,14 +1,19 @@
-# Valid parameters for mcu:
-#   at90s2323
-#   at90s8515
-#   at90s8535
-#   atmega161
 
+#
+# ATMOS Makefile
+#
+
+# Your programmer device (for uisp -dprog=)
+BOARD=stk500
+
+# Your smartcard chip (both for chip-specific
+# compilation and for uisp -dpart=)
 #ARCH=at90s2323
 ARCH=at90s8515
 #ARCH=at90s8535
 #ARCH=atmega161
 
+# The usual compile options
 CC=avr-gcc -mmcu=$(ARCH)
 AS=avr-as
 OBJCOPY=avr-objcopy
@@ -90,4 +95,32 @@ clean-sosse:
 
 clean-eedata:
 	rm -rf eedata eedata.bin eedata.hex eedata.lst
+
+#
+# Writing and verifying data
+#
+.PHONY: write write-eeprom write-flash verify verify-eeprom verify-flash
+
+write: write-eeprom write-flash
+
+verify: verify-eeprom verify-flash
+
+write-eeprom:
+	uisp -dprog=$(BOARD) -dpart=$(ARCH) \
+		--erase --segment=eeprom
+	sleep 2
+	uisp -dprog=$(BOARD) -dpart=$(ARCH) \
+		--upload --segment=eeprom if=eedata.hex
+verify-eeprom:
+	uisp -dprog=$(BOARD) -dpart=$(ARCH) \
+		--verify --segment=eeprom if=eedata.hex
+write-flash:
+	uisp -dprog=$(BOARD) -dpart=$(ARCH) \
+		--erase --segment=flash
+	sleep 2
+	uisp -dprog=$(BOARD) -dpart=$(ARCH) \
+		--upload --segment=flash if=sosse.hex
+verify-flash:
+	uisp -dprog=$(BOARD) -dpart=$(ARCH) \
+		--verify --segment=flash if=sosse.hex
 
