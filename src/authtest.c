@@ -106,6 +106,11 @@ int main( int argc, char *argv[] )
 
 	printf( "auth_setPin( PIN_TYPE_PIN, \"56781234\", 8 )\n" );
 	if( !auth_setPin( PIN_TYPE_PIN, "56781234", 8 ) ) goto reterror;
+#else
+ printf("Skipping disabled auth_init()\n" );
+ printf("Skipping disabled auth_verifyPin( PIN_TYPE_PIN, \"12941234\", 8 )\n");
+ printf("Skipping disabled auth_verifyPin( PIN_TYPE_PIN, \"1234123\", 7 )\n" );
+ printf("Skipping disabled auth_setPin( PIN_TYPE_PIN, \"56781234\", 8 )\n" );
 #endif
 
 	printf( "hal_rnd_getBlock( buf )\n" );
@@ -143,6 +148,10 @@ int main( int argc, char *argv[] )
 	if( !auth_verifyPin( PIN_TYPE_EXT, "\x01\x23\x45\x67\x89\xAB\xCD\xEF\x01\x23\x45\x67\x89\xAB\xCD\xEF", 16 ) ) goto reterror;
 	printf( "authstate=%.2X\n", authstate );
 	printf( "sw=%.4X\n", sw );
+#else
+ printf("Skipping disabled auth_verifyPin( PIN_TYPE_PUK, \"12345678\", 8 )\n");
+ printf("Skipping disabled auth_createVerifyCryptogram( ..., 8, FALSE, 0 )\n");
+ printf( "Skipping disabled auth_verifyPin( PIN_TYPE_KEY, \"...\", 8 )\n" );
 #endif
 
 	ret = 0;

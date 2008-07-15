@@ -145,6 +145,10 @@ int main( int argc, char *argv[] )
 	authstate=0;
 	printf( "auth_checkAc(AUTH_AC_ADM)\n" );
 	if( auth_checkAc(AUTH_AC_ADM) ) goto reterror;
+#else
+	printf( "Skipping disabled auth_checkAc(AUTH_AC_ALW)\n" );
+	printf( "Skipping disabled auth_checkAc(AUTH_AC_PIN)\n" );
+	printf( "Skipping disabled auth_checkAc(AUTH_AC_ADM)\n" );
 #endif
 
 	printf( "fs_getData( &fp, &fs, &fi )\n" );

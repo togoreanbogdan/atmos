@@ -90,6 +90,8 @@ statistics: sloc calldepth uncalled
 
 clean: clean-sosse clean-eedata
 	rm -rf core
+	make -f Makefile.emu clean
+	make -f Makefile.ctapi clean
 
 clean-sosse:
 	rm -rf $(OBJ) sosse sosse.bin sosse.hex sosse.map

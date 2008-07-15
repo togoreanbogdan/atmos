@@ -14,8 +14,9 @@ Table of Contents:
 1) Compiling Atmos for target chip and smart card
 2) Loading files onto smart card using programmer hardware
 3) Smart Card reader setup
-4) Compiling programs for emulation on PC
-5) Compiling CT-API driver emulating card in a terminal
+4) Alternative build modes
+5) Compiling programs for emulation on PC
+6) Compiling CT-API driver emulating card in a terminal
 
 
 Compiling:
@@ -66,6 +67,22 @@ Installing smart card reader software:
     eventhandler.c:365:EHStatusHandlerThread()
       Card Removed From Towitoko Chipdrive USB 00 00
   
+
+Alternative build modes
+
+ATMOS can be compiled for the AVR target (standard makefile),
+as a binary running on your workstation (Makefile.emu) and
+as a CT-API driver implementing a virtual card in a virtual terminal.
+
+To invoke builds from other types, you need to specify 'make -f MAKEFILE',
+and you need to pay attention to always clean the build by invoking
+'make -f MAKEFILE clean' before switching targets, or you will get
+errors about wrong binary types etc.
+
+To ease this process, the default Makefile's clean action calls all
+three cleans (for the standard build, emulator and CT-API). Therefore,
+just 'make clean' will do what you need.
+
 
 Compiling programs for emulation on PC
 
