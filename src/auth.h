@@ -59,6 +59,7 @@
 #define PIN_TYPE_PUK	1	//!< PIN type: PUK.
 #define PIN_TYPE_EXT	2	//!< PIN type: Key for external authentication.
 #define PIN_TYPE_INT	3	//!< PIN type: Key for internal authentication.
+#define PIN_TYPE_KEY	4	//!< PIN type: Key. (XXX just to solve compile problem)
 
 #define KEY_MAX_RETRIES 10	//!< Default max. retries for keys.
 

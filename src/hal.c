@@ -77,7 +77,7 @@ extern void xewrt( iu16 addr, iu8 b );
 bool hal_eeprom_read( iu8 *dst, iu16 src, iu8 len )
 {
 	while( len-- ) {
-		if( src<EEPROM_SIZE ) {
+		if( src<INT_EEPROM_SIZE ) {
 			/* Internal EEPROM */
 			while( !eeprom_is_ready() ) {}
 
@@ -88,7 +88,7 @@ bool hal_eeprom_read( iu8 *dst, iu16 src, iu8 len )
 			/* Subtract the size of the internal EEPROM to get the
 			   location in external EEPROM.
 			*/
-			*dst++ = xeread( src-EEPROM_SIZE );
+			*dst++ = xeread( src-INT_EEPROM_SIZE );
 			src++;
 #endif /* CONF_WITH_I2CEEPROM==1 */
 		}
@@ -101,7 +101,7 @@ bool hal_eeprom_read( iu8 *dst, iu16 src, iu8 len )
 bool hal_eeprom_write( iu16 dst, iu8 *src, iu8 len )
 {
 	while( len-- ) {
-		if( dst<EEPROM_SIZE ) {
+		if( dst<INT_EEPROM_SIZE ) {
 			/* Internal EEPROM */
 			while( !eeprom_is_ready() ) {}
 
@@ -114,7 +114,7 @@ bool hal_eeprom_write( iu16 dst, iu8 *src, iu8 len )
 			/* Subtract the size of the internal EEPROM to get the
 			   location in external EEPROM.
 			*/
-			xewrt( dst-EEPROM_SIZE, *src++ );
+			xewrt( dst-INT_EEPROM_SIZE, *src++ );
 			dst++;
 #endif /* CONF_WITH_I2CEEPROM==1 */
 		}
@@ -237,7 +237,7 @@ log_enable=FALSE;
 #endif
 
 //#if 0
-/* This is left here in case more stringend memory limitations are present. */
+/* This is left here in case more stringent memory limitations are present. */
 /* We don't need to swap here bytes, because we just need random data. */
 bool hal_rnd_getBlock( iu8 *dst )
 {

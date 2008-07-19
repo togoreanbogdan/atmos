@@ -61,7 +61,9 @@ iu8 authstate;
 bool auth_init( void )
 {
 	authstate=0;
+#if CONF_WITH_KEYAUTH==1
 	challvalidity=0;
+#endif
 
 	return TRUE;
 }
@@ -314,7 +316,9 @@ bool auth_getChallenge( iu8 *dst, iu8 rndlen )
 
 	memcpy( challenge, dst, CRYPT_BLOCK_LEN );
 
+#if CONF_WITH_KEYAUTH==1
 	challvalidity=2;
+#endif
 
 	return TRUE;
 }
@@ -338,10 +342,12 @@ bool auth_createVerifyCryptogram( iu8 *cry, iu8 crylen, bool create,
 		if( !auth_getCheckPinLen( PIN_TYPE_INT, ADM_KEY_LEN, &addr, &len,
 			&rcaddr, &maxret ) ) return FALSE;
 	} else {
+#if CONF_WITH_KEYAUTH==1
 		if( !challvalidity ) {
 			sw_set( SW_WRONG_CONDITION );
 			return FALSE;
 		}
+#endif
 
 		authstate&=~AUTH_FLAG_KEY;
 
