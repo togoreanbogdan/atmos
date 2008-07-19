@@ -131,14 +131,16 @@
 
 /* CONF_WITH_PINAUTH is required for CONF_WITH_PINCMDS */
 #if (CONF_WITH_PINCMDS==1) && (CONF_WITH_PINAUTH!=1)
+#warning CONF_WITH_PINCMDS implies CONF_WITH_PINAUTH
 #undef CONF_WITH_PINAUTH
 #define CONF_WITH_PINAUTH		1
 #endif
 
-/* CONF_WITH_PINAUTH is required for CONF_WITH_PINCMDS */
-#if (CONF_WITH_PINCMDS==1) && (CONF_WITH_PINAUTH!=1)
-#undef CONF_WITH_PINAUTH
-#define CONF_WITH_PINAUTH		1
+/* CONF_WITH_KEYAUTH is required for CONF_WITH_KEYCMDS */
+#if (CONF_WITH_KEYCMDS==1) && (CONF_WITH_KEYAUTH!=1)
+#warning CONF_WITH_KEYCMDS implies CONF_WITH_KEYAUTH
+#undef CONF_WITH_KEYAUTH
+#define CONF_WITH_KEYAUTH		1
 #endif
 
 /* If we do not have a file system, we dom't need CREATE and DELETE */
@@ -149,12 +151,6 @@
 #if (CONF_WITH_FILESYSTEM!=1) && (CONF_WITH_CREATECMD==1)
 #undef CONF_WITH_CREATECMD
 #define CONF_WITH_CREATECMD		0
-#endif
-
-/* CONF_WITH_KEYAUTH is required for CONF_WITH_KEYCMDS */
-#if (CONF_WITH_KEYCMDS==1) && (CONF_WITH_KEYAUTH!=1)
-#undef CONF_WITH_KEYAUTH
-#define CONF_WITH_KEYAUTH		1
 #endif
 
 /* EEPROM addresses */

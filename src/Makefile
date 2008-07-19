@@ -6,6 +6,7 @@
 
 # Your programmer device (for uisp -dprog=)
 BOARD=stk500
+PORT=/dev/ttyS0
 
 # Your smartcard chip (both for chip-specific
 # compilation and for uisp -dpart=)
@@ -109,21 +110,21 @@ write: write-eeprom write-flash
 verify: verify-eeprom verify-flash
 
 write-eeprom:
-	uisp -dprog=$(BOARD) -dpart=$(ARCH) \
+	uisp -dprog=$(BOARD) -dpart=$(ARCH) -dserial=$(PORT) \
 		--erase --segment=eeprom
 	sleep 2
-	uisp -dprog=$(BOARD) -dpart=$(ARCH) \
+	uisp -dprog=$(BOARD) -dpart=$(ARCH) -dserial=$(PORT) \
 		--upload --segment=eeprom if=eedata.hex
 verify-eeprom:
-	uisp -dprog=$(BOARD) -dpart=$(ARCH) \
+	uisp -dprog=$(BOARD) -dpart=$(ARCH) -dserial=$(PORT) \
 		--verify --segment=eeprom if=eedata.hex
 write-flash:
-	uisp -dprog=$(BOARD) -dpart=$(ARCH) \
+	uisp -dprog=$(BOARD) -dpart=$(ARCH) -dserial=$(PORT) \
 		--erase --segment=flash
 	sleep 2
-	uisp -dprog=$(BOARD) -dpart=$(ARCH) \
+	uisp -dprog=$(BOARD) -dpart=$(ARCH) -dserial=$(PORT) \
 		--upload --segment=flash if=sosse.hex
 verify-flash:
-	uisp -dprog=$(BOARD) -dpart=$(ARCH) \
+	uisp -dprog=$(BOARD) -dpart=$(ARCH) -dserial=$(PORT) \
 		--verify --segment=flash if=sosse.hex
 
