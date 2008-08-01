@@ -57,9 +57,9 @@ void hal_init( void )
 #if CONF_WITH_TRNG==1
 	/* Random number gathering */
 	randbytes=0;
-	outp( 0, TIMSK );	/* Disable timer interrupts */
-	outp( 0, TCNT0 );	/* Set timer 0 value */
-	outp( 1, TCCR0 );	/* Start timer 0 */
+	(TIMSK) = (0);	/* Disable timer interrupts */
+	(TCNT0) = (0);	/* Set timer 0 value */
+	(TCCR0) = (1);	/* Start timer 0 */
 #endif
 
 	return;
@@ -144,7 +144,7 @@ iu8 hal_io_recByteT0( void )
 #if CONF_WITH_TRNG==1
 bool hal_rnd_addEntropy( void )
 {
-	randdata.c[(randbytes++)&0x07] = inp( TCNT0 );	/* Read timer 0 */
+	randdata.c[(randbytes++)&0x07] = (TCNT0);	/* Read timer 0 */
 
 	if( randbytes>7 ) {
 		struct {
