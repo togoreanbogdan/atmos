@@ -4,19 +4,26 @@
 # C 2008 Davor Ocelic, docelic@spinlocksolutions.com
 #
 
-# Your programmer device (for uisp -dprog=)
-BOARD=stk500
+# Your programmer device (as required by programmer
+# software)
+PROG=stk500v1
 PORT=/dev/ttyS0
 
-# Your smartcard chip (both for chip-specific
-# compilation and for uisp -dpart=)
+# Smartcard chip name as recognized by avr libc
 #ARCH=at90s2323
-ARCH=at90s8515
+#ARCH=at90s8515
 #ARCH=at90s8535
 #ARCH=atmega161
+ARCH=atmega163
+
+# Size of the external EEPROM on the smartcard. Atmel's sizes are
+# usually in bits (i.e. AT90(256) and 24C256 are both 32 KByte).
+# 00: none, 01: 16KB, 02: 32KB, 03: 64KB,
+# 04: 128KB, 05: 256KB, FF: unspec.,
+EXT_EEPROM_SIZE=0x02
 
 # The usual compile options
-CC=avr-gcc -mmcu=$(ARCH)
+CC=avr-gcc -mmcu=$(ARCH) -DEXT_EEPROM_SIZE=$(EXT_EEPROM_SIZE)
 AS=avr-as
 OBJCOPY=avr-objcopy
 SIZE=avr-size
@@ -25,6 +32,7 @@ CFLAGS=-Wall -I. -Os -mcall-prologues
 ASFLAGS=-Wall -I.
 
 CSRC= \
+	aes.c \
 	auth.c \
 	commands.c \
 	fs.c \
@@ -49,10 +57,10 @@ OBJ=$(CSRC:.c=.o) $(SSRC:.S=.o)
 SLOCFILES = auth.c auth.h commands.c commands.h config.h eepromi2c.S sw.c \
 	sw.h fs.c fs.h fstream.c fstream.h hal.c hal.h io.S main.c main.h t0.c \
 	t0.h tea-$(ARCH).S tea.h tools.c tools.h transaction.c transaction.h \
-	types.h newdes-sk.c newdes-sk.h skipjack.c skipjack.h
+	types.h newdes-sk.c newdes-sk.h skipjack.c skipjack.h aes.c aes.h
 
 CALLTREEFILES = auth.c commands.c sw.c fs.c fstream.c hal.c main.c t0.c \
-	tea.c tools.c transaction.c newdes-sk.c skipjack.c
+	tea.c tools.c transaction.c newdes-sk.c skipjack.c aes.c
 
 all: sosse eedata
 
@@ -110,21 +118,17 @@ write: write-eeprom write-flash
 verify: verify-eeprom verify-flash
 
 write-eeprom:
-	uisp -dprog=$(BOARD) -dpart=$(ARCH) -dserial=$(PORT) \
-		--erase --segment=eeprom
-	sleep 2
-	uisp -dprog=$(BOARD) -dpart=$(ARCH) -dserial=$(PORT) \
-		--upload --segment=eeprom if=eedata.hex
+	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -U eeprom:w:eedata.hex:i
+
 verify-eeprom:
-	uisp -dprog=$(BOARD) -dpart=$(ARCH) -dserial=$(PORT) \
-		--verify --segment=eeprom if=eedata.hex
+	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -U eeprom:v:eedata.hex:i
+
 write-flash:
-	uisp -dprog=$(BOARD) -dpart=$(ARCH) -dserial=$(PORT) \
-		--erase --segment=flash
-	sleep 2
-	uisp -dprog=$(BOARD) -dpart=$(ARCH) -dserial=$(PORT) \
-		--upload --segment=flash if=sosse.hex
+	avrdude -p $(ARCH) -c $(PROG) -D -P $(PORT) -U flash:w:sosse.hex:i
+
 verify-flash:
-	uisp -dprog=$(BOARD) -dpart=$(ARCH) -dserial=$(PORT) \
-		--verify --segment=flash if=sosse.hex
+	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -U flash:v:sosse.hex:i
+
+erase:
+	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -e
 

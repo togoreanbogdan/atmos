@@ -5,6 +5,7 @@ OBJCOPY=objcopy
 CFLAGS=-Wall -I. -O6 -g -fpic -DCTAPI -I../../scez-ng
 
 SRC=\
+	aes.c \
 	auth.c \
 	ctapi.c \
 	hal-emu.c \
@@ -22,6 +23,7 @@ SRC=\
 	transaction.c
 
 OBJ=\
+	aes.o \
 	auth.o \
 	ctapi.o \
 	hal-emu.o \

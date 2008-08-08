@@ -77,7 +77,10 @@
 */
 #define CONF_WITH_KEYCMDS       0
 
-/*! \brief En-/disables support for the external I2C EEPROM.
+/*! \brief En-/disables support for the external (I2C) EEPROM.
+ *  Atmel chips have internal EEPROM integrated onto the card, usually
+ *  512 Bytes. This option enables use of the external EEPROM chip, the
+ *  one specified as 24C64 (8 KB), 24C128, 256, 512, 1024 (128 KB)...
 */
 #define CONF_WITH_I2CEEPROM     1
 
@@ -114,9 +117,10 @@
   - 1: Skipjack
   - 2: NEWDES-SK
 */
-#define CONF_WITH_CRYPT_ALGO    0 /* TEA */
+//#define CONF_WITH_CRYPT_ALGO    0 /* TEA */
 //#define CONF_WITH_CRYPT_ALGO    1 /* Skipjack */
 //#define CONF_WITH_CRYPT_ALGO    2 /* NEWDES-SK */
+#define CONF_WITH_CRYPT_ALGO    3 /* AES */
 
 
 /* Verify dependencies */
@@ -241,18 +245,22 @@
  *
  *  ENDIAN_LITTLE    If architecture is little endian
  *  INT_EEPROM_SIZE  Internal EEPROM size in bytes (0x200=512B, 0x80=128B...)
- *  RAM_SIZE         RAM size in bytes (0x200 = 512 B...)
+ *  RAM_SIZE         RAM size in bytes (0x200 = 512 B, 0x400 = 1 KB...)
  *  CHIP             Chip ID, voluntarily assigned by us and returned as
  *                     part of card's ATR signature. Scheme is as follows:
  *                       00: AT90S2323, AT90S2343 (2343 not supported)
  *                       01: AT90S8515, AT90S8535
  *                       02: ATmega161
- *                       03: ATmega163 (not supported)
+ *                       03: ATmega163
  *                       10: 16F84 (not supported)
  *                       11: 16F876 (not supported)
  *                       FF: unspec. (running on 386 emulator)
  *  EXT_EEPROM_SIZE  External EEPROM size in Kbytes. Unused, but returned as
- *                     part of card's ATR signature. Scheme is as follows:
+ *                     part of card's ATR signature. The defines here are 
+ *                     commented because this information is not part of
+ *                     the chip (can vary between smartcards even though
+ *                     the processor chip may be the same), so it is set as 
+ *                     its own option in the Makefile. Scheme is as follows:
  *                       00: none
  *                       01: 16 KB
  *                       02: 32 KB
@@ -271,7 +279,7 @@
 #define INT_EEPROM_SIZE    0x200
 #define RAM_SIZE           0x200
 #define CHIP               0x01
-#define EXT_EEPROM_SIZE    0x02
+//#define EXT_EEPROM_SIZE    0x02
 #define ARCH               avr2
 
 #elif defined(__AVR_AT90S8535__)
@@ -279,7 +287,7 @@
 #define INT_EEPROM_SIZE    0x200
 #define RAM_SIZE           0x200
 #define CHIP               0x01
-#define EXT_EEPROM_SIZE    0x03
+//#define EXT_EEPROM_SIZE    0x03
 #define ARCH               avr2
 
 #elif defined(__AVR_AT90S2323__)
@@ -287,7 +295,7 @@
 #define INT_EEPROM_SIZE    0x80
 #define RAM_SIZE           0x80
 #define CHIP               0x00
-#define EXT_EEPROM_SIZE    0x03
+//#define EXT_EEPROM_SIZE    0x03
 #define ARCH               avr2
 
 #elif defined(__AVR_ATmega161__)
@@ -295,7 +303,15 @@
 #define INT_EEPROM_SIZE    0x200
 #define RAM_SIZE           0x400
 #define CHIP               0x02
-#define EXT_EEPROM_SIZE    0x03
+//#define EXT_EEPROM_SIZE    0x03
+#define ARCH               avr5
+
+#elif defined(__AVR_ATmega163__)
+#define ENDIAN_LITTLE
+#define INT_EEPROM_SIZE    0x200
+#define RAM_SIZE           0x400
+#define CHIP               0x03
+//#define EXT_EEPROM_SIZE    0x03
 #define ARCH               avr5
 
 #elif defined(__i386__)
@@ -303,7 +319,7 @@
 #define INT_EEPROM_SIZE    0x200
 #define RAM_SIZE           0x200
 #define CHIP               0xFF
-#define EXT_EEPROM_SIZE    0xFF
+//#define EXT_EEPROM_SIZE    0xFF
 
 #else
 #error Unknown destination platform. Use proper ARCH type in Makefile.
