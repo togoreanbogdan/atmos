@@ -32,12 +32,12 @@
 #include <string.h>
 #include <types.h>
 
-#define CRYPT_ALGO_TEA			0	//!< Algorithm ID: TEA
-#define CRYPT_ALGO_SKIPJACK		1	//!< Algorithm ID: Skipjack
-#define CRYPT_ALGO_NEWDESSK		2	//!< Algorithm ID: NEWDES-SK
-#define CRYPT_ALGO_AES		3	//!< Algorithm ID: AES
+//#define CRYPT_ALGO_TEA			0	//!< Algorithm ID: TEA
+//#define CRYPT_ALGO_SKIPJACK		1	//!< Algorithm ID: Skipjack
+//#define CRYPT_ALGO_NEWDESSK		2	//!< Algorithm ID: NEWDES-SK
+//#define CRYPT_ALGO_AES		3	//!< Algorithm ID: AES
 
-#if CONF_CRYPT_ALGO==0
+#if CONF_WITH_CRYPT_ALGO==0
 /* TEA */
 #include <tea.h>
 //! Length of key in octets.
@@ -49,41 +49,29 @@
 //! Single block decryption function.
 #define crypt_dec(v,k) tea_dec((iu32*)(v),(iu32*)(k))
 
-#elif CONF_CRYPT_ALGO==1
+#elif CONF_WITH_CRYPT_ALGO==1
 /* SKIPJACK */
 #include <skipjack.h>
-//! Length of key in octets.
 #define CRYPT_KEY_LEN	SKIPJACK_KEY_LEN
-//! Length of cipher block in octets.
 #define CRYPT_BLOCK_LEN	SKIPJACK_BLOCK_LEN
-//! Single block encryption function.
 #define crypt_enc(v,k) skipjack_enc((iu8*)(v),(iu8*)(k))
-//! Single block decryption function.
 #define crypt_dec(v,k) skipjack_dec((iu8*)(v),(iu8*)(k))
 
-#elif CONF_CRYPT_ALGO==2
+#elif CONF_WITH_CRYPT_ALGO==2
 /* NEWDES-SK */
 #include <newdes-sk.h>
-//! Length of key in octets.
 #define CRYPT_KEY_LEN	NEWDESSK_KEY_LEN
-//! Length of cipher block in octets.
 #define CRYPT_BLOCK_LEN	NEWDESSK_BLOCK_LEN
-//! Single block encryption function.
 #define crypt_enc(v,k) newdessk_enc((iu8*)(v),(iu8*)(k))
-//! Single block decryption function.
 #define crypt_dec(v,k) newdessk_dec((iu8*)(v),(iu8*)(k))
 
-#elif CONF_CRYPT_ALGO==3
+#elif CONF_WITH_CRYPT_ALGO==3
 /* NEWDES-SK */
 #include <aes.h>
-//! Length of key in octets.
 #define CRYPT_KEY_LEN	AES_KEY_LEN
-//! Length of cipher block in octets.
 #define CRYPT_BLOCK_LEN	AES_BLOCK_LEN
-//! Single block encryption function.
-#define crypt_enc(v,k) aes_enc((iu32*)(v),(iu16*)(k))
-//! Single block decryption function.
-#define crypt_dec(v,k) aes_dec((iu32*)(v),(iu16*)(k))
+#define crypt_enc(v,k) aes_enc((iu8*)(v),(iu16*)(k),8)
+#define crypt_dec(v,k) aes_dec((iu8*)(v),(iu16*)(k),8)
 
 #else
 #error No valid crypto algorithm selected.

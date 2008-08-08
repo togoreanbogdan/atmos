@@ -88,7 +88,7 @@
   If set to 1, support for decryption side of the cryptographic algorithms
   are included.
 */
-#define CONF_WITH_DECRYPT       0
+#define CONF_WITH_DECRYPT       1
 
 /*! \brief En-/disables support for logging.
   If set to 1, support for logging is included.
