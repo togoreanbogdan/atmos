@@ -133,4 +133,3 @@ void tea_dec( iu32 *v, iu32 *k )
 
 #endif /* CONF_WITH_CRYPT_ALGO==0 */
 
-

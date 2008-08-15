@@ -6,8 +6,6 @@
   files http://www.iaik.tu-graz.ac.at/teaching/10_seminare-projekte/01_Telematik%20Bakkalaureat/EfficientAESImplemetation.pdf, 
   http://www.iaik.tu-graz.ac.at/teaching/10_seminare-projekte/01_Telematik%20Bakkalaureat/projectpaper_pletzer.pdf,
   http://www.iaik.tu-graz.ac.at/teaching/10_seminare-projekte/01_Telematik%20Bakkalaureat/Seminararbeit_Pletzer.pdf
-
-  $Id: aes.c,v 1.6 2003/04/02 23:57:54 m Exp $
 */
 
 #include <config.h>
@@ -261,5 +259,5 @@ iu8 xtime(iu8 value)
   return ((value & 0x80) ? (value<<1)^0x1b : value<<1) ;
 }
 
-#endif /* CONF_WITH_CRYPT_ALGO==0 */
+#endif /* CONF_WITH_CRYPT_ALGO==3 */
 

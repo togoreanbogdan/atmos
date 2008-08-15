@@ -188,7 +188,11 @@ bool hal_eeprom_read( iu8 *dst, iu16 src, iu8 len )
 
 	while( len-- ) {
 		if( (unsigned int)src>=sizeof(eeprom) ) {
+#if CONF_WITH_RETCODEMGR
+			sw_set( SW_OTHER );
+#else
 			sw_set( 0x6F00 );
+#endif
 			return FALSE;
 		}
 #ifdef DEBUG
@@ -212,7 +216,11 @@ bool hal_eeprom_write( iu16 dst, iu8 *src, iu8 len )
 
 	while( len-- ) {
 		if( (unsigned int)dst>=sizeof(eeprom) ) {
+#if CONF_WITH_RETCODEMGR
+			sw_set( SW_OTHER );
+#else
 			sw_set( 0x6F00 );
+#endif
 			return FALSE;
 		}
 #ifdef DEBUG

@@ -2,24 +2,27 @@
 #
 # ATMOS Makefile
 # C 2008 Davor Ocelic, docelic@spinlocksolutions.com
+# http://techpubs.spinlocksolutions.com/atmos/
 #
 
-# Your programmer device (as required by programmer
-# software)
-PROG=stk500v1
-PORT=/dev/ttyS0
-
-# Smartcard chip name as recognized by avr libc
+# Smartcard chip name on your card,
+# as recognized by avr libc
 #ARCH=at90s2323
 #ARCH=at90s8515
 #ARCH=at90s8535
 #ARCH=atmega161
 ARCH=atmega163
 
+# Your programmer device (as required
+# by programmer software)
+PROG=stk500v1
+PORT=/dev/ttyS0
+
 # Size of the external EEPROM on the smartcard. Atmel's sizes are
-# usually in bits (i.e. AT90(256) and 24C256 are both 32 KByte).
-# 00: none, 01: 16KB, 02: 32KB, 03: 64KB,
-# 04: 128KB, 05: 256KB, FF: unspec.,
+# usually in kilobits (i.e. AT90(256) and 24C256 are both 32 KByte).
+# Here we set it in kilobytes, so divide by 8.
+# 00: none, 01: 16KB, 02: 32KB, 03: 64KB, 04: 128KB,
+# 05: 256KB, 06: 512KB, 07: 1024KB, 08: 2048KB, FF: unspec.,
 EXT_EEPROM_SIZE=0x02
 
 # The usual compile options

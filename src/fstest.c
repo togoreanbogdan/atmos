@@ -84,8 +84,8 @@ int main( int argc, char *argv[] )
 	printf( "fs.size=%.4X\n", fs.size );
 	printf( "fs.pos=%.4X\n", fs.pos );
 
-	printf( "fstream_write( &fs, {0x12,0x34,0x56} , 3 )\n" );
-	if( !fstream_write( &fs, "\x12\x34\x56" , 3 ) ) goto reterror;
+	printf( "fstream_write( &fs, (iu8*){0x12,0x34,0x56} , 3 )\n" );
+	if( !fstream_write( &fs, (iu8*)"\x12\x34\x56" , 3 ) ) goto reterror;
 
 	fs.pos-=2;
 

@@ -3,7 +3,7 @@
 #include <config.h>
 
 ; The _ADDR comments correspond to memory offsets as defined in 
-; config.h. They are included here for easy navigation and telling
+; config.h. They are included here for easy navigation and seeing
 ; what data goes where.
 
 	.text
@@ -12,17 +12,18 @@
 ; ATR_LEN_ADDR
 	.byte	0x0F ; 15 bytes. (Max 28).
 ; ATR_ADDR
-  ; TS:  3B - direct convention
-  ; T0:  AA - TB1/TD1 follows,  historical bytes
-  ; TB1:  00 - no Vpp
-  ; TD1:  40 - TC2 follows
-  ; TC2:  20 - WI (0A = 10 = 1 second, 0x20 = 3.2 seconds)
-  ; T1-T5: 53 4F 53 53 45 - "SOSSE"
-  ; T6-T8: 02 03 25 - BCD coded compile date
-  ; T9:  01 - Chip type (see bottom of config.h)
-  ; T10:  03 - External EEPROM size (see bottom of config.h)
-	.byte	0x3B, 0xAA, 0x00, 0x40, 0x20, 0x53, 0x4F, 0x53
-	.byte	0x53, 0x45, YEAR, MONTH, DAY, CHIP, ESIZ, 0x00
+  ; Byte:  Value:
+  ; TS:    3B - direct convention
+  ; T0:    AA - TB1/TD1 follows,  historical bytes
+  ; TB1:   00 - no Vpp
+  ; TD1:   40 - TC2 follows
+  ; TC2:   20 - WI, card timeout (0A = 10 = 1second, 0x20 = 3.2s)
+  ; T1-T5: 41 54 4D 4F 53 - "ATMOS"
+  ; T6-T8: YEAR/MONTH/DAY - BCD coded compile date
+  ; T9:    CHIP - Chip type (see bottom of config.h)
+  ; T10:   ESIZ - External EEPROM size (see bottom of config.h)
+	.byte	0x3B, 0xAA, 0x00, 0x40, 0x20, 0x41, 0x54, 0x4D
+	.byte	0x4F, 0x53, YEAR, MONTH, DAY, CHIP, ESIZ, 0x00
 	.byte	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte	0x00, 0x00, 0x00, 0x00
 ; SERNUM_ADDR

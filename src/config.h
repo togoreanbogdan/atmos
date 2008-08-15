@@ -69,13 +69,13 @@
   If set to 1, functions impelementing calculations with challenges are
   included. This is a requirement for CONF_WITH_KEY_CMDS.
 */
-#define CONF_WITH_KEYAUTH       0
+#define CONF_WITH_KEYAUTH       1
 
 /*! \brief En-/disables key related commands.
   If set to 1, commands EXTERNAL KEYENTIFICATION, GET CHALLENGE,
   INTERNAL KEYENTIFICATION and VERIFY KEY are included.
 */
-#define CONF_WITH_KEYCMDS       0
+#define CONF_WITH_KEYCMDS       1
 
 /*! \brief En-/disables support for the external (I2C) EEPROM.
  *  Atmel chips have internal EEPROM integrated onto the card, usually
@@ -118,9 +118,9 @@
   - 2: NEWDES-SK
 */
 //#define CONF_WITH_CRYPT_ALGO    0 /* TEA */
-//#define CONF_WITH_CRYPT_ALGO    1 /* Skipjack */
+#define CONF_WITH_CRYPT_ALGO    1 /* Skipjack */
 //#define CONF_WITH_CRYPT_ALGO    2 /* NEWDES-SK */
-#define CONF_WITH_CRYPT_ALGO    3 /* AES */
+//#define CONF_WITH_CRYPT_ALGO    3 /* AES */
 
 
 /* Verify dependencies */
@@ -267,6 +267,9 @@
  *                       03: 64 KB
  *                       04: 128 KB
  *                       05: 256 KB
+ *                       06: 512 KB
+ *                       07: 1024 KB
+ *                       08: 2048 KB
  *                       FF: unspec.
  *  ARCH             Architecture type. Needed for assembler code and returned
  *                     as part of card's ATR signature. (Note that this setting
