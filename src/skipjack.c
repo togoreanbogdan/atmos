@@ -1,7 +1,5 @@
 /*! @file
-	\brief Skipjack declarations.
-
-	$Id: skipjack.c,v 1.1 2003/03/30 12:42:21 m Exp $
+  \brief Skipjack declarations.
 */
 
 #include <config.h>
@@ -14,14 +12,14 @@
 #define INLINE
 #endif
 
-#define W1_L	0
-#define W1_R	1
-#define W2_L	2
-#define W2_R	3
-#define W3_L	4
-#define W3_R	5
-#define W4_L	6
-#define W4_R	7
+#define W1_L 0
+#define W1_R 1
+#define W2_L 2
+#define W2_R 3
+#define W3_L 4
+#define W3_R 5
+#define W4_L 6
+#define W4_R 7
 
 static const CODE iu8 fTable[256] = { 
 0xa3,0xd7,0x09,0x83,0xf8,0x48,0xf6,0xf4,0xb3,0x21,0x15,0x78,0x99,0xb1,0xaf,0xf9,

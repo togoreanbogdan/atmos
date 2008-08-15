@@ -23,31 +23,38 @@ Compiling:
 
  cd src
  editor config.h   (enable/disable build options)
- editor Makefile   ($ARCH)
+ editor Makefile   (set $ARCH, $PROG and $PORT)
  editor eedata.S   (can change EEPROM data loaded on card, such as
                    serial number, rng seed, keys or file permissions)
 
- make              (result are sosse.{bin,hex} and eedata.{bin,hex})
+ make              (result files are are sosse.{bin,hex} and eedata.{bin,hex}.
+                   Bin files are raw files, .hex files are in Intel hex
+                   format. They're the same but hex is nicer to read. Hex
+                   file can be loaded onto the card just as well as .bin,
+                   provided that your programmer supports Intel hex input.)
 
 
 Loading onto smartcard:
 
- The writing is done using 'uisp' software, so make sure you have it
+ The writing is done using 'avrdude' software, so make sure you have it
  installed. Also make sure you've edited Makefile and set BOARD= to
- a proper value (see 'man uisp' for a list of valid -dprog options).
+ a proper value (see 'avrdude -c list' for a list of valid options).
 
  Files go to:
    sosse.hex or .bin  -> Flash
    eedata.hex or .bin -> internal EEPROM
 
- The Makefile already supports the following targets for loading
- (which can also be called individually):
+ The Makefile already supports 2 targets for loading the files. (Targets
+ consist of 2 commands each which can be called individually as well):
 
   make write  (= write-eeprom write-flash)
   make verify (= verify-eeprom verify-flash)
 
 
 Installing smart card reader software:
+(Replace libtowitoko with your appropriate terminal-specific library,
+or install the excellent generic libccid):
+
  apt-get install libtowitoko2 libtowitoko-dev
  apt-get install pcscd
 
@@ -61,7 +68,7 @@ Installing smart card reader software:
 
   Jul 13 15:24:53 ubuntu2 pcscd:
     eventhandler.c:449:EHStatusHandlerThread()
-      Card ATR: (NULL)
+      Card ATR: ......
   
   Jul 13 15:24:48 ubuntu2 pcscd:
     eventhandler.c:365:EHStatusHandlerThread()
@@ -70,7 +77,7 @@ Installing smart card reader software:
 
 Alternative build modes
 
-ATMOS can be compiled for the AVR target (standard makefile),
+ATMOS can be compiled for the AVR target (standard Makefile),
 as a binary running on your workstation (Makefile.emu) and
 as a CT-API driver implementing a virtual card in a virtual terminal.
 
@@ -84,7 +91,7 @@ three cleans (for the standard build, emulator and CT-API). Therefore,
 just 'make clean' will do what you need.
 
 
-Compiling programs for emulation on PC
+Compiling programs for emulation on a PC
 
  To ease debugging, you can compile the package for the usual
  desktop computer (no any smart card hardware necessary).
@@ -101,8 +108,7 @@ Compiling programs for emulation on PC
 
  Add -I/tmp/scez-ng to cflags
 
- Result are sosse-emu, fstest, authtest
- (make -f Makefile.emu clean)
+ Result are sosse-emu, fstest, authtest, enctest
 
  First install SCEZ:
    Info: http://www.freshmeat.net/projects/scez
