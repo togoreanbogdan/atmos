@@ -12,8 +12,8 @@
 
 #include <types.h>
 
-#define SKIPJACK_KEY_LEN	10	//!< SKIPJACK key size.
-#define SKIPJACK_BLOCK_LEN	8	//!< SKIPJACK block length.
+#define SKIPJACK_KEY_LEN	10	//!< SKIPJACK key size (bytes).
+#define SKIPJACK_BLOCK_LEN	8	//!< SKIPJACK block length (bytes).
 
 /*! \brief Skipjack encryption function.
 

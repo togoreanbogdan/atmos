@@ -23,9 +23,9 @@ Compiling:
 
  cd src
  editor config.h   (enable/disable build options)
- editor Makefile   ($ARCH)
+ editor Makefile   (verify settings for $ARCH and $BOARD)
  editor eedata.S   (can change EEPROM data loaded on card, such as
-                   serial number, rng seed, keys or file permissions)
+                   serial number, RNG seed, keys or file permissions)
 
  make              (result are sosse.{bin,hex} and eedata.{bin,hex})
 
@@ -47,7 +47,7 @@ Loading onto smartcard:
   make verify (= verify-eeprom verify-flash)
 
 
-Installing smart card reader software:
+Installing smart card reader software (Towitoko reader example):
  apt-get install libtowitoko2 libtowitoko-dev
  apt-get install pcscd
 
@@ -70,21 +70,28 @@ Installing smart card reader software:
 
 Alternative build modes
 
-ATMOS can be compiled for the AVR target (standard makefile),
-as a binary running on your workstation (Makefile.emu) and
-as a CT-API driver implementing a virtual card in a virtual terminal.
+ATMOS can be compiled in few different modes:
 
-To invoke builds from other types, you need to specify 'make -f MAKEFILE',
-and you need to pay attention to always clean the build by invoking
-'make -f MAKEFILE clean' before switching targets, or you will get
-errors about wrong binary types etc.
+ - binary for the AVR-based smartcard (standard Makefile)
+ - binary running on your workstation (Makefile.emu)
+ - CT-API driver implementing a virtual card in a virtual terminal
+
+To invoke builds for the last two types, you need to specify
+'make -f MAKEFILE', and you need to pay attention to always clean the
+build by invoking 'make -f MAKEFILE clean' before switching targets,
+or you will mix binaries and get errors about wrong binary types etc.
 
 To ease this process, the default Makefile's clean action calls all
-three cleans (for the standard build, emulator and CT-API). Therefore,
-just 'make clean' will do what you need.
+three cleans. Therefore, just 'make clean' will always do what you need.
 
+Let's take a look at each build type:
 
-Compiling programs for emulation on PC
+* Standard Makefile, AVR target:
+
+ Install gcc-avr and avr-libc
+ Compile with 'make'
+
+* Emulation on a PC
 
  To ease debugging, you can compile the package for the usual
  desktop computer (no any smart card hardware necessary).
@@ -108,7 +115,7 @@ Compiling programs for emulation on PC
    Info: http://www.freshmeat.net/projects/scez
 
 
-Compiling CT-API driver emulating card in a terminal
+* CT-API driver emulating card in a terminal
 
  Add -I/tmp/scez-ng to cflags
 
@@ -116,13 +123,13 @@ Compiling CT-API driver emulating card in a terminal
 
 ------------------------------------------------------------------------
 
+ATMOS is copyright 2008-2009 Davor Ocelic <docelic@spinlocksolutions.com>
+
 ATMOS is based on 2003 SOSSE by Matthias Bruestle <m@mbsks.franken.de>:
-
-SOSSE is documented inside the source. Printable/browsable documentation
-is generated with doxygen. A "make" in the top level directory will
-also build the documentation. If you do not have doxygen installed and
-do not want to install it, you find the most important documentation in
-"src/main.h". You can also browse it online at:
-
-<http://www.mbsks.franken.de/sosse/>
+  SOSSE is documented inside the source. Printable/browsable documentation
+  is generated with doxygen. A "make" in the top level directory will
+  also build the documentation. If you do not have doxygen installed and
+  do not want to install it, you find the most important documentation in
+  "src/main.h". You can also browse it online at:
+  <http://www.mbsks.franken.de/sosse/>
 
