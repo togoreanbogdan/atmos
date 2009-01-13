@@ -62,7 +62,7 @@ IS8 CT_forkIcc( void )
 	} else {
 		/* child */
 		close( fd_toCard[1] );
-		sosse_main();
+		atmos_main();
 		exit( 0 );
 	}
 
