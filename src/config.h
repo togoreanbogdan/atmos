@@ -123,9 +123,9 @@
 	- 1: Skipjack
 	- 2: NEWDES-SK
 */
-#define CONF_WITH_CRYPT_ALGO	0	/* TEA */
+//#define CONF_WITH_CRYPT_ALGO	0	/* TEA */
 //#define CONF_WITH_CRYPT_ALGO	1	/* Skipjack */
-//#define CONF_WITH_CRYPT_ALGO	2	/* NEWDES-SK */
+#define CONF_WITH_CRYPT_ALGO	2	/* NEWDES-SK */
 
 /* Verify dependencies */
 

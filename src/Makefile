@@ -11,9 +11,9 @@ PORT=/dev/ttyS0
 # Your smartcard chip (both for chip-specific
 # compilation and for uisp -dpart=)
 #ARCH=at90s2323
-ARCH=at90s8515
+#ARCH=at90s8515
 #ARCH=at90s8535
-#ARCH=atmega161
+ARCH=atmega161
 
 # The usual compile options
 CC=avr-gcc -mmcu=$(ARCH)
@@ -54,13 +54,13 @@ SLOCFILES = auth.c auth.h commands.c commands.h config.h eepromi2c.S sw.c \
 CALLTREEFILES = auth.c commands.c sw.c fs.c fstream.c hal.c main.c t0.c \
 	tea.c tools.c transaction.c newdes-sk.c skipjack.c
 
-all: sosse eedata
+all: atmos eedata
 
-sosse: $(OBJ)
-	$(CC) $(CFLAGS) -Wl,-Map,sosse.map -o sosse $(OBJ)
-	$(SIZE) sosse
-	$(OBJCOPY) -O binary sosse sosse.bin
-	$(OBJCOPY) -O ihex sosse sosse.hex
+atmos: $(OBJ)
+	$(CC) $(CFLAGS) -Wl,-Map,atmos.map -o atmos $(OBJ)
+	$(SIZE) atmos
+	$(OBJCOPY) -O binary atmos atmos.bin
+	$(OBJCOPY) -O ihex atmos atmos.hex
 
 eedata:
 	$(CC) $(ASFLAGS) -c -o eedata -DDAY=0x`date +%d` -DMONTH=0x`date +%m` -DYEAR=0x`date +%y` eedata.S
@@ -89,13 +89,13 @@ uncalled:
 
 statistics: sloc calldepth uncalled
 
-clean: clean-sosse clean-eedata
+clean: clean-atmos clean-eedata
 	rm -rf core
 	make -f Makefile.emu clean
 	make -f Makefile.ctapi clean
 
-clean-sosse:
-	rm -rf $(OBJ) sosse sosse.bin sosse.hex sosse.map
+clean-atmos:
+	rm -rf $(OBJ) atmos atmos.bin atmos.hex atmos.map
 
 clean-eedata:
 	rm -rf eedata eedata.bin eedata.hex eedata.lst
@@ -123,8 +123,8 @@ write-flash:
 		--erase --segment=flash
 	sleep 2
 	uisp -dprog=$(BOARD) -dpart=$(ARCH) -dserial=$(PORT) \
-		--upload --segment=flash if=sosse.hex
+		--upload --segment=flash if=atmos.hex
 verify-flash:
 	uisp -dprog=$(BOARD) -dpart=$(ARCH) -dserial=$(PORT) \
-		--verify --segment=flash if=sosse.hex
+		--verify --segment=flash if=atmos.hex
 

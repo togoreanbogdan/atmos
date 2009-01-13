@@ -27,7 +27,7 @@ Compiling:
  editor eedata.S   (can change EEPROM data loaded on card, such as
                    serial number, RNG seed, keys or file permissions)
 
- make              (result are sosse.{bin,hex} and eedata.{bin,hex})
+ make              (result are atmos.{bin,hex} and eedata.{bin,hex})
 
 
 Loading onto smartcard:
@@ -37,7 +37,7 @@ Loading onto smartcard:
  a proper value (see 'man uisp' for a list of valid -dprog options).
 
  Files go to:
-   sosse.hex or .bin  -> Flash
+   atmos.hex or .bin  -> Flash
    eedata.hex or .bin -> internal EEPROM
 
  The Makefile already supports the following targets for loading
@@ -89,6 +89,7 @@ Let's take a look at each build type:
 * Standard Makefile, AVR target:
 
  Install gcc-avr and avr-libc
+ Install doxygen
  Compile with 'make'
 
 * Emulation on a PC
@@ -108,7 +109,7 @@ Let's take a look at each build type:
 
  Add -I/tmp/scez-ng to cflags
 
- Result are sosse-emu, fstest, authtest
+ Result are atmos-emu, fstest, authtest
  (make -f Makefile.emu clean)
 
  First install SCEZ:
