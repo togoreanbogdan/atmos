@@ -36,10 +36,10 @@ OBJ=\
 	tools.o \
 	transaction.o
 
-all: sosse fstest authtest enctest
+all: atmos fstest authtest
 
-sosse: $(OBJ) main.o
-	$(CC) $(CFLAGS) -o sosse-emu $(OBJ) main.o -L. -lsio
+atmos: $(OBJ) main.o
+	$(CC) $(CFLAGS) -o atmos-emu $(OBJ) main.o -L. -lsio
 
 fstest: $(OBJ) fstest.o
 	$(CC) $(CFLAGS) -o fstest $(OBJ) fstest.o -L. -lsio
@@ -53,8 +53,8 @@ enctest: $(OBJ) enctest.o
 clean: clean-sosse clean-fstest clean-authtest clean-enctest
 	rm -rf core
 
-clean-sosse:
-	rm -rf $(OBJ) main.o sosse-emu
+clean-atmos:
+	rm -rf $(OBJ) main.o atmos-emu
 
 clean-fstest:
 	rm -rf fstest.o fstest dumpfs.bin gmon.out

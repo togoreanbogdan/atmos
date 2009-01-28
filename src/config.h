@@ -123,7 +123,6 @@
 //#define CONF_WITH_CRYPT_ALGO    2 /* NEWDES-SK */
 //#define CONF_WITH_CRYPT_ALGO    3 /* AES */
 
-
 /* Verify dependencies */
 
 /* CONF_WITH_PINAUTH is required for CONF_WITH_PINCMDS */

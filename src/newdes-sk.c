@@ -83,7 +83,10 @@
 /* $Id: newdes-sk.c,v 1.1 2003/03/30 12:42:21 m Exp $ */
 
 #include <config.h>
-#include <types.h>
+#include <newdes-sk.h>
+#ifdef DEBUG
+#include <stdio.h>
+#endif
 
 #if CONF_WITH_CRYPT_ALGO==2
 
@@ -111,6 +114,13 @@ void newdessk_enc( iu8* v, iu8* k )
 	iu8 i;
 	iu8 ex;
 
+#ifdef DEBUG
+  printf( "newdessk_enc( %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX, %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX )\n",
+		v[0],	v[1],	v[2],	v[3],	v[4],	v[5],	v[6],	v[7],
+		k[0], k[1],	k[2], k[3],	k[4], k[4],	k[6], k[7],
+		k[8], k[9],	k[10], k[11],	k[12], k[13],	k[14]);
+#endif
+
 	ex = 0;
 	i = 0;
 
@@ -123,13 +133,18 @@ void newdessk_enc( iu8* v, iu8* k )
 		v[6] = v[6] ^ f[v[2] ^ k[i] ^ ex];
 		if(++i==15) {i = 0;  ex = k[9];}
 		v[7] = v[7] ^ f[v[3] ^ k[i] ^ ex];
-		if(++i==15) return;
+		if(++i==15) break;
 
 		v[1] = v[1] ^ f[v[4] ^ k[i++] ^ ex];
 		v[2] = v[2] ^ f[v[4] ^ v[5]];
 		v[3] = v[3] ^ f[v[6] ^ k[i++] ^ ex];
 		v[0] = v[0] ^ f[v[7] ^ k[i++] ^ ex];
 	}
+
+#ifdef DEBUG
+	printf( "= %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX\n",
+	v[0], v[1], v[2], v[3], v[4], v[5], v[6], v[7] );
+#endif
 }
 
 #if CONF_WITH_DECRYPT==1
@@ -137,6 +152,13 @@ void newdessk_dec( iu8* v, iu8* k )
 {
 	iu8 i;
 	iu8 ex;
+
+#ifdef DEBUG
+  printf( "newdessk_dec( %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX, %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX )\n",
+		v[0],	v[1],	v[2],	v[3],	v[4],	v[5],	v[6],	v[7],
+		k[0], k[1],	k[2], k[3],	k[4], k[4],	k[6], k[7],
+		k[8], k[9],	k[10], k[11],	k[12], k[13],	k[14]);
+#endif
 
 	ex = k[9];
 	i = 14;
@@ -160,6 +182,41 @@ void newdessk_dec( iu8* v, iu8* k )
 	}
 }
 #endif /* CONF_WITH_DECRYPT==1 */
+
+#ifdef TEST
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
+
+int main() {
+	iu8 inp[8]	= { 0x33, 0x22, 0x11, 0x00, 0xdd, 0xcc, 0xbb, 0xaa };
+	iu8 key[15]	= { 0x00, 0x99, 0x88, 0x77, 0x66, 0x55, 0x44, 0x33, 0x22, 0x11, 0x00, 0x99, 0x88, 0x77, 0x66 };
+	iu8 enc[8], dec[8];
+	iu8 chk[8]	= { 0x5a, 0xc9, 0xed, 0x97, 0xae, 0x85, 0x5d, 0xbe };
+	iu8 tab[10][256];
+	long i;
+	clock_t elapsed;
+
+	memcpy( enc, inp, 8 );
+	newdessk_enc( enc, key );
+	printf((memcmp(enc, chk, 8) == 0) ? "encryption OK!\n" : "encryption failure!\n");
+#if CONF_WITH_DECRYPT==1
+	memcpy( dec, enc, 8 );
+	newdessk_dec( dec, key );
+	printf((memcmp(dec, inp, 8) == 0) ? "decryption OK!\n" : "decryption failure!\n");
+#endif
+
+#ifdef BENCHMARK
+	elapsed = -clock();
+	for (i = 0; i < 1000000L; i++) {
+		newdessk_enc( enc, key );
+	}
+	elapsed += clock();
+	printf ("elapsed time: %.1f s.\n", (float)elapsed/CLOCKS_PER_SEC);
+#endif
+	return 0;
+}
+#endif /* TEST */
 
 /* Notes:
 

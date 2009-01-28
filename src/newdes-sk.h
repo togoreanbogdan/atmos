@@ -9,8 +9,8 @@
 
 #include <types.h>
 
-#define NEWDESSK_KEY_LEN	15	//!< NEWDES-SK key size.
-#define NEWDESSK_BLOCK_LEN	8	//!< NEWDES-SK block length.
+#define NEWDESSK_KEY_LEN	15	//!< NEWDES-SK key size (bytes).
+#define NEWDESSK_BLOCK_LEN	8	//!< NEWDES-SK block length (bytes).
 
 /*!	\brief NEWDES-SK encryption function.
 

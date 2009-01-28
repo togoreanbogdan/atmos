@@ -40,7 +40,7 @@
 	This function does never return.
 */
 #if defined(CTAPI)
-void sosse_main( void )
+void atmos_main( void )
 #else
 int main( void )
 #endif

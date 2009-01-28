@@ -4,9 +4,15 @@
 
 #include <config.h>
 #include <skipjack.h>
-#include <types.h>
+#ifdef DEBUG
+#include <stdio.h>
+#endif
 
 #if CONF_WITH_CRYPT_ALGO==1
+
+// Currently decryption only works with SMALL_MEMORY=1. (Must be
+// an error somewhere in non-small code).
+#define CONF_SMALL_MEMORY 1
 
 #if CONF_SMALL_MEMORY==1
 #define INLINE
@@ -116,6 +122,13 @@ void skipjack_enc( iu8* v, iu8* k )
 	iu8 tmp;
 #endif
 
+#ifdef DEBUG
+  printf( "skipjack_enc( %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX, %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX )\n",
+    v[0], v[1], v[2], v[3], v[4], v[5], v[6], v[7],
+    k[0], k[1], k[2], k[3], k[4], k[4], k[6], k[7],
+    k[8], k[9]);
+#endif
+
 	while( counter<9 ) {
 		g( v, k, kidx );
 		rule_a( v, counter );
@@ -155,6 +168,10 @@ void skipjack_enc( iu8* v, iu8* k )
 #endif
 		counter++;
 	}
+#ifdef DEBUG
+	printf( "= %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX\n",
+		v[0], v[1], v[2], v[3], v[4], v[5], v[6], v[7] );
+#endif
 }
 
 #if CONF_WITH_DECRYPT==1
@@ -233,6 +250,13 @@ void skipjack_dec( iu8* v, iu8* k )
 	iu8 tmp;
 #endif
 
+#ifdef DEBUG
+  printf( "skipjack_dec( %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX, %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX )\n",
+    v[0], v[1], v[2], v[3], v[4], v[5], v[6], v[7],
+    k[0], k[1], k[2], k[3], k[4], k[4], k[6], k[7],
+    k[8], k[9]);
+#endif
+
 	while( counter>24 ) {
 		ginv( v+2, k, kidx );
 		rule_binv( v, counter );
@@ -274,6 +298,41 @@ void skipjack_dec( iu8* v, iu8* k )
 	}
 }
 #endif /* CONF_WITH_DECRYPT==1 */
+
+#ifdef TEST
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
+
+int main() {
+	iu8 inp[8]	= { 0x33, 0x22, 0x11, 0x00, 0xdd, 0xcc, 0xbb, 0xaa };
+	iu8 key[10]	= { 0x00, 0x99, 0x88, 0x77, 0x66, 0x55, 0x44, 0x33, 0x22, 0x11 };
+	iu8 enc[8], dec[8];
+	iu8 chk[8]	= { 0x25, 0x87, 0xca, 0xe2, 0x7a, 0x12, 0xd3, 0x00 };
+	iu8 tab[10][256];
+	long i;
+	clock_t elapsed;
+
+	memcpy( enc, inp, 8 );
+	skipjack_enc( enc, key );
+	printf((memcmp(enc, chk, 8) == 0) ? "encryption OK!\n" : "encryption failure!\n");
+#if CONF_WITH_DECRYPT==1
+	memcpy( dec, chk, 8 );
+	skipjack_dec( dec, key );
+	printf((memcmp(dec, inp, 8) == 0) ? "decryption OK!\n" : "decryption failure!\n");
+#endif
+
+#ifdef BENCHMARK
+	elapsed = -clock();
+	for (i = 0; i < 1000000L; i++) {
+		skipjack_enc( enc, key );
+	}
+	elapsed += clock();
+	printf ("elapsed time: %.1f s.\n", (float)elapsed/CLOCKS_PER_SEC);
+#endif
+	return 0;
+}
+#endif /* TEST */
 
 #endif /* CONF_WITH_CRYPT_ALGO==1 */
 

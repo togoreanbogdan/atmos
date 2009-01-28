@@ -117,10 +117,10 @@
 
 	<LI>To build the HEX files start <EM>make</EM>.</LI>
 
-	<LI>The resulting HEX files sosse.hex and eedata.hex (or BIN files
-	sosse.bin and eedata.bin) have then to be loaded on the card with
+	<LI>The resulting HEX files atmos.hex and eedata.hex (or BIN files
+	atmos.bin and eedata.bin) have then to be loaded on the card with
 	the programmer and an apropriate software. The destination for
-	sosse.hex is the Flash and for eedata.hex the internal EEPROM.</LI>
+	atmos.hex is the Flash and for eedata.hex the internal EEPROM.</LI>
 
 	</OL>
 
@@ -1293,7 +1293,7 @@
 #define SOSSE_MAIN_H
 
 #if defined(CTAPI)
-void sosse_main( void );
+void atmos_main( void );
 #endif
 
 #endif /* SOSSE_MAIN_H */
