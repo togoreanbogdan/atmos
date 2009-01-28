@@ -47,7 +47,7 @@ delta is chosen to be the real part of (the golden ratio Sqrt(5/4) -
 #define hton_ul(x,y)
 
 // Tea is algorithm with ID 0 in our list
-#if CONF_WITH_CRYPT_ALGO==0 || TEST
+#if CONF_WITH_CRYPT_ALGO==0
 
 void tea_enc( iu32 *v, iu32 *k )
 {
@@ -112,38 +112,6 @@ void tea_dec( iu32 *v, iu32 *k )
 	hton_ul(k,4);
 	hton_ul(v,2);
 }
-
-#ifdef TEST
-#include <stdio.h>
-#include <string.h>
-#include <time.h>
-
-int main() {
-	iu32 inp[2]	= { 0x11111111, 0x22222222 };
-	iu32 key[4]	= { 0x11111111, 0x22222222, 0x33333333, 0x44444444 };
-	iu32 enc[2], dec[2];
-	//iu32 chk[8]	= { 0x25, 0x87, 0xca, 0xe2, 0x7a, 0x12, 0xd3, 0x00 };
-	long i;
-	clock_t elapsed;
-
-	memcpy( enc, inp, 64 );
-	tea_enc( enc, key );
-	//printf((memcmp(enc, chk, 8) == 0) ? "encryption OK!\n" : "encryption failure!\n");
-	memcpy( dec, enc, 64 );
-	tea_dec( dec, key );
-	printf((memcmp(dec, inp, 64) == 0) ? "decryption OK!\n" : "decryption failure!\n");
-
-#ifdef BENCHMARK
-	elapsed = -clock();
-	for (i = 0; i < 1000000L; i++) {
-		tea_enc( enc, key );
-	}
-	elapsed += clock();
-	printf ("elapsed time: %.1f s.\n", (float)elapsed/CLOCKS_PER_SEC);
-#endif
-	return 0;
-}
-#endif /* TEST */
 
 #endif /* CONF_WITH_CRYPT_ALGO==0 */
 

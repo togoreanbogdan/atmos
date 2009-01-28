@@ -3,7 +3,7 @@
   \brief AES functions.
 
   AES as implemented in http://www.iaik.tu-graz.ac.at/teaching/10_seminare-projekte/01_Telematik%20Bakkalaureat/ ,
-  files http://www.iaik.tu-graz.ac.at/teaching/10_seminare-projekte/01_Telematik%20Bakkalaureat/EfficientAESImplemetation.pdf, 
+  files http://www.iaik.tu-graz.ac.at/teaching/10_seminare-projekte/01_Telematik%20Bakkalaureat/EfficientAESImplementation.pdf, 
   http://www.iaik.tu-graz.ac.at/teaching/10_seminare-projekte/01_Telematik%20Bakkalaureat/projectpaper_pletzer.pdf,
   http://www.iaik.tu-graz.ac.at/teaching/10_seminare-projekte/01_Telematik%20Bakkalaureat/Seminararbeit_Pletzer.pdf
 */
@@ -17,7 +17,7 @@
 
 #define hton_ul(x,y)
 
-#if CONF_WITH_CRYPT_ALGO==3 || TEST
+#if CONF_WITH_CRYPT_ALGO==3
 
 static const CODE iu8 substitution_table_[256] = {
 0x63, 0x7C, 0x77, 0x7B, 0xF2, 0x6B, 0x6F, 0xC5, 0x30, 0x01, 0x67, 0x2B, 0xFE, 0xD7, 0xAB, 0x76,
@@ -274,47 +274,6 @@ iu8 xtime(iu8 value)
 {
   return ((value & 0x80) ? (value<<1)^0x1b : value<<1) ;
 }
-
-#ifdef TEST
-#include <stdio.h>
-#include <string.h>
-#include <time.h>
-
-int main() {
-	iu8 inp[16]	= { 0x33, 0x22, 0x11, 0x00, 0xdd, 0xcc, 0xbb, 0xaa, 0x33, 0x22, 0x11, 0x00, 0xdd, 0xcc, 0xbb, 0xaa };
-	iu8 key[16]	= { 0x00, 0x99, 0x88, 0x77, 0x66, 0x55, 0x44, 0x33, 0x00, 0x99, 0x88, 0x77, 0x66, 0x55, 0x44, 0x33 };
-	iu8 enc[16], dec[16];
-	iu8 chk[16]	= { 0x50, 0x9E, 0xE9, 0x4F, 0x26, 0x25, 0x03, 0xB6, 0xEE, 0x0A, 0x2D, 0xB7, 0x8C, 0x15, 0x08, 0x1D };
-	iu8 tab[10][256];
-	long i;
-	clock_t elapsed;
-
-	memcpy( enc, inp, 8 );
-	aes_enc( enc, key, 8 );
-
-#ifdef DEBUG
-  printf( "ckpoint( %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX )\n",
-    enc[0], enc[1], enc[2], enc[3], enc[4], enc[5], enc[6], enc[7],
-    enc[8], enc[9], enc[10], enc[11], enc[12], enc[13], enc[14], enc[15] );
-#endif
-	printf((memcmp(enc, chk, 8) == 0) ? "encryption OK!\n" : "encryption failure!\n");
-#if CONF_WITH_DECRYPT==1
-	memcpy( dec, chk, 8 );
-	aes_dec( dec, key, 8 );
-	printf((memcmp(dec, inp, 8) == 0) ? "decryption OK!\n" : "decryption failure!\n");
-#endif
-
-#ifdef BENCHMARK
-	elapsed = -clock();
-	for (i = 0; i < 1000000L; i++) {
-		aes_enc( enc, key );
-	}
-	elapsed += clock();
-	printf ("elapsed time: %.1f s.\n", (float)elapsed/CLOCKS_PER_SEC);
-#endif
-	return 0;
-}
-#endif /* TEST */
 
 #endif /* CONF_WITH_CRYPT_ALGO==3 */
 
