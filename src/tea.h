@@ -7,8 +7,8 @@
 	$Id: tea.h,v 1.5 2002/12/22 15:42:55 m Exp $
 */
 
-#ifndef SOSSE_TEA_H
-#define SOSSE_TEA_H
+#ifndef ATMOS_TEA_H
+#define ATMOS_TEA_H
 
 #include <types.h>
 
@@ -38,5 +38,5 @@ void tea_enc( iu32 *v, iu32 *k );
 */
 void tea_dec( iu32 *v, iu32 *k );
 
-#endif /* SOSSE_TEA_H */
+#endif /* ATMOS_TEA_H */
 

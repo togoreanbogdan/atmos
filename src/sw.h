@@ -25,8 +25,8 @@
 	$Id: sw.h,v 1.1 2002/12/22 15:42:55 m Exp $
 */
 
-#ifndef SOSSE_ERRNO_H
-#define SOSSE_ERRNO_H
+#ifndef ATMOS_ERRNO_H
+#define ATMOS_ERRNO_H
 
 #include <types.h>
 
@@ -137,5 +137,5 @@ void sw_set( iu16 value );
 iu16 sw_get( void );
 #endif /* CONF_WITH_RETCODEMGR==1 */
 
-#endif /* SOSSE_ERRNO_H */
+#endif /* ATMOS_ERRNO_H */
 

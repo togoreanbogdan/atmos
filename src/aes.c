@@ -17,7 +17,7 @@
 
 #define hton_ul(x,y)
 
-#if CONF_WITH_CRYPT_ALGO==3
+#if CONF_WITH_CRYPT_ALGO==3 || TEST
 
 static const CODE iu8 substitution_table_[256] = {
 0x63, 0x7C, 0x77, 0x7B, 0xF2, 0x6B, 0x6F, 0xC5, 0x30, 0x01, 0x67, 0x2B, 0xFE, 0xD7, 0xAB, 0x76,
@@ -57,21 +57,29 @@ static const CODE iu8 inverse_substitution_table_[256] = {
 0x17, 0x2B, 0x04, 0x7E, 0xBA, 0x77, 0xD6, 0x26, 0xE1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0C, 0x7D,
 };
 
-void aes_enc( iu8 *data, iu8 *key, iu32 data_length )
+void aes_enc( iu8 *v, iu8 *k ) //, iu32 data_length )
 {
-	iu32 block_counter;
+	//iu32 block_counter;
 	iu8 *state;
 	iu8 round_key[16];
 	iu8 round_constant[4] = {0x01, 0x00, 0x00, 0x00};
 	iu8 counter;
 
-	for(block_counter=0 ; block_counter < data_length ; block_counter+=16)
-	{
-		state = data+block_counter;
+#ifdef DEBUG
+  printf( "aes_enc( %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX, %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX )\n",
+    v[0], v[1], v[2], v[3], v[4], v[5], v[6], v[7],
+    v[8], v[9], v[10], v[11], v[12], v[13], v[14], v[15],
+    k[0], k[1], k[2], k[3], k[4], k[4], k[6], k[7],
+    k[8], k[9], k[10], k[11], k[12], k[13], k[14], k[15]);
+#endif
+
+	//for(block_counter=0 ; block_counter < data_length ; block_counter+=16)
+	//{
+		state = v; //+block_counter;
 		round_constant[0] = 0x01;
 
 		for(counter=0 ; counter<16 ; counter++)
-			round_key[counter]=key[counter];
+			round_key[counter]=k[counter];
 
 		for(counter = 0; counter < 9; counter++)
 		{
@@ -87,23 +95,31 @@ void aes_enc( iu8 *data, iu8 *key, iu32 data_length )
 
 		for(counter=0 ; counter<16 ; counter++)
 			state[counter] = state[counter]^round_key[counter];
-	}
+	//}
 
 }
 
-void aes_dec( iu8 *data, iu8 *key, iu32 data_length )
+void aes_dec( iu8 *v, iu8 *k) //, iu32 data_length )
 {
-	iu32 block_counter;
+	//iu32 block_counter;
 	iu8 *state;
 	iu8 round_key[16];
 	iu8 round_constant[4] = {0x01, 0x00, 0x00, 0x00};
 	iu8 counter;
 
-	for(block_counter=0 ; block_counter < data_length ; block_counter+=16)
-	{
-		state = data+block_counter;
+#ifdef DEBUG
+  printf( "aes_dec( %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX, %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX )\n",
+    v[0], v[1], v[2], v[3], v[4], v[5], v[6], v[7],
+    v[8], v[9], v[10], v[11], v[12], v[13], v[14], v[15],
+    k[0], k[1], k[2], k[3], k[4], k[4], k[6], k[7],
+    k[8], k[9], k[10], k[11], k[12], k[13], k[14], k[15]);
+#endif
+
+	//for(block_counter=0 ; block_counter < data_length ; block_counter+=16)
+	//{
+		state = v; //+block_counter;
 		round_constant[0] = 0x01;
-		calculateLastRoundKey(round_key, key, round_constant);
+		calculateLastRoundKey(round_key, k, round_constant);
 
 		for(counter=0 ; counter<16 ; counter++)
 			state[counter] = state[counter]^round_key[counter];
@@ -117,8 +133,8 @@ void aes_dec( iu8 *data, iu8 *key, iu32 data_length )
 		}
 
 		inverseShiftRows(state);
-		inverseSubstituteBytesAndAddRoundKey(state, key);
-	}
+		inverseSubstituteBytesAndAddRoundKey(state, k);
+	//}
 }
 
 void addRoundKeyAndSubstituteBytes(iu8 *state, iu8 *round_key)
@@ -258,6 +274,47 @@ iu8 xtime(iu8 value)
 {
   return ((value & 0x80) ? (value<<1)^0x1b : value<<1) ;
 }
+
+#ifdef TEST
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
+
+int main() {
+	iu8 inp[16]	= { 0x33, 0x22, 0x11, 0x00, 0xdd, 0xcc, 0xbb, 0xaa, 0x33, 0x22, 0x11, 0x00, 0xdd, 0xcc, 0xbb, 0xaa };
+	iu8 key[16]	= { 0x00, 0x99, 0x88, 0x77, 0x66, 0x55, 0x44, 0x33, 0x00, 0x99, 0x88, 0x77, 0x66, 0x55, 0x44, 0x33 };
+	iu8 enc[16], dec[16];
+	iu8 chk[16]	= { 0x50, 0x9E, 0xE9, 0x4F, 0x26, 0x25, 0x03, 0xB6, 0xEE, 0x0A, 0x2D, 0xB7, 0x8C, 0x15, 0x08, 0x1D };
+	iu8 tab[10][256];
+	long i;
+	clock_t elapsed;
+
+	memcpy( enc, inp, 8 );
+	aes_enc( enc, key );
+
+#ifdef DEBUG
+  printf( "ckpoint( %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX )\n",
+    enc[0], enc[1], enc[2], enc[3], enc[4], enc[5], enc[6], enc[7],
+    enc[8], enc[9], enc[10], enc[11], enc[12], enc[13], enc[14], enc[15] );
+#endif
+	printf((memcmp(enc, chk, 8) == 0) ? "encryption OK!\n" : "encryption failure!\n");
+#if CONF_WITH_DECRYPT==1
+	memcpy( dec, chk, 8 );
+	aes_dec( dec, key );
+	printf((memcmp(dec, inp, 8) == 0) ? "decryption OK!\n" : "decryption failure!\n");
+#endif
+
+#ifdef BENCHMARK
+	elapsed = -clock();
+	for (i = 0; i < 1000000L; i++) {
+		aes_enc( enc, key );
+	}
+	elapsed += clock();
+	printf ("elapsed time: %.1f s.\n", (float)elapsed/CLOCKS_PER_SEC);
+#endif
+	return 0;
+}
+#endif /* TEST */
 
 #endif /* CONF_WITH_CRYPT_ALGO==3 */
 

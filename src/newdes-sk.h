@@ -4,8 +4,8 @@
 	$Id: newdes-sk.h,v 1.1 2003/03/30 12:42:21 m Exp $
 */
 
-#ifndef SOSSE_NEWDESSK_H
-#define SOSSE_NEWDESSK_H
+#ifndef ATMOS_NEWDESSK_H
+#define ATMOS_NEWDESSK_H
 
 #include <types.h>
 

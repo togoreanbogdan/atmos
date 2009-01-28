@@ -35,8 +35,8 @@
 	$Id: auth.h,v 1.11 2002/12/22 15:42:55 m Exp $
 */
 
-#ifndef SOSSE_AUTH_H
-#define SOSSE_AUTH_H
+#ifndef ATMOS_AUTH_H
+#define ATMOS_AUTH_H
 
 #include <types.h>
 
@@ -196,5 +196,5 @@ bool auth_getChallenge( iu8 *dst, iu8 rndlen );
 bool auth_createVerifyCryptogram( iu8 *cry, iu8 crylen, bool create,
 	bool enc );
 
-#endif /* SOSSE_AUTH_H */
+#endif /* ATMOS_AUTH_H */
 

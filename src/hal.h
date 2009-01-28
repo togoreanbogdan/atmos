@@ -23,8 +23,8 @@
 	$Id: hal.h,v 1.15 2002/12/22 15:42:55 m Exp $
 */
 
-#ifndef SOSSE_HAL_H
-#define SOSSE_HAL_H
+#ifndef ATMOS_HAL_H
+#define ATMOS_HAL_H
 
 #include <types.h>
 
@@ -163,4 +163,4 @@ bool hal_rnd_getBlock( iu8 *dst );
 */
 bool hal_led( char set );
 
-#endif /* SOSSE_HAL_H */
+#endif /* ATMOS_HAL_H */

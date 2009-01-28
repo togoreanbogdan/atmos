@@ -26,8 +26,8 @@
 	$Id: commands.h,v 1.15 2002/12/22 15:42:55 m Exp $
 */
 
-#ifndef SOSSE_COMMANDS_H
-#define SOSSE_COMMANDS_H
+#ifndef ATMOS_COMMANDS_H
+#define ATMOS_COMMANDS_H
 
 #define CLA_PROP			0x80	//!< CLA byte: Proprietary
 
@@ -109,4 +109,4 @@ void cmd_updateBinary( void );
 */
 void cmd_verifyKeyPIN( void );
 
-#endif /* SOSSE_COMMANDS_H */
+#endif /* ATMOS_COMMANDS_H */

@@ -88,7 +88,7 @@
 #include <stdio.h>
 #endif
 
-#if CONF_WITH_CRYPT_ALGO==2
+#if CONF_WITH_CRYPT_ALGO==2 || TEST
 
 static const iu8 f[256] = {
 	32,137,239,188,102,125,221,72,212,68,81,37,86,237,147,149,

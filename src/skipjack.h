@@ -7,8 +7,8 @@
 	$Id: skipjack.h,v 1.1 2003/03/30 12:42:21 m Exp $
 */
 
-#ifndef SOSSE_SKIPJACK_H
-#define SOSSE_SKIPJACK_H
+#ifndef ATMOS_SKIPJACK_H
+#define ATMOS_SKIPJACK_H
 
 #include <types.h>
 
@@ -35,5 +35,5 @@ void skipjack_enc( iu8* v, iu8* k );
 */
 void skipjack_dec( iu8* v, iu8* k );
 
-#endif /* SOSSE_SKIPJACK_H */
+#endif /* ATMOS_SKIPJACK_H */
 

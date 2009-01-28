@@ -23,8 +23,8 @@
 	$Id: crypt.h,v 1.1 2003/03/30 12:42:21 m Exp $
 */
 
-#ifndef SOSSE_CRYPT_H
-#define SOSSE_CRYPT_H
+#ifndef ATMOS_CRYPT_H
+#define ATMOS_CRYPT_H
 
 #include <config.h>
 
@@ -77,5 +77,5 @@
 #error No valid crypto algorithm selected.
 #endif
 
-#endif /* SOSSE_CRYPT_H */
+#endif /* ATMOS_CRYPT_H */
 

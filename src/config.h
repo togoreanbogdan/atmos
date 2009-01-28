@@ -21,8 +21,8 @@
   \brief Configuration settings (build options).
 */
 
-#ifndef SOSSE_CONFIG_H
-#define SOSSE_CONFIG_H
+#ifndef ATMOS_CONFIG_H
+#define ATMOS_CONFIG_H
 
 
 /* Configuration defines */
@@ -333,5 +333,5 @@
 #define ESIZ EXT_EEPROM_SIZE
 
 
-#endif /* SOSSE_CONFIG_H */
+#endif /* ATMOS_CONFIG_H */
 

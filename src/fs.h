@@ -49,8 +49,8 @@
 	$Id: fs.h,v 1.13 2002/12/22 15:42:55 m Exp $
 */
 
-#ifndef SOSSE_FS_H
-#define SOSSE_FS_H
+#ifndef ATMOS_FS_H
+#define ATMOS_FS_H
 
 #include <types.h>
 #include <fstream.h>
@@ -179,5 +179,5 @@ bool fs_delete( iu16 fid );
 */
 bool fs_create( S_FINFO *fi );
 
-#endif /* SOSSE_FS_H */
+#endif /* ATMOS_FS_H */
 

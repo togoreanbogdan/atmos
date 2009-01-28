@@ -31,8 +31,8 @@
 	$Id: log.h,v 1.5 2002/12/22 15:42:55 m Exp $
 */
 
-#ifndef SOSSE_LOG_H
-#define SOSSE_LOG_H
+#ifndef ATMOS_LOG_H
+#define ATMOS_LOG_H
 
 #include <types.h>
 
@@ -84,4 +84,4 @@ void log_add( iu8 tag, iu8 *data, iu8 len );
 #define log_add(tag,data,len)
 #endif
 
-#endif /* SOSSE_LOG_H */
+#endif /* ATMOS_LOG_H */

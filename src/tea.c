@@ -47,7 +47,7 @@ delta is chosen to be the real part of (the golden ratio Sqrt(5/4) -
 #define hton_ul(x,y)
 
 // Tea is algorithm with ID 0 in our list
-#if CONF_WITH_CRYPT_ALGO==0
+#if CONF_WITH_CRYPT_ALGO==0 || TEST
 
 void tea_enc( iu32 *v, iu32 *k )
 {

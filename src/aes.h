@@ -7,16 +7,13 @@
 	$Id: aes.h,v 1.5 2002/12/22 15:42:55 m Exp $
 */
 
-#ifndef SOSSE_AES_H
-#define SOSSE_AES_H
+#ifndef ATMOS_AES_H
+#define ATMOS_AES_H
 
 #include <types.h>
 
-//#define AES_KEY_LEN		16	//!< AES key size.
-//#define AES_BLOCK_LEN	16	//!< AES block length.
-
-//#define DELTA	0x9E3779B9	//!< Magic value. (Golden number * 2^31)
-//#define ROUNDS	32			//!< Number of rounds.
+#define AES_KEY_LEN		16	//!< AES key size.
+#define AES_BLOCK_LEN	16	//!< AES block length.
 
 /*! \brief AES encryption function.
 
@@ -26,7 +23,7 @@
 	\param v Array of two long values containing the data block.
 	\param k Array of four long values containing the key.
 */
-void aes_enc( iu8 *v, iu8 *k, iu32 v_len );
+void aes_enc( iu8 *v, iu8 *k); //, iu32 v_len );
 
 /*! \brief AES decryption function.
 
@@ -36,7 +33,7 @@ void aes_enc( iu8 *v, iu8 *k, iu32 v_len );
 	\param v Array of two long values containing the data block.
 	\param k Array of four long values containing the key.
 */
-void aes_dec( iu8 *v, iu8 *k, iu32 v_len );
+void aes_dec( iu8 *v, iu8 *k); //, iu32 v_len );
 
 void addRoundKeyAndSubstituteBytes(iu8 *, iu8 *);
 void shiftRows(iu8 *);
@@ -50,5 +47,5 @@ void calculateLastRoundKey(iu8 *, iu8 *, iu8 *);
 void swap(iu8 *, iu8 *);
 iu8 xtime(iu8);
 
-#endif /* SOSSE_AES_H */
+#endif /* ATMOS_AES_H */
 

@@ -1289,11 +1289,11 @@
 	MA 02111-1307 USA</P>
 */
 
-#ifndef SOSSE_MAIN_H
-#define SOSSE_MAIN_H
+#ifndef ATMOS_MAIN_H
+#define ATMOS_MAIN_H
 
 #if defined(CTAPI)
 void atmos_main( void );
 #endif
 
-#endif /* SOSSE_MAIN_H */
+#endif /* ATMOS_MAIN_H */

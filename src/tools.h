@@ -23,8 +23,8 @@
 	$Id: tools.h,v 1.11 2002/12/22 15:42:56 m Exp $
 */
 
-#ifndef SOSSE_TOOLS_H
-#define SOSSE_TOOLS_H
+#ifndef ATMOS_TOOLS_H
+#define ATMOS_TOOLS_H
 
 #include <config.h>
 #include <types.h>
@@ -58,4 +58,4 @@ void hton_ul( iu32 *ul, iu8 num );
 /*! Return maximum value */
 #define max(a,b) ((a)>(b)?(a):(b))
 
-#endif /* SOSSE_TOOLS_H */
+#endif /* ATMOS_TOOLS_H */

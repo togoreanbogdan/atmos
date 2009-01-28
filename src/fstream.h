@@ -30,8 +30,8 @@
 	$Id: fstream.h,v 1.8 2002/12/22 15:42:55 m Exp $
 */
 
-#ifndef SOSSE_FSTREAM_H
-#define SOSSE_FSTREAM_H
+#ifndef ATMOS_FSTREAM_H
+#define ATMOS_FSTREAM_H
 
 #include <types.h>
 
@@ -77,5 +77,5 @@ bool fstream_write( S_FSTREAM *fs, iu8 *src, iu8 len );
 */
 bool fstream_test( S_FSTREAM *fs, iu16 len );
 
-#endif /* SOSSE_FSTREAM_H */
+#endif /* ATMOS_FSTREAM_H */
 

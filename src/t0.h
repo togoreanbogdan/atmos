@@ -28,8 +28,8 @@
 	$Id: t0.h,v 1.12 2002/12/22 15:42:55 m Exp $
 */
 
-#ifndef SOSSE_T0_H
-#define SOSSE_T0_H
+#ifndef ATMOS_T0_H
+#define ATMOS_T0_H
 
 /*! \brief Header of the current command.
 
@@ -92,4 +92,4 @@ bool t0_testP1P2( iu16 p1p2 );
 */
 bool t0_testP3( iu8 p3 );
 
-#endif /* SOSSE_T0_H */
+#endif /* ATMOS_T0_H */

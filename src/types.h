@@ -23,8 +23,8 @@
 	$Id: types.h,v 1.12 2003/03/30 19:36:48 m Exp $
 */
 
-#ifndef SOSSE_TYPES_H
-#define SOSSE_TYPES_H
+#ifndef ATMOS_TYPES_H
+#define ATMOS_TYPES_H
 
 #define FALSE	0
 #define TRUE	!FALSE
@@ -47,4 +47,4 @@ typedef unsigned long iu32;
 //! Boolean data type.
 typedef unsigned char bool;
 
-#endif /* SOSSE_TYPES_H */
+#endif /* ATMOS_TYPES_H */

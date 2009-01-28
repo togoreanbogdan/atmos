@@ -8,7 +8,7 @@
 #include <stdio.h>
 #endif
 
-#if CONF_WITH_CRYPT_ALGO==1
+#if CONF_WITH_CRYPT_ALGO==1 || TEST
 
 // Currently decryption only works with SMALL_MEMORY=1. (Must be
 // an error somewhere in non-small code).

@@ -53,8 +53,8 @@
 	$Id: transaction.h,v 1.9 2002/12/22 15:42:56 m Exp $
 */
 
-#ifndef SOSSE_TRANSACTION_H
-#define SOSSE_TRANSACTION_H
+#ifndef ATMOS_TRANSACTION_H
+#define ATMOS_TRANSACTION_H
 
 #include <types.h>
 
@@ -99,4 +99,4 @@ bool ta_commit( void );
 */
 bool ta_rollback( void );
 
-#endif /* SOSSE_TRANSACTION_H */
+#endif /* ATMOS_TRANSACTION_H */
