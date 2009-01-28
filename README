@@ -106,23 +106,19 @@ Let's take a look at each build type:
  To ease debugging, you can compile the package for the usual
  desktop computer (no any smart card hardware necessary).
 
- First, obtain libdes library from
+ Install texinfo, automake libssl
 
- Then, obtain keeper library from
-
- Then install texinfo
-
- Then compile scez
- Then run PATH="$PATH:/sbin" ldconfig -n /usr/local/lib
- Then run make install
-
- Add -I/tmp/scez-ng to cflags
-
- Result are atmos-emu, fstest, authtest, enctest
-
- First install SCEZ:
+ Then obtain SCEZ-ng:
    Info: http://www.freshmeat.net/projects/scez
 
+ Then compile scez-ng
+ ./configure
+ make
+ make install
+
+ make -f Makefile.emu
+
+ Result are atmos-emu, authtest, enctest, fstest
 
 * CT-API driver emulating card in a terminal
 

@@ -36,7 +36,7 @@ OBJ=\
 	tools.o \
 	transaction.o
 
-all: atmos fstest authtest
+all: atmos fstest authtest enctest
 
 atmos: $(OBJ) main.o
 	$(CC) $(CFLAGS) -o atmos-emu $(OBJ) main.o -L. -lsio
