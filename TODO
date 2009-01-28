@@ -2,3 +2,5 @@
 * keeper wants to build gkeeper even if gtk not there and configure 
   says it wont be built
 
+* tea/aes have nonworking examples
+

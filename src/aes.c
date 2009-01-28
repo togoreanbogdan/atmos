@@ -57,9 +57,9 @@ static const CODE iu8 inverse_substitution_table_[256] = {
 0x17, 0x2B, 0x04, 0x7E, 0xBA, 0x77, 0xD6, 0x26, 0xE1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0C, 0x7D,
 };
 
-void aes_enc( iu8 *v, iu8 *k ) //, iu32 data_length )
+void aes_enc( iu8 *v, iu8 *k, iu32 data_length )
 {
-	//iu32 block_counter;
+	iu32 block_counter;
 	iu8 *state;
 	iu8 round_key[16];
 	iu8 round_constant[4] = {0x01, 0x00, 0x00, 0x00};
@@ -73,9 +73,9 @@ void aes_enc( iu8 *v, iu8 *k ) //, iu32 data_length )
     k[8], k[9], k[10], k[11], k[12], k[13], k[14], k[15]);
 #endif
 
-	//for(block_counter=0 ; block_counter < data_length ; block_counter+=16)
-	//{
-		state = v; //+block_counter;
+	for(block_counter=0 ; block_counter < data_length ; block_counter+=16)
+	{
+		state = v+block_counter;
 		round_constant[0] = 0x01;
 
 		for(counter=0 ; counter<16 ; counter++)
@@ -95,13 +95,13 @@ void aes_enc( iu8 *v, iu8 *k ) //, iu32 data_length )
 
 		for(counter=0 ; counter<16 ; counter++)
 			state[counter] = state[counter]^round_key[counter];
-	//}
+	}
 
 }
 
-void aes_dec( iu8 *v, iu8 *k) //, iu32 data_length )
+void aes_dec( iu8 *v, iu8 *k, iu32 data_length )
 {
-	//iu32 block_counter;
+	iu32 block_counter;
 	iu8 *state;
 	iu8 round_key[16];
 	iu8 round_constant[4] = {0x01, 0x00, 0x00, 0x00};
@@ -115,9 +115,9 @@ void aes_dec( iu8 *v, iu8 *k) //, iu32 data_length )
     k[8], k[9], k[10], k[11], k[12], k[13], k[14], k[15]);
 #endif
 
-	//for(block_counter=0 ; block_counter < data_length ; block_counter+=16)
-	//{
-		state = v; //+block_counter;
+	for(block_counter=0 ; block_counter < data_length ; block_counter+=16)
+	{
+		state = v+block_counter;
 		round_constant[0] = 0x01;
 		calculateLastRoundKey(round_key, k, round_constant);
 
@@ -134,7 +134,7 @@ void aes_dec( iu8 *v, iu8 *k) //, iu32 data_length )
 
 		inverseShiftRows(state);
 		inverseSubstituteBytesAndAddRoundKey(state, k);
-	//}
+	}
 }
 
 void addRoundKeyAndSubstituteBytes(iu8 *state, iu8 *round_key)
@@ -290,7 +290,7 @@ int main() {
 	clock_t elapsed;
 
 	memcpy( enc, inp, 8 );
-	aes_enc( enc, key );
+	aes_enc( enc, key, 8 );
 
 #ifdef DEBUG
   printf( "ckpoint( %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX )\n",
@@ -300,7 +300,7 @@ int main() {
 	printf((memcmp(enc, chk, 8) == 0) ? "encryption OK!\n" : "encryption failure!\n");
 #if CONF_WITH_DECRYPT==1
 	memcpy( dec, chk, 8 );
-	aes_dec( dec, key );
+	aes_dec( dec, key, 8 );
 	printf((memcmp(dec, inp, 8) == 0) ? "decryption OK!\n" : "decryption failure!\n");
 #endif
 

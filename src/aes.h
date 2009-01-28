@@ -23,7 +23,7 @@
 	\param v Array of two long values containing the data block.
 	\param k Array of four long values containing the key.
 */
-void aes_enc( iu8 *v, iu8 *k); //, iu32 v_len );
+void aes_enc( iu8 *v, iu8 *k, iu32 v_len );
 
 /*! \brief AES decryption function.
 
@@ -33,7 +33,7 @@ void aes_enc( iu8 *v, iu8 *k); //, iu32 v_len );
 	\param v Array of two long values containing the data block.
 	\param k Array of four long values containing the key.
 */
-void aes_dec( iu8 *v, iu8 *k); //, iu32 v_len );
+void aes_dec( iu8 *v, iu8 *k, iu32 v_len );
 
 void addRoundKeyAndSubstituteBytes(iu8 *, iu8 *);
 void shiftRows(iu8 *);

@@ -237,14 +237,13 @@
  * Type of target chip and smart card
  *
  * AVR-based smartcards have the following elements:
- *   RAM, ROM (Flash) and internal EEPROM on the processor chip itself.
- *   External EEPROM on additional chip (24LC64, 24LC128, 256, 512, 1024).
- *   (External EEPROM is currently completely unused).
+ *   1) RAM, ROM (Flash) and internal EEPROM on the processor chip itself.
+ *   2) External EEPROM on additional chip (24LC64, 24LC128, 256, 512, 1024).
  *
  * The following data needs to be defined for each chip:
  *
  *  ENDIAN_LITTLE    If architecture is little endian
- *  INT_EEPROM_SIZE  Internal EEPROM size in bytes (0x200=512B, 0x80=128B...)
+ *  INT_EEPROM_SIZE  Internal EEPROM size in bytes (0x80=128B, 0x200=512B...)
  *  RAM_SIZE         RAM size in bytes (0x200 = 512 B, 0x400 = 1 KB...)
  *  CHIP             Chip ID, voluntarily assigned by us and returned as
  *                     part of card's ATR signature. Scheme is as follows:
@@ -255,22 +254,6 @@
  *                       10: 16F84 (not supported)
  *                       11: 16F876 (not supported)
  *                       FF: unspec. (running on 386 emulator)
- *  EXT_EEPROM_SIZE  External EEPROM size in Kbytes. Unused, but returned as
- *                     part of card's ATR signature. The defines here are 
- *                     commented because this information is not part of
- *                     the chip (can vary between smartcards even though
- *                     the processor chip may be the same), so it is set as 
- *                     its own option in the Makefile. Scheme is as follows:
- *                       00: none
- *                       01: 16 KB
- *                       02: 32 KB
- *                       03: 64 KB
- *                       04: 128 KB
- *                       05: 256 KB
- *                       06: 512 KB
- *                       07: 1024 KB
- *                       08: 2048 KB
- *                       FF: unspec.
  *  ARCH             Architecture type. Needed for assembler code and returned
  *                     as part of card's ATR signature. (Note that this setting
  *                     is unrelated and different to Makefile's ARCH=).
@@ -282,7 +265,6 @@
 #define INT_EEPROM_SIZE    0x200
 #define RAM_SIZE           0x200
 #define CHIP               0x01
-//#define EXT_EEPROM_SIZE    0x02
 #define ARCH               avr2
 
 #elif defined(__AVR_AT90S8535__)
@@ -290,7 +272,6 @@
 #define INT_EEPROM_SIZE    0x200
 #define RAM_SIZE           0x200
 #define CHIP               0x01
-//#define EXT_EEPROM_SIZE    0x03
 #define ARCH               avr2
 
 #elif defined(__AVR_AT90S2323__)
@@ -298,7 +279,6 @@
 #define INT_EEPROM_SIZE    0x80
 #define RAM_SIZE           0x80
 #define CHIP               0x00
-//#define EXT_EEPROM_SIZE    0x03
 #define ARCH               avr2
 
 #elif defined(__AVR_ATmega161__)
@@ -306,7 +286,6 @@
 #define INT_EEPROM_SIZE    0x200
 #define RAM_SIZE           0x400
 #define CHIP               0x02
-//#define EXT_EEPROM_SIZE    0x03
 #define ARCH               avr5
 
 #elif defined(__AVR_ATmega163__)
@@ -314,7 +293,6 @@
 #define INT_EEPROM_SIZE    0x200
 #define RAM_SIZE           0x400
 #define CHIP               0x03
-//#define EXT_EEPROM_SIZE    0x03
 #define ARCH               avr5
 
 #elif defined(__i386__)
@@ -322,7 +300,6 @@
 #define INT_EEPROM_SIZE    0x200
 #define RAM_SIZE           0x200
 #define CHIP               0xFF
-//#define EXT_EEPROM_SIZE    0xFF
 
 #else
 #error Unknown destination platform. Use proper ARCH type in Makefile.
