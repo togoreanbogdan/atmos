@@ -125,10 +125,10 @@ verify-eeprom:
 	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -U eeprom:v:eedata.hex:i
 
 write-flash:
-	avrdude -p $(ARCH) -c $(PROG) -D -P $(PORT) -U flash:w:sosse.hex:i
+	avrdude -p $(ARCH) -c $(PROG) -D -P $(PORT) -U flash:w:atmos.hex:i
 
 verify-flash:
-	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -U flash:v:sosse.hex:i
+	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -U flash:v:atmos.hex:i
 
 erase:
 	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -e

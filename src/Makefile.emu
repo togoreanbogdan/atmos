@@ -50,7 +50,7 @@ authtest: $(OBJ) authtest.o
 enctest: $(OBJ) enctest.o
 	$(CC) $(CFLAGS) -o enctest $(OBJ) enctest.o -L. -lsio
 
-clean: clean-sosse clean-fstest clean-authtest clean-enctest
+clean: clean-atmos clean-fstest clean-authtest clean-enctest
 	rm -rf core
 
 clean-atmos:

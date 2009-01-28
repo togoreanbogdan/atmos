@@ -5,6 +5,7 @@
                  **   **    **    **     **    ****      ****
 
             ** Free Operating System for Atmel-based Smart Cards ** 
+                 XXX ISO-COMPLIANT
 
                  http://techpubs.spinlocksolutions.com/atmos/
                  Davor Ocelic, docelic@spinlocksolutions.com
@@ -26,7 +27,7 @@ Compiling:
  editor Makefile   (verify settings for $ARCH, $PROG and $PORT)
  editor eedata.S   (can change EEPROM data loaded on card, such as
                    serial number, RNG seed, keys or file permissions)
- make              (result files are are sosse.{bin,hex} and eedata.{bin,hex}.
+ make              (result files are are atmos.{bin,hex} and eedata.{bin,hex}.
                    Bin files are raw files, .hex files are in Intel hex
                    format. They're the same but hex is nicer to read. Hex
                    file can be loaded onto the card just as well as .bin,
@@ -36,7 +37,7 @@ Compiling:
 Loading onto smartcard:
 
  The writing is done using 'avrdude' software, so make sure you have it
- installed. Also make sure you've edited Makefile and set BOARD= to
+ installed. Also make sure you've edited Makefile and set PROG= to
  a proper value (see 'avrdude -c list' for a list of valid options).
 
  Files go to:
@@ -76,23 +77,22 @@ or install the excellent generic libccid):
 
 Alternative build modes
 
-ATMOS can be compiled for the AVR target (standard Makefile),
-as a binary running on your workstation (Makefile.emu) and
-as a CT-API driver implementing a virtual card in a virtual terminal.
+ATMOS can be compiled in a few different modes:
 
- - binary for the AVR-based smartcard (standard Makefile)
- - binary running on your workstation (Makefile.emu)
- - CT-API driver implementing a virtual card in a virtual terminal
+ - for the Atmel AVR chip (standard Makefile)
+ - as a binary running on your workstation (Makefile.emu)
+ - as a CT-API driver implementing a virtual card and terminal (Makefile.ctapi)
 
 To invoke builds for the last two types, you need to specify
 'make -f MAKEFILE', and you need to pay attention to always clean the
 build by invoking 'make -f MAKEFILE clean' before switching targets,
 or you will mix binaries and get errors about wrong binary types etc.
 
-To ease this process, the default Makefile's clean action calls all
-three cleans. Therefore, just 'make clean' will always do what you need.
+(To ease the cleanup process, the default Makefile's clean action calls all
+three cleans. Therefore, just 'make clean' will always do what you need.)
 
 Let's take a look at each build type:
+
 
 * Standard Makefile, AVR target:
 
@@ -118,7 +118,7 @@ Let's take a look at each build type:
 
  Add -I/tmp/scez-ng to cflags
 
- Result are sosse-emu, fstest, authtest, enctest
+ Result are atmos-emu, fstest, authtest, enctest
 
  First install SCEZ:
    Info: http://www.freshmeat.net/projects/scez
