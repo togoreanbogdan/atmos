@@ -27,7 +27,9 @@
 #if defined(CTAPI)
 #include <ctapi.h>
 #endif
+#ifdef USE_SIO
 #include <sio/sio.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

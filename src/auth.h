@@ -41,43 +41,43 @@
 #include <types.h>
 
 //! Flag for authstate signalling a successful PIN verification.
-#define AUTH_FLAG_PIN	0x01
+#define AUTH_FLAG_PIN   0x01
 //! Flag for authstate signalling a successful external authentication or key verification.
-#define AUTH_FLAG_KEY	0x02
+#define AUTH_FLAG_KEY   0x02
 
-#define AUTH_AC_ALW	0x0	//!< Access Condition: Always.
-#define AUTH_AC_PIN	0x1	//!< Access Condition: PIN.
-#define AUTH_AC_ADM	0x2	//!< Access Condition: Key.
-#define AUTH_AC_POA	0x3	//!< Access Condition: PIN or Key.
-#define AUTH_AC_PAA	0x4	//!< Access Condition: PIN and Key.
-#define AUTH_AC_NEV	0xF	//!< Access Condition: Never.
+#define AUTH_AC_ALW     0x0 //!< Access Condition: Always.
+#define AUTH_AC_PIN     0x1 //!< Access Condition: PIN.
+#define AUTH_AC_ADM     0x2 //!< Access Condition: Key.
+#define AUTH_AC_POA     0x3 //!< Access Condition: PIN or Key.
+#define AUTH_AC_PAA     0x4 //!< Access Condition: PIN and Key.
+#define AUTH_AC_NEV     0xF //!< Access Condition: Never.
 
-#define PIN_MAX_RETRIES	3	//!< Default max. retries for PIN.
-#define PUK_MAX_RETRIES	10	//!< Default max. retries for PUK.
+#define PIN_MAX_RETRIES 3 //!< Default max. retries for PIN.
+#define PUK_MAX_RETRIES 10  //!< Default max. retries for PUK.
 
-#define PIN_TYPE_PIN	0	//!< PIN type: PIN.
-#define PIN_TYPE_PUK	1	//!< PIN type: PUK.
-#define PIN_TYPE_EXT	2	//!< PIN type: Key for external authentication.
-#define PIN_TYPE_INT	3	//!< PIN type: Key for internal authentication.
-#define PIN_TYPE_KEY	4	//!< PIN type: Key. (XXX just to solve compile problem)
+#define PIN_TYPE_PIN    0 //!< PIN type: PIN.
+#define PIN_TYPE_PUK    1 //!< PIN type: PUK.
+#define PIN_TYPE_EXT    2 //!< PIN type: Key for external authentication.
+#define PIN_TYPE_INT    3 //!< PIN type: Key for internal authentication.
+#define PIN_TYPE_KEY    4 //!< PIN type: Key. (XXX just to solve compile problem)
 
-#define KEY_MAX_RETRIES 10	//!< Default max. retries for keys.
+#define KEY_MAX_RETRIES 10  //!< Default max. retries for keys.
 
 /*! \brief FID for file with external authentication key.
 
 	It is only searched for the file in the MF and not in any DF.
 */
-#define AUTH_FID_EXTAUTH	0xFF00
+#define AUTH_FID_EXTAUTH 0xFF00
 /*! \brief FID for file with internal authentication key.
 
 	It is only searched for the file in the MF and not in any DF.
 */
-#define AUTH_FID_INTAUTH	0xFF01
+#define AUTH_FID_INTAUTH 0xFF01
 /*! \brief FID for file with PIN and PUK.
 
 	It is only searched for the file in the MF and not in any DF.
 */
-#define	AUTH_FID_PINPUK		0xFF02
+#define AUTH_FID_PINPUK 0xFF02
 
 /*! \brief Validity of challenge.
 

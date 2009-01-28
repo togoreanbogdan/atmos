@@ -12,8 +12,8 @@
 
 #include <types.h>
 
-#define AES_KEY_LEN		16	//!< AES key size.
-#define AES_BLOCK_LEN	16	//!< AES block length.
+#define AES_KEY_LEN   16  //!< AES key size.
+#define AES_BLOCK_LEN 16  //!< AES block length.
 
 /*! \brief AES encryption function.
 

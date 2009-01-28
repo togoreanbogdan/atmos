@@ -29,26 +29,26 @@
 #ifndef ATMOS_COMMANDS_H
 #define ATMOS_COMMANDS_H
 
-#define CLA_PROP			0x80	//!< CLA byte: Proprietary
+#define CLA_PROP          0x80  //!< CLA byte: Proprietary
 
-#define INS_WRITE			0x02	//!< INS byte: Write EEPROM
-#define INS_READ			0x04	//!< INS byte: Read EEPROM
-#define INS_LED				0x06	//!< INS byte: LED Effects
+#define INS_WRITE         0x02  //!< INS byte: Write EEPROM
+#define INS_READ          0x04  //!< INS byte: Read EEPROM
+#define INS_LED           0x06  //!< INS byte: LED Effects
 
-#define INS_CHANGE_PIN		0x24	//!< INS byte: Change PIN
-#define INS_CREATE			0xE0	//!< INS byte: Create File
-#define INS_DELETE			0xE4	//!< INS byte: Delete File (ISO 0E)
-#define INS_EXTERNAL_AUTH	0x82	//!< INS byte: External Authentication
-#define INS_GET_CHALLENGE	0x84	//!< INS byte: Get Challenge
-#define INS_GET_RESPONSE	0xC0	//!< INS byte: Get Response
-#define INS_INTERNAL_AUTH	0x88	//!< INS byte: Internal Authentication
-#define INS_READ_BINARY		0xB0	//!< INS byte: Read Binary
+#define INS_CHANGE_PIN    0x24  //!< INS byte: Change PIN
+#define INS_CREATE        0xE0  //!< INS byte: Create File
+#define INS_DELETE        0xE4  //!< INS byte: Delete File (ISO 0E)
+#define INS_EXTERNAL_AUTH 0x82  //!< INS byte: External Authentication
+#define INS_GET_CHALLENGE 0x84  //!< INS byte: Get Challenge
+#define INS_GET_RESPONSE  0xC0  //!< INS byte: Get Response
+#define INS_INTERNAL_AUTH 0x88  //!< INS byte: Internal Authentication
+#define INS_READ_BINARY   0xB0  //!< INS byte: Read Binary
 // READ RECORDS ISO B2
-#define INS_SELECT			0xA4	//!< INS byte: Select File
-#define INS_UNBLOCK_PIN		0x2C	//!< INS byte: Unblock PIN
-#define INS_UPDATE_BINARY	0xD6	//!< INS byte: Update Binary
-#define INS_VERIFY_KEY		0x2A	//!< INS byte: Verify Key
-#define INS_VERIFY_PIN		0x20	//!< INS byte: Verify PIN
+#define INS_SELECT        0xA4  //!< INS byte: Select File
+#define INS_UNBLOCK_PIN   0x2C  //!< INS byte: Unblock PIN
+#define INS_UPDATE_BINARY 0xD6  //!< INS byte: Update Binary
+#define INS_VERIFY_KEY    0x2A  //!< INS byte: Verify Key
+#define INS_VERIFY_PIN    0x20  //!< INS byte: Verify PIN
 //  MANAGE CHANNEL ISO 70
 // ENVELOPE C2
 // GET DATA CA
