@@ -22,12 +22,14 @@ int main() {
 	crypt_dec( dec, key );
 	printf((memcmp(dec, inp, 8) == 0) ? "decryption OK!\n" : "decryption failure!\n");
 
+#ifdef BENCHMARK
 	elapsed = -clock();
 	for (i = 0; i < 1000000L; i++) {
 		crypt_enc( enc, key );
 	}
 	elapsed += clock();
 	printf ("elapsed time: %.1f s.\n", (float)elapsed/CLOCKS_PER_SEC);
+#endif
 	return 0;
 }
 

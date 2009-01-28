@@ -2,7 +2,8 @@ CC=gcc
 AS=as
 OBJCOPY=objcopy
 
-CFLAGS=-Wall -I. -O6 -g -DDEBUG -I../../scez-ng
+CFLAGS+=-Wall -I. -O6 -g
+#LIBS+=-lsio # Enable if you use -DUSE_SIO
 
 SRC=\
 	aes.c \
@@ -39,16 +40,16 @@ OBJ=\
 all: atmos fstest authtest enctest
 
 atmos: $(OBJ) main.o
-	$(CC) $(CFLAGS) -o atmos-emu $(OBJ) main.o -L. -lsio
+	$(CC) $(CFLAGS) -o atmos-emu $(OBJ) main.o -L. $(LIBS)
 
 fstest: $(OBJ) fstest.o
-	$(CC) $(CFLAGS) -o fstest $(OBJ) fstest.o -L. -lsio
+	$(CC) $(CFLAGS) -o fstest $(OBJ) fstest.o -L. $(LIBS)
 
 authtest: $(OBJ) authtest.o
-	$(CC) $(CFLAGS) -o authtest $(OBJ) authtest.o -L. -lsio
+	$(CC) $(CFLAGS) -o authtest $(OBJ) authtest.o -L. $(LIBS)
 
 enctest: $(OBJ) enctest.o
-	$(CC) $(CFLAGS) -o enctest $(OBJ) enctest.o -L. -lsio
+	$(CC) $(CFLAGS) -o enctest $(OBJ) enctest.o -L. $(LIBS)
 
 clean: clean-atmos clean-fstest clean-authtest clean-enctest
 	rm -rf core
