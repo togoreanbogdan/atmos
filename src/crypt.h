@@ -44,6 +44,11 @@
 #define CRYPT_KEY_LEN TEA_KEY_LEN
 //! Length of cipher block in octets.
 #define CRYPT_BLOCK_LEN TEA_BLOCK_LEN
+//! Test input value, crypt key and encryption result for algorithm
+//  correctness verification.
+#define CRYPT_TEST_VAL TEA_TEST_VAL
+#define CRYPT_TEST_KEY TEA_TEST_KEY
+#define CRYPT_TEST_CHK TEA_TEST_CHK
 //! Single block encryption function.
 #define crypt_enc(v,k) tea_enc((iu32*)(v),(iu32*)(k))
 //! Single block decryption function.
@@ -54,6 +59,9 @@
 #include <skipjack.h>
 #define CRYPT_KEY_LEN SKIPJACK_KEY_LEN
 #define CRYPT_BLOCK_LEN SKIPJACK_BLOCK_LEN
+#define CRYPT_TEST_VAL SKIPJACK_TEST_VAL
+#define CRYPT_TEST_KEY SKIPJACK_TEST_KEY
+#define CRYPT_TEST_CHK SKIPJACK_TEST_CHK
 #define crypt_enc(v,k) skipjack_enc((iu8*)(v),(iu8*)(k))
 #define crypt_dec(v,k) skipjack_dec((iu8*)(v),(iu8*)(k))
 
@@ -62,6 +70,9 @@
 #include <newdes-sk.h>
 #define CRYPT_KEY_LEN NEWDESSK_KEY_LEN
 #define CRYPT_BLOCK_LEN NEWDESSK_BLOCK_LEN
+#define CRYPT_TEST_VAL NEWDESSK_TEST_VAL
+#define CRYPT_TEST_KEY NEWDESSK_TEST_KEY
+#define CRYPT_TEST_CHK NEWDESSK_TEST_CHK
 #define crypt_enc(v,k) newdessk_enc((iu8*)(v),(iu8*)(k))
 #define crypt_dec(v,k) newdessk_dec((iu8*)(v),(iu8*)(k))
 
@@ -70,6 +81,9 @@
 #include <aes.h>
 #define CRYPT_KEY_LEN AES_KEY_LEN
 #define CRYPT_BLOCK_LEN AES_BLOCK_LEN
+#define CRYPT_TEST_VAL AES_TEST_VAL
+#define CRYPT_TEST_KEY AES_TEST_KEY
+#define CRYPT_TEST_CHK AES_TEST_CHK
 #define crypt_enc(v,k) aes_enc((iu8*)(v),(iu16*)(k),8)
 #define crypt_dec(v,k) aes_dec((iu8*)(v),(iu16*)(k),8)
 
