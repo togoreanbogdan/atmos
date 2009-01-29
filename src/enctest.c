@@ -17,14 +17,17 @@ int main() {
 	clock_t elapsed;
 #endif
 
-	printf("Using crypt algorithm ID %d\n", CONF_WITH_CRYPT_ALGO);
+	printf("Using crypt algorithm %s, block size %d, key length %d\n",
+		CRYPT_ALGO, CRYPT_BLOCK_LEN, CRYPT_KEY_LEN);
 
-	memcpy( enc, inp, 8 );
+	memcpy( enc, inp, CRYPT_BLOCK_LEN);
 	crypt_enc( enc, key );
-	printf((memcmp(enc, chk, 8) == 0) ? "encryption OK!\n" : "encryption failure!\n");
-	memcpy( dec, enc, 8 );
+	printf((memcmp(enc, chk, CRYPT_BLOCK_LEN) == 0) ?
+		"encryption OK!\n" : "encryption failure!\n");
+	memcpy( dec, enc, CRYPT_BLOCK_LEN);
 	crypt_dec( dec, key );
-	printf((memcmp(dec, inp, 8) == 0) ? "decryption OK!\n" : "decryption failure!\n");
+	printf((memcmp(dec, inp, CRYPT_BLOCK_LEN) == 0) ?
+		"decryption OK!\n" : "decryption failure!\n");
 
 #ifdef BENCHMARK
 	elapsed = -clock();

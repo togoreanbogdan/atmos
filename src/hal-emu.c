@@ -320,12 +320,12 @@ bool hal_rnd_getBlock( iu8 *dst )
 	key[2]=key[1];
 	key[3]=key[0];
 
-	crypt_enc( block, key );
+	crypt_enc( (iu8*)block, (iu8*)key );
 
 	if( !hal_eeprom_write( RAND_STATE_ADDR, (iu8*)block, RAND_STATE_LEN ) )
 		return FALSE;
 
-	crypt_enc( block, key );
+	crypt_enc( (iu8*)block, (iu8*)key );
 
 	memcpy( dst, block, sizeof(block) );
 

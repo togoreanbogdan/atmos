@@ -38,7 +38,7 @@
 //#define CRYPT_ALGO_AES    3 //!< Algorithm ID: AES
 
 #if CONF_WITH_CRYPT_ALGO==0
-/* TEA */
+#define CRYPT_ALGO "TEA"
 #include <tea.h>
 //! Length of key in octets.
 #define CRYPT_KEY_LEN TEA_KEY_LEN
@@ -55,7 +55,7 @@
 #define crypt_dec(v,k) tea_dec((iu32*)(v),(iu32*)(k))
 
 #elif CONF_WITH_CRYPT_ALGO==1
-/* SKIPJACK */
+#define CRYPT_ALGO "SKIPJACK"
 #include <skipjack.h>
 #define CRYPT_KEY_LEN SKIPJACK_KEY_LEN
 #define CRYPT_BLOCK_LEN SKIPJACK_BLOCK_LEN
@@ -66,7 +66,7 @@
 #define crypt_dec(v,k) skipjack_dec((iu8*)(v),(iu8*)(k))
 
 #elif CONF_WITH_CRYPT_ALGO==2
-/* NEWDES-SK */
+#define CRYPT_ALGO "NEWDES-SK"
 #include <newdes-sk.h>
 #define CRYPT_KEY_LEN NEWDESSK_KEY_LEN
 #define CRYPT_BLOCK_LEN NEWDESSK_BLOCK_LEN
@@ -77,19 +77,21 @@
 #define crypt_dec(v,k) newdessk_dec((iu8*)(v),(iu8*)(k))
 
 #elif CONF_WITH_CRYPT_ALGO==3
-/* AES */
+#define CRYPT_ALGO "AES"
 #include <aes.h>
 #define CRYPT_KEY_LEN AES_KEY_LEN
 #define CRYPT_BLOCK_LEN AES_BLOCK_LEN
 #define CRYPT_TEST_VAL AES_TEST_VAL
 #define CRYPT_TEST_KEY AES_TEST_KEY
 #define CRYPT_TEST_CHK AES_TEST_CHK
-#define crypt_enc(v,k) aes_enc((iu8*)(v),(iu16*)(k),8)
-#define crypt_dec(v,k) aes_dec((iu8*)(v),(iu16*)(k),8)
+#define crypt_enc(v,k) aes_enc(v,k,1)
+#define crypt_dec(v,k) aes_dec(v,k,1)
 
 #else
 #error No valid crypto algorithm selected.
 #endif
+
+#define TO_STRING(x) #x
 
 #endif /* ATMOS_CRYPT_H */
 

@@ -2,7 +2,7 @@ CC=gcc
 AS=as
 OBJCOPY=objcopy
 
-CFLAGS=-Wall -I. -O6 -g -fpic -DCTAPI -I../../scez-ng
+CFLAGS+=-Wall -I. -O6 -g -fpic -DCTAPI
 
 SRC=\
 	aes.c \

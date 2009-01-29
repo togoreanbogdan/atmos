@@ -118,7 +118,7 @@
   - 2: NEWDES-SK
   - 3: AES
 */
-#define CONF_WITH_CRYPT_ALGO    2
+#define CONF_WITH_CRYPT_ALGO    3
 
 /* Verify dependencies */
 

@@ -97,6 +97,14 @@ void aes_enc( iu8 *v, iu8 *k, iu32 data_length )
 			state[counter] = state[counter]^round_key[counter];
 	}
 
+#ifdef DEBUG
+  printf( "result( %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX, %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX %.2hX )\n",
+    v[0], v[1], v[2], v[3], v[4], v[5], v[6], v[7],
+    v[8], v[9], v[10], v[11], v[12], v[13], v[14], v[15],
+    k[0], k[1], k[2], k[3], k[4], k[4], k[6], k[7],
+    k[8], k[9], k[10], k[11], k[12], k[13], k[14], k[15]);
+#endif
+
 }
 
 void aes_dec( iu8 *v, iu8 *k, iu32 data_length )

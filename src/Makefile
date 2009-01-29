@@ -1,7 +1,7 @@
 
 #
 # ATMOS Makefile
-# C 2008 Davor Ocelic, docelic@spinlocksolutions.com
+# C 2008-2009 Davor Ocelic, docelic@spinlocksolutions.com
 # http://techpubs.spinlocksolutions.com/atmos/
 #
 
@@ -18,7 +18,8 @@ PORT=/dev/ttyS0
 
 # Size of the external EEPROM on the smartcard. Atmel's sizes are
 # usually in kilobits (i.e. AT90(256) and 24C256 are both 32 KByte).
-# Here we set it in kilobytes, so divide chip spec by 8.
+# Here we set it in kilobytes, so divide chip spec by 8, then find
+# the appropriate code in the below list.
 # 00: none, 01: 16KB, 02: 32KB, 03: 64KB, 04: 128KB,
 # 05: 256KB, 06: 512KB, 07: 1024KB, 08: 2048KB, FF: unspec.,
 EXT_EEPROM_SIZE=0x02

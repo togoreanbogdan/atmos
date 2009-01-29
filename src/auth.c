@@ -369,8 +369,8 @@ bool auth_createVerifyCryptogram( iu8 *cry, iu8 crylen, bool create,
 
 	if( create ) {
 #if CONF_WITH_DECRYPT==1
-		if( enc ) crypt_enc( cry, key );
-		else crypt_dec( cry, key );
+		if( enc ) crypt_enc( cry, (iu8*)key );
+		else crypt_dec( cry, (iu8*)key );
 #else /* CONF_WITH_DECRYPT!=1 */
 		crypt_enc( cry, key );
 #endif /* CONF_WITH_DECRYPT!=1 */
@@ -379,7 +379,7 @@ bool auth_createVerifyCryptogram( iu8 *cry, iu8 crylen, bool create,
 	}
 
 	/* Encrypt challenge */
-	crypt_enc( challenge, key );
+	crypt_enc( challenge, (iu8*)key );
 
 	/* Compare result */
 	if( memcmp( cry, challenge, crylen ) ) {

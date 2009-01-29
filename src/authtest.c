@@ -62,50 +62,50 @@ int main( int argc, char *argv[] )
 	if( !auth_init() ) goto reterror;
 
 	printf( "auth_verifyPin( PIN_TYPE_PIN, \"12341234\", 8 )\n" );
-	if( !auth_verifyPin( PIN_TYPE_PIN, "12341234", 8 ) ) goto reterror;
+	if( !auth_verifyPin( PIN_TYPE_PIN, (iu8*)"12341234", 8 ) ) goto reterror;
 	printf( "authstate=%.2X\n", authstate );
 
 	printf( "auth_verifyPin( PIN_TYPE_PIN, \"1234123\", 7 )\n" );
-	if( auth_verifyPin( PIN_TYPE_PIN, "1234123", 7 ) ) goto reterror;
+	if( auth_verifyPin( PIN_TYPE_PIN, (iu8*)"1234123", 7 ) ) goto reterror;
 	printf( "authstate=%.2X\n", authstate );
 	printf( "sw=%.4X\n", sw );
 
 	printf( "auth_verifyPin( PIN_TYPE_PIN, \"12941234\", 8 )\n" );
-	if( auth_verifyPin( PIN_TYPE_PIN, "12941234", 8 ) ) goto reterror;
+	if( auth_verifyPin( PIN_TYPE_PIN, (iu8*)"12941234", 8 ) ) goto reterror;
 	printf( "authstate=%.2X\n", authstate );
 	printf( "sw=%.4X\n", sw );
 
 	printf( "auth_verifyPin( PIN_TYPE_PIN, \"12341234\", 8 )\n" );
-	if( !auth_verifyPin( PIN_TYPE_PIN, "12341234", 8 ) ) goto reterror;
+	if( !auth_verifyPin( PIN_TYPE_PIN, (iu8*)"12341234", 8 ) ) goto reterror;
 	printf( "authstate=%.2X\n", authstate );
 
 	printf( "auth_verifyPin( PIN_TYPE_PIN, \"12941234\", 8 )\n" );
-	if( auth_verifyPin( PIN_TYPE_PIN, "12941234", 8 ) ) goto reterror;
-	printf( "authstate=%.2X\n", authstate );
-	printf( "sw=%.4X\n", sw );
-
-	printf( "auth_verifyPin( PIN_TYPE_PIN, \"12941234\", 8 )\n" );
-	if( auth_verifyPin( PIN_TYPE_PIN, "12941234", 8 ) ) goto reterror;
+	if( auth_verifyPin( PIN_TYPE_PIN, (iu8*)"12941234", 8 ) ) goto reterror;
 	printf( "authstate=%.2X\n", authstate );
 	printf( "sw=%.4X\n", sw );
 
 	printf( "auth_verifyPin( PIN_TYPE_PIN, \"12941234\", 8 )\n" );
-	if( auth_verifyPin( PIN_TYPE_PIN, "12941234", 8 ) ) goto reterror;
+	if( auth_verifyPin( PIN_TYPE_PIN, (iu8*)"12941234", 8 ) ) goto reterror;
 	printf( "authstate=%.2X\n", authstate );
 	printf( "sw=%.4X\n", sw );
 
 	printf( "auth_verifyPin( PIN_TYPE_PIN, \"12941234\", 8 )\n" );
-	if( auth_verifyPin( PIN_TYPE_PIN, "12941234", 8 ) ) goto reterror;
+	if( auth_verifyPin( PIN_TYPE_PIN, (iu8*)"12941234", 8 ) ) goto reterror;
 	printf( "authstate=%.2X\n", authstate );
 	printf( "sw=%.4X\n", sw );
 
 	printf( "auth_verifyPin( PIN_TYPE_PIN, \"12941234\", 8 )\n" );
-	if( auth_verifyPin( PIN_TYPE_PIN, "12941234", 8 ) ) goto reterror;
+	if( auth_verifyPin( PIN_TYPE_PIN, (iu8*)"12941234", 8 ) ) goto reterror;
+	printf( "authstate=%.2X\n", authstate );
+	printf( "sw=%.4X\n", sw );
+
+	printf( "auth_verifyPin( PIN_TYPE_PIN, \"12941234\", 8 )\n" );
+	if( auth_verifyPin( PIN_TYPE_PIN, (iu8*)"12941234", 8 ) ) goto reterror;
 	printf( "authstate=%.2X\n", authstate );
 	printf( "sw=%.4X\n", sw );
 
 	printf( "auth_setPin( PIN_TYPE_PIN, \"56781234\", 8 )\n" );
-	if( !auth_setPin( PIN_TYPE_PIN, "56781234", 8 ) ) goto reterror;
+	if( !auth_setPin( PIN_TYPE_PIN, (iu8*)"56781234", 8 ) ) goto reterror;
 #else
  printf("Skipping disabled auth_init()\n" );
  printf("Skipping disabled auth_verifyPin( PIN_TYPE_PIN, \"12941234\", 8 )\n");
@@ -131,21 +131,25 @@ int main( int argc, char *argv[] )
 
 #if (CONF_WITH_PINAUTH==1) || (CONF_WITH_KEYAUTH==1)
 	printf( "auth_verifyPin( PIN_TYPE_PUK, \"12345678\", 8 )\n" );
-	if( !auth_verifyPin( PIN_TYPE_PUK, "12345678", 8 ) ) goto reterror;
+	if( !auth_verifyPin( PIN_TYPE_PUK, (iu8*)"12345678", 8 ) ) goto reterror;
 	printf( "authstate=%.2X\n", authstate );
 	printf( "sw=%.4X\n", sw );
 
 	challvalidity=1;
 	challenge[0]=ntohl(0x9D75A946);
 	challenge[1]=ntohl(0x0156A8C1);
+#if CONF_WITH_RETCODEMGR==1
+	sw=0x90;
+#else
 	sw=0x9000;
+#endif
 	printf( "auth_createVerifyCryptogram( ..., 8, FALSE, 0 )\n" );
-	if( !auth_createVerifyCryptogram( "\x01\x01\xE2\x1F\x05\x2A\xE1\xF3", 8, FALSE, 0 ) )
+	if( !auth_createVerifyCryptogram( (iu8*)"\x01\x01\xE2\x1F\x05\x2A\xE1\xF3", 8, FALSE, 0 ) )
 		goto reterror;
 	printf( "sw=%.4X\n", sw );
 
 	printf( "auth_verifyPin( PIN_TYPE_KEY, \"...\", 8 )\n" );
-	if( !auth_verifyPin( PIN_TYPE_EXT, "\x01\x23\x45\x67\x89\xAB\xCD\xEF\x01\x23\x45\x67\x89\xAB\xCD\xEF", 16 ) ) goto reterror;
+	if( !auth_verifyPin( PIN_TYPE_EXT, (iu8*)"\x01\x23\x45\x67\x89\xAB\xCD\xEF\x01\x23\x45\x67\x89\xAB\xCD\xEF", 16 ) ) goto reterror;
 	printf( "authstate=%.2X\n", authstate );
 	printf( "sw=%.4X\n", sw );
 #else

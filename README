@@ -106,27 +106,27 @@ Let's take a look at each build type:
  To ease debugging, you can compile the package for the usual
  desktop computer (no any smart card hardware necessary).
 
- Install texinfo, automake libssl
+ Install texinfo, automake, libssl (and libssl-dev)
 
- Then obtain SCEZ-ng:
-   Info: http://www.freshmeat.net/projects/scez
+ Two optional libraries can be downloaded and built, but
+   won't be covered here as we don't need them:
+ 
+     Keeper: http://www.inf.bme.hu/~mszeredi/keeper/
+     SCEZ-ng: http://www.freshmeat.net/projects/scez
+ 
+     All files can also be downloade from:
+     ftp://ftp.franken.de/pub/crypt/chipcards/scez/
 
- Then compile scez-ng
- ./configure
- make
- make install
-
- make -f Makefile.emu
+ Compile with 'make -f Makefile.emu'
 
  Result are atmos-emu, authtest, enctest, fstest
 
-* CT-API driver emulating card in a terminal
 
- Add -I/tmp/scez-ng to cflags
+* CT-API driver emulating card in a terminal
 
  make -f Makefile.ctapi
 
-------------------------------------------------------------------------
+-------------------------------------------------------------------------
 
 ATMOS is copyright 2008-2009 Davor Ocelic <docelic@spinlocksolutions.com>
 
