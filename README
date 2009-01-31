@@ -113,6 +113,9 @@ Let's take a look at each build type:
      Keeper: http://www.inf.bme.hu/~mszeredi/keeper/
 
      SCEZ-ng: http://www.freshmeat.net/projects/scez
+ 
+     All files can also be downloaded from:
+     ftp://ftp.franken.de/pub/crypt/chipcards/scez/
 
      (Note: the original author had worked on SCEZ and SCEZ-ng,
      and seems to have abandoned SCEZ-ng halfway through. The
@@ -121,9 +124,6 @@ Let's take a look at each build type:
      is not required to work with ATMOS, I am currently not
      intending to do any real changes besides compilation
      fixes etc.)
- 
-     All files can also be downloaded from:
-     ftp://ftp.franken.de/pub/crypt/chipcards/scez/
 
  Compile with 'make -f Makefile.emu'
 
