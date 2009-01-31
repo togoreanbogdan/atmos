@@ -5,7 +5,6 @@
                  **   **    **    **     **    ****      ****
 
             ** Free Operating System for Atmel-based Smart Cards ** 
-                 XXX ISO-COMPLIANT
 
                  http://techpubs.spinlocksolutions.com/atmos/
                  Davor Ocelic, docelic@spinlocksolutions.com
@@ -129,6 +128,7 @@ Let's take a look at each build type:
 -------------------------------------------------------------------------
 
 ATMOS is copyright 2008-2009 Davor Ocelic <docelic@spinlocksolutions.com>
+                    Spinlock Solutions, http://www.spinlocksolutions.com/
 
 ATMOS is based on 2003 SOSSE by Matthias Bruestle <m@mbsks.franken.de>:
   SOSSE is documented inside the source. Printable/browsable documentation
