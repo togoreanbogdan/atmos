@@ -1,4 +1,6 @@
 
+                          ========= ATMOS =========
+
                   *****   ******  ***   **     ****      **** 
                  **   **    **    ** * * **  ********  ***
                  ** * **    **    **  *  **  ********      ***
@@ -11,37 +13,54 @@
 
 Table of Contents:
 
-1) Compiling Atmos for target chip and smart card
+0) Introduction
+1) Compiling Atmos for specified Atmel chip / smart card
 2) Loading files onto smart card using programmer hardware
-3) Smart Card reader setup
-4) Alternative build modes
-5) Compiling programs for emulation on PC
-6) Compiling CT-API driver emulating card in a terminal
+3) Smart Card reader setup (installing the reader software)
+4) Alternative build/compile modes (workstation-compatible & CT-API)
 
 
-Compiling:
+0) Introduction
+
+ Atmos is an operating system for Atmel's 8-bit AVR-based smart cards,
+ released under the GNU GPL license.
+
+ The end goal of the project is to develop as ISO- and PKCS#11-compatible OS
+ as possible, so that we can take advantage of the complete set of existing
+ fully-functional PKCS#11 programs that exist for Linux.
+
+ The work is currently progressing using Atmel chips such as atmega163,
+ atmega161, at90s8535, at90s8515 and at90s2323, but support for Atmel's
+ cryptographically enabled Secure AVR series is planned for some future
+ time. 
+
+
+1) Compiling Atmos for specified Atmel chip / smart card
 
  cd src
  editor config.h   (enable/disable build options)
  editor Makefile   (verify settings for $ARCH, $PROG and $PORT)
  editor eedata.S   (can change EEPROM data loaded on card, such as
                    serial number, RNG seed, keys or file permissions)
- make              (result files are are atmos.{bin,hex} and eedata.{bin,hex}.
+ make              (result files are atmos.{bin,hex} and eedata.{bin,hex}.
                    Bin files are raw files, .hex files are in Intel hex
                    format. They're the same but hex is nicer to read. Hex
                    file can be loaded onto the card just as well as .bin,
                    provided that your programmer supports Intel hex input.)
 
 
-Loading onto smartcard:
+2) Loading files onto smart card using programmer hardware
+
+ After you have compiled ATMOS for a certain AVR chip, you can load it
+ onto the smartcard or a standalone Atmel chip.
+
+ The compiled 'atmos' and 'eedata' files go to:
+   atmos.hex or .bin  -> Flash memory
+   eedata.hex or .bin -> internal EEPROM memory
 
  The writing is done using 'avrdude' software, so make sure you have it
  installed. Also make sure you've edited Makefile and set PROG= to
  a proper value (see 'avrdude -c list' for a list of valid options).
-
- So after compilation, the resulting files go to:
-   atmos.hex or .bin  -> Flash
-   eedata.hex or .bin -> internal EEPROM
 
  The Makefile already supports 2 targets for loading the files. (Targets
  consist of 2 commands each which can be called individually as well):
@@ -50,7 +69,8 @@ Loading onto smartcard:
   make verify (= verify-eeprom verify-flash)
 
 
-Installing smart card reader software:
+3) Smart Card reader setup (installing the reader software)
+
 (Replace libtowitoko with your appropriate terminal-specific library,
 or install the excellent generic libccid):
 
@@ -73,64 +93,73 @@ or install the excellent generic libccid):
     eventhandler.c:365:EHStatusHandlerThread()
       Card Removed From Towitoko Chipdrive USB 00 00
   
+(If the card isn't programmed yet, Card ATR will report no value which is fine).
 
-Alternative build modes
+
+4) Alternative build/compile modes
 
 ATMOS can be compiled in a few different modes:
 
- - for the Atmel AVR chip (standard Makefile)
- - as a binary running on your workstation (Makefile.emu)
+ - for the Atmel AVR chip (standard Makefile), like you've been reading above
+ - as a binary running on your workstation (Makefile.emu), great for testing
+   and programming
  - as a CT-API driver implementing a virtual card and terminal (Makefile.ctapi)
 
-To invoke builds for the last two types, you need to specify
-'make -f MAKEFILE', and you need to pay attention to always clean the
-build by invoking 'make -f MAKEFILE clean' before switching targets,
-or you will mix binaries and get errors about wrong binary types etc.
+To invoke builds for the last two types, you need to specify 'make -f MAKEFILE'.
 
-(To ease the cleanup process, the default Makefile's clean action calls all
-three cleans. Therefore, just 'make clean' will always do what you need.)
+Also, before switching modes, you need to pay attention to always clean the
+build tree by invoking 'make -f MAKEFILE clean', or you will end up mixing
+binaries and get errors about wrong binary types etc. To ease this cleanup
+process, the default Makefile's clean action calls all three cleans.
+Therefore, just 'make clean' will always do what you need.
 
-Let's take a look at each build type:
+So let's take a closer look at how to build each mode:
 
-
-* Standard Makefile, AVR target:
+* AVR target (Makefile):
 
  Install gcc-avr and avr-libc
- Install doxygen
+ Install doxygen, texinfo and tetex-bin
  Compile with 'make'
 
-
-* Emulation on a PC
+* Emulation on a PC (Makefile.emu)
 
  To ease debugging and testing, you can compile the package for the
  usual desktop computer (no any smart card hardware necessary).
 
- Install texinfo, automake, libssl (and libssl-dev)
-
- Two optional libraries can be downloaded and built, but
-   won't be covered here as we don't need them:
- 
-     Keeper: http://www.inf.bme.hu/~mszeredi/keeper/
-
-     SCEZ-ng: http://www.freshmeat.net/projects/scez
- 
-     All files can also be downloaded from:
-     ftp://ftp.franken.de/pub/crypt/chipcards/scez/
-
-     (Note: the original author had worked on SCEZ and SCEZ-ng,
-     and seems to have abandoned SCEZ-ng halfway through. The
-     working SCEZ-ng can be obtained from my repository:
-     git://git.hcoop.net/git/docelic/scez.git. But since SCEZ
-     is not required to work with ATMOS, I am currently not
-     intending to do any real changes besides compilation
-     fixes etc.)
-
  Compile with 'make -f Makefile.emu'
 
- Result files are atmos-emu, authtest, enctest and fstest.
+ Result files will be atmos-emu, authtest, enctest and fstest.
 
+ ./atmos-emu is the file you can run and talk to it as if it were
+ a smartcard. Other three are filesystem, authentication and encryption
+ tests. (Note: test programs test features and encryption algorithm that
+ have been enabled in config.h).
+
+ Note: two optional libraries can be downloaded and built, and then used
+   with Atmos and Makefile.emu, but won't be covered here as we don't need
+   them:
+ 
+     Keeper library: http://www.inf.bme.hu/~mszeredi/keeper/
+     SCEZ-ng library: http://www.freshmeat.net/projects/scez
+
+     Both libs can also be downloaded from:
+     ftp://ftp.franken.de/pub/crypt/chipcards/scez/
+
+     Note: the original author had worked on SCEZ and SCEZ-ng,
+     and seems to have abandoned SCEZ-ng halfway through.
+     Before I figured we don't need SCEZ at all, I continued the
+     work on the SCEZ-ng source and have brought it to a decent
+     form (compilation & structure fixes -- no technical changes
+     compared to old SCEZ).
+
+     So that version of SCEZ-ng, if you want it for some reason,
+     can be obtained through Git with:
+     git clone git://git.hcoop.net/git/docelic/scez.git
 
 * CT-API driver emulating card in a terminal
+
+Not much to say about this build mode; it's a leftover from SOSSE, and I
+haven't used it:
 
  make -f Makefile.ctapi
 

@@ -1,6 +1,16 @@
 
+#
+# To start with ATMOS:
+# 1) Read README
+# 2) for the code, cd src/ and look into the Makefile there.
+# 2) for the documentation, run 'make docs' here
+#
+
 all:
 	(cd src ; make)
+	make docs
+
+docs:
 	(cd doxygen ; doxygen atmos.cnf ; cd latex ; make ; make refman.ps)
 
 all-emu:

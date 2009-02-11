@@ -4,3 +4,15 @@
 
 * tea/aes have nonworking examples
 
+
+-- From SOSSE --
+
+structs_fpath: There is probably a potential for simplification, when the file type (DF/EF) is not handled so rigid.
+
+auth.h: Here are certainly some optimizations possible to reduce code size.
+
+FINFO and/or FSTREAM of the selected file, might reduce the code size.
+
+fs-seek: There is probably a potential for simplification, when the file type is not handled so rigid.
+
+fs.h: Here are certainly some optimizations possible to reduce code size.
