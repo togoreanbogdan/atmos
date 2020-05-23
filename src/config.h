@@ -292,7 +292,7 @@
 #define CHIP               0x03
 #define ARCH               avr5
 
-#elif defined(__i386__)
+#elif defined(__i386__) || defined(__x86_64__)
 #define ENDIAN_LITTLE
 #define INT_EEPROM_SIZE    0x200
 #define RAM_SIZE           0x200
