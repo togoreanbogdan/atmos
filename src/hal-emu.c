@@ -44,6 +44,7 @@
 
 #define PORT "/dev/ttyS0"
 
+#if !defined(FILE_EEPROM)
 iu8 eeprom[1*1024] = {
 	/* CARD_STATE_ADDR */
 	0x00,
@@ -110,6 +111,12 @@ iu8 eeprom[1*1024] = {
     0x00, 0x00
 
 };
+#else
+	iu8 eeprom[1*1024];
+	FILE *eeprom_file_ptr;
+	char c;
+	int i=0;
+#endif
 
 #if defined(CTAPI)
 #if defined(USE_SIO)
@@ -143,6 +150,18 @@ void hal_init( void )
 	fprintf( stderr, "\tPIN_LEN: %d\n", PIN_LEN );
 	fprintf( stderr, "\tPUK_LEN: %d\n", PUK_LEN );
 	fprintf( stderr, "\tFS_START_PTR_ADDR: 0x%.4X\n", FS_START_PTR_ADDR );
+#endif
+
+#if defined(FILE_EEPROM)
+	eeprom_file_ptr = fopen("sosse.bin", "r");
+	if (eeprom_file_ptr == NULL) 
+        exit(0);
+	c = fgetc(eeprom_file_ptr); 
+    while (c != EOF)
+    { 
+        eeprom[i++] = (iu8)c;
+        c = fgetc(eeprom_file_ptr); 
+    }
 #endif
 
 #if defined(CTAPI)
