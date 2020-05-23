@@ -17,11 +17,19 @@ all-emu:
 	(cd src ; make -f Makefile.emu)
 	(cd doxygen ; doxygen atmos.cnf ; cd latex ; make ; make refman.ps)
 
+all-ctapi:
+	(cd src ; make -f Makefile.ctapi)
+	(cd doxygen ; doxygen atmos.cnf ; cd latex ; make ; make refman.ps)
+
 clean:
 	(cd src ; make clean)
 	(cd doxygen ; rm -rf html latex)
 
 clean-emu:
 	(cd src ; make -f Makefile.emu clean)
+	(cd doxygen ; rm -rf html latex)
+
+clean-ctapi:
+	(cd src ; make -f Makefile.ctapi clean)
 	(cd doxygen ; rm -rf html latex)
 
