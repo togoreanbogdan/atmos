@@ -39,7 +39,7 @@
 /*! \brief En-/disables test commands.
   If set to 1, commands READ EEPROM and WRITE EEPROM are included.
 */
-#define CONF_WITH_TESTCMDS      0
+#define CONF_WITH_TESTCMDS      1
 
 /*! \brief En-/disables DELETE.
   Automatically disabled if building without filesystem.
@@ -56,13 +56,13 @@
   requirement for CONF_WITH_PINCMDS.
   Adds about 950 bytes to flash image size.
 */
-#define CONF_WITH_PINAUTH       1
+#define CONF_WITH_PINAUTH       0
 
 /*! \brief En-/disables PIN commands.
   If set to 1, commands CHANGE PIN and VERIFY PIN are included.
   Adds about 240 bytes to flash image size.
 */
-#define CONF_WITH_PINCMDS       1
+#define CONF_WITH_PINCMDS       0
 
 /*! \brief En-/disables key authentication functions.
 
@@ -88,12 +88,12 @@
   If set to 1, support for decryption side of the cryptographic algorithms
   are included.
 */
-#define CONF_WITH_DECRYPT       1
+#define CONF_WITH_DECRYPT       0
 
 /*! \brief En-/disables support for logging.
   If set to 1, support for logging is included.
 */
-#define CONF_WITH_LOGGING       1
+#define CONF_WITH_LOGGING       0
 
 /*! \brief En-/disables return code manager.
   If set to 1, the return code manager is included.
@@ -118,7 +118,7 @@
   - 2: NEWDES-SK
   - 3: AES
 */
-#define CONF_WITH_CRYPT_ALGO    3
+#define CONF_WITH_CRYPT_ALGO    0
 
 /* Verify dependencies */
 

@@ -7,14 +7,14 @@
 
 # Smartcard chip name on your card, as recognized by avr libc
 #ARCH=at90s2323
-#ARCH=at90s8515
+ARCH=at90s8515
 #ARCH=at90s8535
 #ARCH=atmega161
-ARCH=atmega163
+#ARCH=atmega163
 
 # Your programmer device (as required by programmer software)
-PROG=stk500v1
-PORT=/dev/ttyS0
+PROG=usbasp-clone
+PORT=usb
 
 # Size of the external EEPROM on the smartcard. Atmel's sizes are
 # usually in kilobits (i.e. AT90(256) and 24C256 are both 32 KByte).
@@ -22,7 +22,7 @@ PORT=/dev/ttyS0
 # the appropriate code in the below list.
 # 00: none, 01: 16KB, 02: 32KB, 03: 64KB, 04: 128KB,
 # 05: 256KB, 06: 512KB, 07: 1024KB, 08: 2048KB, FF: unspec.,
-EXT_EEPROM_SIZE=0x02
+EXT_EEPROM_SIZE=0x04
 
 # The usual compile options
 CC=avr-gcc -mmcu=$(ARCH) -DEXT_EEPROM_SIZE=$(EXT_EEPROM_SIZE)
@@ -120,17 +120,17 @@ write: write-eeprom write-flash
 verify: verify-eeprom verify-flash
 
 write-eeprom:
-	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -U eeprom:w:eedata.hex:i
+	avrdude -p $(ARCH) -c $(PROG) -B 1.5Mhz -P $(PORT) -U eeprom:w:eedata.hex:i
 
 verify-eeprom:
 	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -U eeprom:v:eedata.hex:i
 
 write-flash:
-	avrdude -p $(ARCH) -c $(PROG) -D -P $(PORT) -U flash:w:atmos.hex:i
+	avrdude -p $(ARCH) -c $(PROG) -D -B 1.5Mhz -P $(PORT) -U flash:w:atmos.hex:i
 
 verify-flash:
 	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -U flash:v:atmos.hex:i
 
 erase:
-	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -e
+	avrdude -p $(ARCH) -c $(PROG) -B 1.5Mhz -P $(PORT) -e
 
