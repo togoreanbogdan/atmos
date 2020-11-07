@@ -2,7 +2,7 @@ CC=gcc
 AS=as
 OBJCOPY=objcopy
 
-CFLAGS+=-Wall -I. -O6 -g
+CFLAGS+=-Wall -I. -O0 -g -fpack-struct=1
 #LIBS+=-lsio # Enable if you use -DUSE_SIO
 
 SRC=\

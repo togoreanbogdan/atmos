@@ -34,7 +34,7 @@
 /*! \brief En-/disables transactions.
   Adds about 354-400 bytes to flash image size.
 */
-#define CONF_WITH_TRANSACTIONS  1
+#define CONF_WITH_TRANSACTIONS  0
 
 /*! \brief En-/disables test commands.
   If set to 1, commands READ EEPROM and WRITE EEPROM are included.
@@ -99,7 +99,7 @@
   If set to 1, the return code manager is included.
   Adds about 188 bytes to flash image size.
 */
-#define CONF_WITH_RETCODEMGR    1
+#define CONF_WITH_RETCODEMGR    0
 
 /*! \brief En-/disables funny commands.
   If set to 1, funny commands are included. Use only with 8535.

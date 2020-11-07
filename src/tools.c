@@ -38,7 +38,6 @@ void hton_us( iu16 *us, iu8 num )
 	}
 }
 
-#if defined(__i386__)
 void hton_ul( iu32 *ul, iu8 num )
 {
 	iu32 local;
@@ -48,6 +47,5 @@ void hton_ul( iu32 *ul, iu8 num )
 		*ul++=swap_ul(local);
 	}
 }
-#endif
 #endif /* ENDIAN_LITTLE */
 

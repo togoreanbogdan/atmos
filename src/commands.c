@@ -219,7 +219,7 @@ void cmd_create( void )
 	/* Receive */
 	t0_recBlock( (iu8 *)&fi, sizeof(S_FINFO) );
 
-	hton_us( &fi.size, 1 );
+	hton_ul( &fi.size, 1 );
 	hton_us( &fi.fid, 1 );
 
 	if( !fs_create( &fi ) ) return;
@@ -447,7 +447,7 @@ void cmd_select( void )
 	memcpy( &selected, &fp, sizeof(S_FPATH) );
 
 	resplen=sizeof(S_FINFO);
-	hton_us( &(fi->size), 1 );
+	hton_ul( &(fi->size), 1 );
 	hton_us( &(fi->fid), 1 );
 
 	sw_set( SW_AVAILABLE|sizeof(S_FINFO) );

@@ -25,7 +25,7 @@ PORT=usb
 EXT_EEPROM_SIZE=0x04
 
 # The usual compile options
-CC=avr-gcc -mmcu=$(ARCH) -DEXT_EEPROM_SIZE=$(EXT_EEPROM_SIZE)
+CC=avr-gcc -mmcu=$(ARCH) -DEXT_EEPROM_SIZE=$(EXT_EEPROM_SIZE) -g
 AS=avr-as
 OBJCOPY=avr-objcopy
 SIZE=avr-size
@@ -123,13 +123,13 @@ write-eeprom:
 	avrdude -p $(ARCH) -c $(PROG) -B 1.5Mhz -P $(PORT) -U eeprom:w:eedata.hex:i
 
 verify-eeprom:
-	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -U eeprom:v:eedata.hex:i
+	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -B 1.5Mhz -U eeprom:v:eedata.hex:i
 
 write-flash:
-	avrdude -p $(ARCH) -c $(PROG) -D -B 1.5Mhz -P $(PORT) -U flash:w:atmos.hex:i
+	avrdude -p $(ARCH) -c $(PROG) -D -B 375000hz -P $(PORT) -U flash:w:atmos.hex:i
 
 verify-flash:
-	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -U flash:v:atmos.hex:i
+	avrdude -p $(ARCH) -c $(PROG) -P $(PORT) -B 1.5Mhz -U flash:v:atmos.hex:i
 
 erase:
 	avrdude -p $(ARCH) -c $(PROG) -B 1.5Mhz -P $(PORT) -e

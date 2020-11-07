@@ -46,11 +46,11 @@ void hal_init( void )
 {
 	(ACSR)  = (0x80);
 	(DDRA)  = (0xFF);
-	(DDRB)  = (0xFF);
+	(DDRB)  = (0x5F);
 	(DDRC)  = (0xFF);
 	(DDRD)  = (0xFF);
 	(PORTA) = (0xFF);
-	(PORTB) = (0xFF);
+	(PORTB) = (0x5F);
 	(PORTC) = (0xFF);
 	(PORTD) = (0xFF);
 

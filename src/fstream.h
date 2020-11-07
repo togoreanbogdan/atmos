@@ -37,8 +37,8 @@
 
 //! Stream struct.
 typedef struct s_fstream {
-  iu16 start; //!< EEPROM start address of the stream.
-  iu16 size;  //!< Data size of the stream.
+  iu32 start; //!< EEPROM start address of the stream.
+  iu32 size;  //!< Data size of the stream.
   iu16 pos;   //!< Current position in the stream.
 } S_FSTREAM;
 

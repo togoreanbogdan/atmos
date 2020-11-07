@@ -70,7 +70,7 @@ typedef struct s_fpath {
   file system.
 */
 typedef struct s_finfo {
-  iu16 size;  //!< Size of the file content.
+  iu32 size;  //!< Size of the file content.
   iu16 fid;   //!< ID of the file.
   iu8 type;   //!< Type of the file. (FS_TYPE_*)
   iu8 ac[1];  //!< Access conditions of the file. (See CREATE FILE dox.)

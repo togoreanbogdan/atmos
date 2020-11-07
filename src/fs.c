@@ -33,9 +33,9 @@
 #include <types.h>
 
 //! Start address of the MF file header.
-iu16 fsstart;
+iu32 fsstart;
 //! Size of the content area of the MF.
-iu16 fssize;
+iu32 fssize;
 
 S_FPATH selected;
 
@@ -66,14 +66,14 @@ bool fs_seek( iu16 fid, S_FSTREAM *fs, S_FINFO *fi, iu8 type )
 		return TRUE;
 	}
 
-	while( fstream_read( fs, (iu8 *)fi, sizeof(iu16) ) ) {
+	while( fstream_read( fs, (iu8 *)fi, sizeof(iu32) ) ) {
 		//fs->pos-=sizeof(iu16);
 		if( !fi->size ) {
 			sw_set( SW_FILE_NOT_FOUND );
 			return FALSE;
 		}
-		if( !fstream_read( fs, (iu8 *)fi+sizeof(iu16),
-			sizeof(S_FINFO)-sizeof(iu16) ) ) break;
+		if( !fstream_read( fs, (iu8 *)fi+sizeof(iu32),
+			sizeof(S_FINFO)-sizeof(iu32) ) ) break;
 
 		if( fid==fi->fid ) {
 			if( fi->type!=type ) {
@@ -115,7 +115,7 @@ bool fs_seekEnd( S_FSTREAM *fs )
 bool fs_getData( S_FPATH *fp, S_FSTREAM *fs, S_FINFO *fi )
 {
 	fs->start=fsstart;
-	fs->size=fssize+6;
+	fs->size=fssize+8;
 	fs->pos=0;
 
 	if( !fstream_read( fs, (iu8 *)fi, sizeof(S_FINFO) ) ) return FALSE;

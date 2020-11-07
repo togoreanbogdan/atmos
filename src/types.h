@@ -23,6 +23,8 @@
 	$Id: types.h,v 1.12 2003/03/30 19:36:48 m Exp $
 */
 
+#include <stdint.h>
+
 #ifndef ATMOS_TYPES_H
 #define ATMOS_TYPES_H
 
@@ -39,12 +41,12 @@
 #endif
 
 //! 1 byte unsiged data type.
-typedef unsigned char iu8;
+typedef uint8_t iu8;
 //! 2 byte unsigned data type.
-typedef unsigned short iu16;
+typedef uint16_t iu16;
 //! 4 byte unsigned data type.
-typedef unsigned long iu32;
+typedef uint32_t iu32;
 //! Boolean data type.
-typedef unsigned char bool;
+typedef uint8_t bool;
 
 #endif /* ATMOS_TYPES_H */

@@ -43,6 +43,8 @@
 #include <errno.h>
 
 #define PORT "/dev/ttyS0"
+#define FILE_EEPROM
+#define DEBUG
 
 #if !defined(FILE_EEPROM)
 iu8 eeprom[1*1024] = {
@@ -114,8 +116,6 @@ iu8 eeprom[1*1024] = {
 #else
 	iu8 eeprom[1*1024];
 	FILE *eeprom_file_ptr;
-	char c;
-	int i=0;
 #endif
 
 #if defined(CTAPI)
@@ -153,15 +153,11 @@ void hal_init( void )
 #endif
 
 #if defined(FILE_EEPROM)
-	eeprom_file_ptr = fopen("sosse.bin", "r");
-	if (eeprom_file_ptr == NULL) 
+	eeprom_file_ptr = fopen("sosse.bin", "rb");
+	if (eeprom_file_ptr == NULL)
         exit(0);
-	c = fgetc(eeprom_file_ptr); 
-    while (c != EOF)
-    { 
-        eeprom[i++] = (iu8)c;
-        c = fgetc(eeprom_file_ptr); 
-    }
+	fread(eeprom, sizeof(iu8), 1024, eeprom_file_ptr);
+	fclose(eeprom_file_ptr);
 #endif
 
 #if defined(CTAPI)
